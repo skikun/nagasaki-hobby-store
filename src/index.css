@@ -1,13 +1,202 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Base HTML boilerplate */
+
+*,
+*::before,
+*::after {
+	padding: 0;
+	margin: 0;
+	font-size: 1rem;
+	line-height: 1rem;
+	border: none;
+	outline: none;
+	box-sizing: border-box;
+	font-family: "Noto Sans", sans-serif;
+	font-weight: 400;
+	transition: all 300ms ease;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Enables smooth scrolling */
+
+@media (prefers-reduced-motion: no-preference) {
+	html {
+		scroll-behavior: smooth;
+	}
+}
+
+/* Global variables */
+
+:root {
+	--white: #fff;
+	--ink: #0f0f0f;
+	--ink--900: #272727;
+	--ink--800: #3f3f3f;
+	--ink--700: #575757;
+	--ink--600: #6f6f6f;
+	--ink--500: #878787;
+	--ink--400: #9f9f9f;
+	--ink--300: #b7b7b7;
+	--ink--200: #cfcfcf;
+	--ink--100: #e7e7e7;
+	--ink--050: #f3f3f3;
+	--ink--000: #0f0f0f00;
+	--blueprint: #1d274a;
+	--blueprint--900: #343d5c;
+	--blueprint--800: #4a526e;
+	--blueprint--700: #616880;
+	--blueprint--600: #777d92;
+	--blueprint--500: #8e93a4;
+	--blueprint--400: #a5a9b7;
+	--blueprint--300: #bbbec9;
+	--blueprint--200: #d2d4db;
+	--blueprint--100: #e8e9ed;
+	--blueprint--050: #f4f4f6;
+	--blueprint--000: #1d274a00;
+	--zima: #0086ff;
+	--zima--900: #1a92ff;
+	--zima--800: #339eff;
+	--zima--700: #4daaff;
+	--zima--600: #66b6ff;
+	--zima--500: #80c2ff;
+	--zima--400: #99cfff;
+	--zima--300: #b3dbff;
+	--zima--200: #cce7ff;
+	--zima--100: #e6f3ff;
+	--zima--050: #f2f9ff;
+	--zima--000: #0086ff00;
+	--honey: #ffa520;
+	--honey--900: #ffae36;
+	--honey--800: #ffb74d;
+	--honey--700: #ffc063;
+	--honey--600: #ffc979;
+	--honey--500: #ffd28f;
+	--honey--400: #ffdba6;
+	--honey--300: #ffe4bc;
+	--honey--200: #ffedd2;
+	--honey--100: #fff6e9;
+	--honey--050: #fffbf4;
+	--honey--000: #ffa52000;
+	--scarlet: #ff324b;
+	--scarlet--900: #ff475d;
+	--scarlet--800: #ff5b6f;
+	--scarlet--700: #ff7081;
+	--scarlet--600: #ff8493;
+	--scarlet--500: #ff98a5;
+	--scarlet--400: #ffadb7;
+	--scarlet--300: #ffc2c9;
+	--scarlet--200: #ffd6db;
+	--scarlet--100: #ffebed;
+	--scarlet--050: #fff5f6;
+	--scarlet--000: #ff324b00;
+	--amethyst: #8e64e7;
+	--amethyst--900: #9973e9;
+	--amethyst--800: #a483eb;
+	--amethyst--700: #b092ee;
+	--amethyst--600: #bba2f0;
+	--amethyst--500: #c6b1f3;
+	--amethyst--400: #d2c1f5;
+	--amethyst--300: #ddd1f8;
+	--amethyst--200: #e8e0fa;
+	--amethyst--100: #f4effd;
+	--amethyst--050: #f9f7fe;
+	--amethyst--000: #8e64e700;
+	--radius--min: 4px;
+}
+
+/* Disables text inflation algorithm for some mobile web browsers */
+
+html {
+	-webkit-text-size-adjust: none;
+	text-size-adjust: none;
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar,
+::-webkit-scrollbar-thumb {
+	position: absolute;
+	width: 1rem;
+	height: 1rem;
+	border-radius: 0.5rem;
+	border: 0.25rem solid transparent;
+}
+
+::-webkit-scrollbar:hover {
+	box-shadow: inset 0 0 0 0.25rem var(--ink--200);
+}
+
+::-webkit-scrollbar-thumb {
+	box-shadow: inset 0 0 0 0.25rem var(--ink--500);
+}
+
+::-webkit-scrollbar-thumb:hover {
+	box-shadow: inset 0 0 0 0.25rem var(--zima);
+}
+
+/* All images will be contained */
+
+img {
+	display: block;
+	max-width: 100%;
+}
+
+/* Disables outline feedback when elements are being focused, but only for mouse users */
+/* (keyboard users will still see this feedback when focusing on elements). */
+
+:focus:not(:focus-visible) {
+	outline: none;
+}
+
+/* Basic structure */
+
+div {
+	display: flex;
+	flex-direction: column;
+}
+
+#root {
+	width: 100vw;
+	height: 100dvh;
+	transition: none;
+}
+
+.row {
+	flex-direction: row;
+	gap: 1rem;
+	width: 100%;
+	align-items: flex-end;
+}
+
+.row:has(> button) {
+	justify-content: end;
+}
+
+/* Fieldsets that wrap around checkboxes & radio buttons */
+
+fieldset:has([type="checkbox"], [type="radio"]) {
+	gap: 1rem;
+	width: 100%;
+	border-radius: 0.5rem;
+	padding: 1rem;
+	display: flex;
+	flex-direction: row;
+	border: solid 2px var(--ink--200);
+	@media (max-width: 640px) {
+		flex-direction: column;
+	}
+}
+
+legend {
+	color: var(--ink--800);
+	padding: 0 0.5rem;
+	user-select: none;
+	line-height: 1.5rem;
+	font-weight: 600;
+}
+
+fieldset:has([type="checkbox"], [type="radio"]):hover {
+	border: solid 2px var(--ink--800);
+}
+
+fieldset:has([type="checkbox"], [type="radio"]):focus-within {
+	border: solid 2px var(--zima--800);
 }

@@ -1,0 +1,48 @@
+header {
+	display: flex;
+	flex-direction: row;
+	position: fixed;
+	width: 100vw;
+	justify-content: space-between;
+	align-items: center;
+	transition: none;
+	position: relative;
+	padding: 2rem 8rem;
+	box-shadow: 0 0 0.5rem 1px var(--ink--200);
+}
+
+header ul {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	position: absolute;
+	max-width: fit-content;
+	margin: auto;
+	gap: 1rem;
+	inset: 0px;
+}
+
+header li {
+	list-style: none;
+}
+
+header a {
+	text-decoration: none;
+}
+
+header > div {
+	flex-direction: row;
+	gap: 1rem;
+}
+
+header img {
+	width: 2.5;
+	height: 2.5;
+	cursor: pointer;
+	padding: 0.5rem;
+	border-radius: 0.5rem;
+}
+
+header img:hover {
+	background: var(--ink--200);
+}
