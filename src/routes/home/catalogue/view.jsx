@@ -1,40 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import Item from "../../../components/item/component";
 
-const items = [
-	{
-		name: "Item 1",
-		price: 100,
-		key: crypto.randomUUID(),
-	},
-	{
-		name: "Item 2",
-		price: 200,
-		key: crypto.randomUUID(),
-	},
-	{
-		name: "Item 3",
-		price: 300,
-		key: crypto.randomUUID(),
-	},
-	{
-		name: "Item 4",
-		price: 400,
-		key: crypto.randomUUID(),
-	},
-	{
-		name: "Item 5",
-		price: 500,
-		key: crypto.randomUUID(),
-	},
-];
+import PRODUCTS from "../../../api/products/api";
+
+import "./style.css";
 
 const Catalogue = () => {
+	const [items, setItems] = useState([]);
+
+	async function retrieveData() {
+		const products = await PRODUCTS.get();
+		const catalogue = products.map((product) => {
+			return {
+				id: product.id,
+				name: product.name.replace(/&amp;/g, "&"),
+				price: product.prices.price,
+				image: product.images[0].src,
+			};
+		});
+		setItems(catalogue);
+	}
+
+	useEffect(() => {
+		retrieveData();
+	}, []);
+
 	return (
-		<div>
-			{items.map(({ name, price, key }) => (
-				<Item key={key} name={name} price={price} />
+		<div className="catalogue">
+			{items.map(({ id, image, name, price }) => (
+				<Item key={id} image={image} name={name} price={price} />
 			))}
 		</div>
 	);

@@ -1,0 +1,35 @@
+.catalogue > div:has(> img + span > label + strong) {
+	width: 14rem;
+}
+
+.catalogue > div > img:has(+ span > label + strong) {
+	overflow: hidden;
+	height: 16rem;
+	padding: 1rem;
+	object-fit: contain;
+}
+
+.catalogue > div > img + span:has(> label + strong) {
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
+}
+
+.catalogue > div > img + span > label:has(+ strong) {
+	height: 3rem;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	text-wrap: nowrap;
+}
+
+.catalogue > div:hover > img + span > label:has(+ strong) {
+	text-wrap: wrap;
+}
+
+.catalogue > div > img + span > label + strong::before {
+	content: "$ ";
+}
+
+.catalogue > div > img + span > label + strong {
+	font-weight: 700;
+}

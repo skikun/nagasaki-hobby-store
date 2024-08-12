@@ -1,9 +1,15 @@
 import React from "react";
 
-const Item = ({ name, price }) => {
+import "./style.css";
+
+const Item = ({ image, name, price }) => {
 	return (
 		<div>
-			{name}-{price}
+			<img src={image} alt="Foto del producto" />
+			<span>
+				<label>{name}</label>
+				<strong>{price}</strong>
+			</span>
 		</div>
 	);
 };
