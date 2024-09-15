@@ -7,57 +7,74 @@ header {
 	align-items: center;
 	transition: none;
 	position: relative;
-	padding: 2rem 8rem;
-	box-shadow: 0 0 0.5rem 1px var(--ink--200);
+	padding: 0 8rem;
+	min-height: 6rem;
+	box-shadow: 0 0 0.5rem 1px var(--contrast--200);
+	box-shadow: 0 0.5rem 0 0 var(--accent);
+	position: fixed;
+	background: var(--white);
 }
 
 header * {
 	transition: all 300ms cubic-bezier(0.175, 0.885, 0.32, 1);
+	user-select: none;
 }
 
-header ul {
+header nav {
 	display: flex;
 	flex-direction: row;
-	align-items: center;
-	position: absolute;
-	max-width: fit-content;
-	margin: auto;
 	gap: 1rem;
-	inset: 0px;
-}
-
-header li {
-	list-style: none;
 }
 
 header a {
 	text-decoration: none;
 	border-radius: 0.25rem;
 	padding: 0.25rem 0.5rem;
-	color: var(--ink--800);
+	color: var(--contrast--800);
 	font-weight: 600;
+	padding: 0.5rem;
 }
 
 header a:hover {
-	color: var(--ink);
-	box-shadow: 0 4px 0 0 var(--zima);
-	background: var(--ink--050);
+	color: var(--white);
+	box-shadow: 0 4px 0 0 var(--lipstick--500);
+	background: var(--lipstick);
+	transform: translateY(-0.25rem);
 }
 
-header > div {
+header a:last-child {
+	color: var(--white);
+	box-shadow: 0 4px 0 0 var(--contrast--500);
+	background: var(--contrast);
+	transform: translateY(-0.25rem);
+}
+
+header a:last-child:hover {
+	color: var(--white);
+	box-shadow: 0 0 0 0 var(--lipstick--500);
+	background: var(--contrast--800);
+	transform: translateY(0);
+}
+
+header div {
 	flex-direction: row;
-	gap: 1rem;
+	gap: 0.5rem;
 }
 
 header img {
-	width: 2.5;
-	height: 2.5;
 	cursor: pointer;
 	padding: 0.5rem;
-	border-radius: 0.5rem;
 }
 
-header img:hover {
-	background: var(--ink--050);
-	box-shadow: 0 4px 0 0 var(--zima);
+header button {
+	filter: brightness(0);
+}
+
+header button:has(> img):hover {
+	transform: translateY(-2px);
+	filter: brightness(1);
+}
+
+header button:hover img {
+	transform: rotate(-10deg);
 }

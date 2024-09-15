@@ -27,78 +27,42 @@
 
 :root {
 	--white: #fff;
-	--ink: #0f0f0f;
-	--ink--900: #272727;
-	--ink--800: #3f3f3f;
-	--ink--700: #575757;
-	--ink--600: #6f6f6f;
-	--ink--500: #878787;
-	--ink--400: #9f9f9f;
-	--ink--300: #b7b7b7;
-	--ink--200: #cfcfcf;
-	--ink--100: #e7e7e7;
-	--ink--050: #f3f3f3;
-	--ink--000: #0f0f0f00;
-	--blueprint: #1d274a;
-	--blueprint--900: #343d5c;
-	--blueprint--800: #4a526e;
-	--blueprint--700: #616880;
-	--blueprint--600: #777d92;
-	--blueprint--500: #8e93a4;
-	--blueprint--400: #a5a9b7;
-	--blueprint--300: #bbbec9;
-	--blueprint--200: #d2d4db;
-	--blueprint--100: #e8e9ed;
-	--blueprint--050: #f4f4f6;
-	--blueprint--000: #1d274a00;
-	--zima: #0086ff;
-	--zima--900: #1a92ff;
-	--zima--800: #339eff;
-	--zima--700: #4daaff;
-	--zima--600: #66b6ff;
-	--zima--500: #80c2ff;
-	--zima--400: #99cfff;
-	--zima--300: #b3dbff;
-	--zima--200: #cce7ff;
-	--zima--100: #e6f3ff;
-	--zima--050: #f2f9ff;
-	--zima--000: #0086ff00;
-	--honey: #ffa520;
-	--honey--900: #ffae36;
-	--honey--800: #ffb74d;
-	--honey--700: #ffc063;
-	--honey--600: #ffc979;
-	--honey--500: #ffd28f;
-	--honey--400: #ffdba6;
-	--honey--300: #ffe4bc;
-	--honey--200: #ffedd2;
-	--honey--100: #fff6e9;
-	--honey--050: #fffbf4;
-	--honey--000: #ffa52000;
-	--scarlet: #ff324b;
-	--scarlet--900: #ff475d;
-	--scarlet--800: #ff5b6f;
-	--scarlet--700: #ff7081;
-	--scarlet--600: #ff8493;
-	--scarlet--500: #ff98a5;
-	--scarlet--400: #ffadb7;
-	--scarlet--300: #ffc2c9;
-	--scarlet--200: #ffd6db;
-	--scarlet--100: #ffebed;
-	--scarlet--050: #fff5f6;
-	--scarlet--000: #ff324b00;
-	--amethyst: #8e64e7;
-	--amethyst--900: #9973e9;
-	--amethyst--800: #a483eb;
-	--amethyst--700: #b092ee;
-	--amethyst--600: #bba2f0;
-	--amethyst--500: #c6b1f3;
-	--amethyst--400: #d2c1f5;
-	--amethyst--300: #ddd1f8;
-	--amethyst--200: #e8e0fa;
-	--amethyst--100: #f4effd;
-	--amethyst--050: #f9f7fe;
-	--amethyst--000: #8e64e700;
+	--contrast: #0f0f0f;
+	--contrast--900: #272727;
+	--contrast--800: #3f3f3f;
+	--contrast--700: #575757;
+	--contrast--600: #6f6f6f;
+	--contrast--500: #878787;
+	--contrast--400: #9f9f9f;
+	--contrast--300: #b7b7b7;
+	--contrast--200: #cfcfcf;
+	--contrast--100: #e7e7e7;
+	--contrast--050: #f3f3f3;
+	--contrast--000: #0f0f0f00;
+	--lipstick: #f12d2d;
+	--lipstick--900: #f24242;
+	--lipstick--800: #f45757;
+	--lipstick--700: #f56c6c;
+	--lipstick--600: #f78181;
+	--lipstick--500: #f89696;
+	--lipstick--400: #f9abab;
+	--lipstick--300: #fbc0c0;
+	--lipstick--200: #fcd5d5;
+	--lipstick--100: #feeaea;
+	--lipstick--050: #fef5f5;
+	--lipstick--000: #f12d2d00;
+	--accent: #ff4242;
+	--accent--900: #ff5555;
+	--accent--800: #ff6868;
+	--accent--700: #ff7b7b;
+	--accent--600: #ff8e8e;
+	--accent--500: #ffa1a1;
+	--accent--400: #ffb4b4;
+	--accent--300: #ffc6c6;
+	--accent--200: #ffd9d9;
+	--accent--100: #ffecec;
+	--accent--050: #fff6f6;
+	--accent--000: #ff424200;
 	--radius--min: 4px;
 }
 
@@ -107,6 +71,12 @@
 html {
 	-webkit-text-size-adjust: none;
 	text-size-adjust: none;
+}
+
+body {
+	height: 100vh;
+	width: 100vw;
+	overflow: hidden;
 }
 
 /* Scrollbar */
@@ -121,15 +91,15 @@ html {
 }
 
 ::-webkit-scrollbar:hover {
-	box-shadow: inset 0 0 0 0.25rem var(--ink--200);
+	box-shadow: inset 0 0 0 0.25rem var(--contrast--200);
 }
 
 ::-webkit-scrollbar-thumb {
-	box-shadow: inset 0 0 0 0.25rem var(--ink--500);
+	box-shadow: inset 0 0 0 0.25rem var(--contrast--500);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-	box-shadow: inset 0 0 0 0.25rem var(--zima);
+	box-shadow: inset 0 0 0 0.25rem var(--accent);
 }
 
 /* All images will be contained */
@@ -146,17 +116,78 @@ img {
 	outline: none;
 }
 
+/* Headings, labels & texts */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	letter-spacing: -0.05em;
+}
+
+h1 {
+	font-size: 2.5rem;
+	font-weight: 900;
+}
+
+h2 {
+	font-size: 2rem;
+	font-weight: 800;
+}
+
+h3 {
+	font-size: 1.75rem;
+	font-weight: 700;
+}
+
+h4 {
+	font-size: 1.5rem;
+	font-weight: 600;
+}
+
+h5 {
+	font-size: 1.25rem;
+	font-weight: 600;
+}
+
+h6 {
+	font-size: 1rem;
+	font-weight: 600;
+}
+
+p {
+	font-size: 0.75rem;
+	font-weight: 400;
+}
+
 /* Basic structure */
+
+#root {
+	width: 100vw;
+	height: 100dvh;
+	transition: none;
+}
+
+header + div:has(+ footer) {
+	min-height: calc(100vh - 22rem);
+	margin-top: 6.5rem;
+}
 
 div {
 	display: flex;
 	flex-direction: column;
 }
 
-#root {
-	width: 100vw;
-	height: 100dvh;
-	transition: none;
+ul {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+li {
+	list-style: none;
 }
 
 .row {
@@ -170,6 +201,10 @@ div {
 	justify-content: end;
 }
 
+button {
+	background: transparent;
+}
+
 /* Fieldsets that wrap around checkboxes & radio buttons */
 
 fieldset:has([type="checkbox"], [type="radio"]) {
@@ -179,14 +214,14 @@ fieldset:has([type="checkbox"], [type="radio"]) {
 	padding: 1rem;
 	display: flex;
 	flex-direction: row;
-	border: solid 2px var(--ink--200);
+	border: solid 2px var(--contrast--200);
 	@media (max-width: 640px) {
 		flex-direction: column;
 	}
 }
 
 legend {
-	color: var(--ink--800);
+	color: var(--contrast--800);
 	padding: 0 0.5rem;
 	user-select: none;
 	line-height: 1.5rem;
@@ -194,7 +229,7 @@ legend {
 }
 
 fieldset:has([type="checkbox"], [type="radio"]):hover {
-	border: solid 2px var(--ink--800);
+	border: solid 2px var(--contrast--800);
 }
 
 fieldset:has([type="checkbox"], [type="radio"]):focus-within {

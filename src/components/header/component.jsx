@@ -1,6 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import NESTED from "../../routes/home/nested-routes";
+
+import Lens from "../../assets/icons/lens.svg";
 import Shop from "../../assets/icons/shop.svg";
 import ShoppingCart from "../../assets/icons/shopping-cart.svg";
 
@@ -10,29 +13,26 @@ const Header = () => {
 	return (
 		<header>
 			<img src="" alt="" />
-			<ul>
-				<li>
-					<Link to="/pokemon">Pokémon</Link>
-				</li>
-				<li>
-					<Link to="/one-piece">One Piece</Link>
-				</li>
-				<li>
-					<Link to="/digimon">Digimón</Link>
-				</li>
-				<li>
-					<Link to="/yu-gi-oh">Yu-Gi-Oh!</Link>
-				</li>
-				<li>
-					<Link to="/lore-cana">Lore Cana</Link>
-				</li>
-			</ul>
+			<nav>
+				{NESTED.filter(({ path }) => path !== "/").map(
+					({ path, key, label }) => (
+						<Link to={path}>{label}</Link>
+					)
+				)}
+			</nav>
 			<div>
-				<img src={Shop} alt="A shop icon that redirects to the store." />
-				<img
-					src={ShoppingCart}
-					alt="A shopping cart icon that redirects to the shopping cart."
-				/>
+				<button>
+					<img src={Lens} alt="A lens icon that enables a search bar." />
+				</button>
+				<button>
+					<img src={Shop} alt="A shop icon that redirects to the store." />
+				</button>
+				<button>
+					<img
+						src={ShoppingCart}
+						alt="A shopping cart icon that redirects to the shopping cart."
+					/>
+				</button>
 			</div>
 		</header>
 	);

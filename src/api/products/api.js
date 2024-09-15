@@ -8,7 +8,6 @@ const PRODUCTS = {
 				...CONFIG,
 			})
 		).json();
-		console.log(response);
 		return response;
 	},
 };
