@@ -1,7 +1,7 @@
 import React from "react";
 
 const YuGiOh = () => {
-	return <div>Yu-Gi-Oh!</div>;
+	return <h1>Yu-Gi-Oh!</h1>;
 };
 
 export default YuGiOh;

@@ -1,7 +1,7 @@
 import React from "react";
 
 const Magic = () => {
-	return <div>Magic</div>;
+	return <h1>Magic</h1>;
 };
 
 export default Magic;

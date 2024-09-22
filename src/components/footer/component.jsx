@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import NESTED from "../../routes/home/nested-routes";
+import NESTED from "../../routes/overview/nested-routes";
 
 import Instagram from "../../assets/social-media/instagram/colored.svg";
 import Facebook from "../../assets/social-media/facebook/colored.svg";

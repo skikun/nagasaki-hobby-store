@@ -1,11 +1,7 @@
 import React from "react";
 
 const OnePiece = () => {
-	return (
-		<div>
-			<h1>Title- Website Headline</h1>
-		</div>
-	);
+	return <h1>One Piece</h1>;
 };
 
 export default OnePiece;

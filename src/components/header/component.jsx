@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import NESTED from "../../routes/home/nested-routes";
+import NESTED from "../../routes/overview/nested-routes";
 
 import Lens from "../../assets/icons/lens.svg";
 import Shop from "../../assets/icons/shop.svg";

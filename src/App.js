@@ -1,8 +1,8 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 
-import Home from "./routes/home/view";
-import NESTED from "./routes/home/nested-routes";
+import Overview from "./routes/overview/view";
+import NESTED from "./routes/overview/nested-routes";
 
 import NotFound from "./routes/not-found/view";
 import Item from "./routes/item/view";
@@ -15,7 +15,7 @@ function App() {
 	});
 	return (
 		<Routes>
-			<Route path="/" element={<Home />}>
+			<Route path="/" element={<Overview />}>
 				{MAIN_ROUTES.map(({ path, element, key }) => (
 					<Route key={key} exact path={path} element={element} />
 				))}

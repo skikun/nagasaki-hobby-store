@@ -67,8 +67,8 @@ footer a:hover {
 }
 
 footer a:has(> img) {
-	padding: 0.25rem;
-	border-radius: 0.25rem;
+	padding: 0.5rem;
+	border-radius: 100%;
 }
 
 footer a img {
@@ -77,4 +77,5 @@ footer a img {
 
 footer a:hover > img {
 	filter: brightness(1);
+	transform: rotate(345deg);
 }

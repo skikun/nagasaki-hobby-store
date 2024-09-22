@@ -1,6 +1,6 @@
 import React from "react";
 
-import Catalogue from "./catalogue/view";
+import Home from "./home/view";
 
 import Pokemon from "./pokemon/view";
 import OnePiece from "./one-piece/view";
@@ -12,8 +12,8 @@ import Accesories from "./accesories/view";
 const NESTED_HOME = [
 	{
 		path: "/",
-		element: <Catalogue />,
-		label: "Catálogo",
+		element: <Home />,
+		label: "Home",
 		key: crypto.randomUUID(),
 	},
 	{
