@@ -10,8 +10,8 @@ const Overview = () => {
 			<Header />
 			<div>
 				<Outlet />
+				<Footer />
 			</div>
-			<Footer />
 		</>
 	);
 };

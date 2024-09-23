@@ -163,14 +163,34 @@ p {
 	line-height: 1rem;
 }
 
+font {
+	color: var(--accent);
+	font-size: inherit;
+	line-height: inherit;
+	font-family: inherit;
+	font-weight: inherit;
+	letter-spacing: inherit;
+}
+
+span {
+	color: inherit;
+	font-size: inherit;
+	line-height: inherit;
+	font-family: inherit;
+	font-weight: inherit;
+	letter-spacing: inherit;
+}
+
 /* Basic structure */
 
 #root {
 	transition: none;
 }
 
-header + div:has(+ footer) {
+header + div:has(footer) {
 	min-height: calc(100vh - 22rem);
+	max-height: calc(100vh - 6rem);
+	overflow-y: scroll;
 }
 
 div {

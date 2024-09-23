@@ -1,44 +1,59 @@
 import OnePieceCharacter from "./one-piece/character.png";
 import OnePieceLogo from "./one-piece/logo.png";
+import OnePieceBackground from "./one-piece/background.png";
 
 import PokemonCharacter from "./pokemon/character.png";
 import PokemonLogo from "./pokemon/logo.png";
+import PokemonBackground from "./pokemon/background.png";
 
 import YuGiOhCharacter from "./yu-gi-oh/character.png";
 import YuGiOhLogo from "./yu-gi-oh/logo.png";
+import YuGiOhBackground from "./yu-gi-oh/background.png";
 
 import DigimonCharacter from "./digimon/character.png";
 import DigimonLogo from "./digimon/logo.png";
+import DigimonBackground from "./digimon/background.png";
 
-const brands = {
-	onepiece: {
+import StarWarsCharacter from "./star-wars/character.png";
+import StarWarsLogo from "./star-wars/logo.png";
+import StarWarsBackground from "./star-wars/background.png";
+
+const BRANDS = [
+	{
+		label: "One Piece",
 		character: OnePieceCharacter,
 		logo: OnePieceLogo,
-		label: "One Piece",
-		color: "#E60012",
+		background: OnePieceBackground,
 		key: crypto.randomUUID(),
 	},
-	pokemon: {
+	{
+		label: "Pokémon",
 		character: PokemonCharacter,
 		logo: PokemonLogo,
-		label: "Pokémon",
-		color: "#FFCB05",
+		background: PokemonBackground,
 		key: crypto.randomUUID(),
 	},
-	yugioh: {
+	{
+		label: "Yu-Gi-Oh!",
 		character: YuGiOhCharacter,
 		logo: YuGiOhLogo,
-		label: "Yu-Gi-Oh!",
-		color: "#00539F",
+		background: YuGiOhBackground,
 		key: crypto.randomUUID(),
 	},
-	digimon: {
+	{
+		label: "Digimón",
 		character: DigimonCharacter,
 		logo: DigimonLogo,
-		label: "Digimón",
-		color: "#00A6A6",
+		background: DigimonBackground,
 		key: crypto.randomUUID(),
 	},
-};
+	{
+		label: "Star Wars",
+		character: StarWarsCharacter,
+		logo: StarWarsLogo,
+		background: StarWarsBackground,
+		key: crypto.randomUUID(),
+	},
+];
 
-export default brands;
+export default BRANDS;

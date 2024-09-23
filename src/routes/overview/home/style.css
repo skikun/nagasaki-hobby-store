@@ -1,0 +1,24 @@
+.categories {
+	display: flex;
+	gap: 1rem;
+	justify-content: center;
+	padding: 4rem;
+}
+
+.summary {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1rem;
+	padding: 4rem;
+}
+
+.summary * {
+	text-align: center;
+}
+
+.catalogue {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+	gap: 1rem;
+}

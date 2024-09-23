@@ -27,11 +27,17 @@ const Catalogue = () => {
 	}, []);
 
 	return (
-		<div className="catalogue">
+		<>
 			{items.map(({ id, image, name, price }) => (
-				<Item key={id} image={image} name={name} price={price} />
+				<Item
+					key={id}
+					className="product"
+					image={image}
+					name={name}
+					price={price}
+				/>
 			))}
-		</div>
+		</>
 	);
 };
 

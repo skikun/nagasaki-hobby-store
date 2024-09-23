@@ -1,13 +1,17 @@
 import React from "react";
 
-import brands from "../../assets/brands/exporter";
+import BRANDS from "../../assets/brands/exporter";
+
+import "./style.css";
 
 const BrandList = () => {
-	return brands.map(({ key, label, character, logo }) => (
-		<div key={key}>
-			<img src={logo} alt={label} />
-			<img src={character} alt={label} />
-			<h2>{label}</h2>
+	return BRANDS.map(({ key, label, character, logo, background }) => (
+		<div key={key} className="brand">
+			<div>
+				<img src={background} alt="Background" />
+			</div>
+			<img src={character} alt="Character" />
+			<img src={logo} alt="Logo" />
 		</div>
 	));
 };
