@@ -4,8 +4,6 @@ import Item from "../../../components/item/component";
 
 import PRODUCTS from "../../../api/products/api";
 
-import "./style.css";
-
 const Catalogue = () => {
 	const [items, setItems] = useState([]);
 
@@ -14,9 +12,15 @@ const Catalogue = () => {
 		const catalogue = products.map((product) => {
 			return {
 				id: product.id,
-				name: product.name.replace(/&amp;/g, "&"),
-				price: product.prices.price,
 				image: product.images[0].src,
+				name: product.name.replace(/&amp;/g, "&"),
+				description: product.description
+					.replace(/&amp;/g, "&")
+					.replace(/&nbsp;/g, "")
+					.replace(/<\/{0,}p>/g, "")
+					.replace(/<br {0,}\/>/g, "")
+					.replace(/<\/{0,}strong>/g, ""),
+				price: product.prices.price.replace(/(\d{1,3})(\d{3})/g, "$1.$2"),
 			};
 		});
 		setItems(catalogue);
@@ -28,12 +32,12 @@ const Catalogue = () => {
 
 	return (
 		<>
-			{items.map(({ id, image, name, price }) => (
+			{items.map(({ id, image, name, description, price }) => (
 				<Item
 					key={id}
-					className="product"
 					image={image}
 					name={name}
+					description={description}
 					price={price}
 				/>
 			))}

@@ -1,4 +1,4 @@
-button {
+:not(header) button {
 	background: var(--accent);
 	color: var(--white);
 	border: none;
@@ -17,4 +17,9 @@ button:hover {
 	transform: translateY(-0.25rem);
 	border-radius: 0.75rem;
 	padding: 0.5rem 1.5rem;
+}
+
+button:hover:active {
+	transform: translateY(0);
+	box-shadow: 0 0 0 0 var(--lipstick--500);
 }

@@ -10,13 +10,10 @@ import ShoppingCart from "./routes/shopping-cart/view";
 import Checkout from "./routes/checkout/view";
 
 function App() {
-	const MAIN_ROUTES = NESTED.map((route) => {
-		return { ...route, key: crypto.randomUUID() };
-	});
 	return (
 		<Routes>
 			<Route path="/" element={<Overview />}>
-				{MAIN_ROUTES.map(({ path, element, key }) => (
+				{NESTED.map(({ path, element, key }) => (
 					<Route key={key} exact path={path} element={element} />
 				))}
 			</Route>

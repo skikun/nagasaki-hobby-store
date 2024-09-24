@@ -219,10 +219,6 @@ li {
 	justify-content: end;
 }
 
-button {
-	background: transparent;
-}
-
 /* Fieldsets that wrap around checkboxes & radio buttons */
 
 fieldset:has([type="checkbox"], [type="radio"]) {

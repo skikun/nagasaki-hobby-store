@@ -65,11 +65,16 @@ header img {
 
 header button {
 	filter: brightness(0);
+	background: transparent;
+	padding: 0;
 }
 
-header button:has(> img):hover {
+header button:hover {
 	transform: translateY(-2px);
 	filter: brightness(1);
+	padding: 0;
+	background: transparent;
+	box-shadow: none;
 }
 
 header button:hover img {

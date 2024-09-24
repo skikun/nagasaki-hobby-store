@@ -2,15 +2,16 @@ import React from "react";
 
 import "./style.css";
 
-const Item = ({ image, name, price }) => {
+const Item = ({ image, name, description, price }) => {
 	return (
-		<div>
-			<img src={image} alt="Foto del producto" />
-			<span>
-				<label>{name}</label>
-				<strong>{price}</strong>
-			</span>
-		</div>
+		<article>
+			<div>
+				<img src={image} alt="Foto del producto" />
+			</div>
+			<label>{name}</label>
+			<p>{description}</p>
+			<span>{price}</span>
+		</article>
 	);
 };
 

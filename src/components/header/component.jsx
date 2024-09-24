@@ -15,8 +15,10 @@ const Header = () => {
 			<img src="" alt="" />
 			<nav>
 				{NESTED.filter(({ path }) => path !== "/").map(
-					({ path, key, label }) => (
-						<Link to={path}>{label}</Link>
+					({ key, path, label }) => (
+						<Link key={key} to={path}>
+							{label}
+						</Link>
 					)
 				)}
 			</nav>

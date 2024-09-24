@@ -1,35 +1,61 @@
-.catalogue > div:has(> img + span > label + strong) {
-	width: 14rem;
-}
-
-.catalogue > div > img:has(+ span > label + strong) {
-	overflow: hidden;
-	height: 16rem;
-	padding: 1rem;
-	object-fit: contain;
-}
-
-.catalogue > div > img + span:has(> label + strong) {
+article {
 	display: flex;
 	flex-direction: column;
-	gap: 0.25rem;
+	gap: 1rem;
+	transition: all 300ms ease;
+	cursor: pointer;
 }
 
-.catalogue > div > img + span > label:has(+ strong) {
-	height: 3rem;
+article div {
+	background: linear-gradient(
+		var(--contrast--050) 0%,
+		var(--lipstick--100) 100%
+	);
+	border-radius: 0.5rem;
+}
+
+article img {
+	height: 10rem;
+	width: 100%;
+	padding: 1rem;
+	object-fit: contain;
+	mix-blend-mode: multiply;
+}
+
+article:hover img {
+	rotate: -5deg;
+	scale: 1.3;
+}
+
+article label {
 	overflow: hidden;
 	text-overflow: ellipsis;
 	text-wrap: nowrap;
+	padding: 0 1rem;
+	font-weight: 600;
 }
 
-.catalogue > div:hover > img + span > label:has(+ strong) {
-	text-wrap: wrap;
+article p {
+	height: 3rem;
+	padding: 0 1rem;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
 }
 
-.catalogue > div > img + span > label + strong::before {
+article span {
+	margin: 0 1rem;
+	margin-bottom: 1rem;
+	background: var(--accent);
+	color: var(--white);
+	padding: 0.25rem 0.5rem;
+	border-radius: 0.25rem;
+	width: fit-content;
+}
+
+article span::before {
 	content: "$ ";
-}
-
-.catalogue > div > img + span > label + strong {
-	font-weight: 700;
+	font-weight: 600;
 }
