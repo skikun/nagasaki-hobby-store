@@ -1,0 +1,38 @@
+.one-piece-banner {
+	width: 100%;
+	min-height: 446px;
+	position: relative;
+
+	div {
+		position: relative;
+		width: 100%;
+		min-height: 446px;
+		overflow: hidden;
+
+		[alt="sky" i] {
+			position: absolute;
+			bottom: 176px;
+		}
+		[alt="ocean" i] {
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: fill;
+		}
+		[alt="thousand sunny" i] {
+			position: absolute;
+			width: 302px;
+			height: 450px;
+			bottom: -1rem;
+			right: 36rem;
+		}
+	}
+	[alt="characters" i] {
+		position: absolute;
+		bottom: 0;
+		right: 4rem;
+		width: 642px;
+		height: 530px;
+	}
+}

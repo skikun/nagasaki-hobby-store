@@ -7,6 +7,7 @@ import BrandList from "../../../components/brand-list/component";
 import Button from "../../../components/button/component";
 
 import Catalogue from "../catalogue/view";
+import OnePieceBanner from "./one-piece-banner/view";
 
 import "./style.css";
 
@@ -48,6 +49,7 @@ const Home = () => {
 				<Catalogue />
 				<Catalogue />
 			</section>
+			<OnePieceBanner />
 		</>
 	);
 };

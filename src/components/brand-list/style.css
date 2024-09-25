@@ -24,6 +24,7 @@
 .brand [alt="character" i] {
 	position: absolute;
 	bottom: 0;
+	right: -1rem;
 	filter: grayscale(0.3);
 }
 
