@@ -2,6 +2,7 @@
 	min-height: calc(100vh - 6rem);
 	position: relative;
 	transform: rotate3d(1, 0, 0, 0deg);
+	overflow: hidden;
 	background: linear-gradient(var(--contrast--200) 0%, var(--white) 100%);
 
 	> div:first-child {
