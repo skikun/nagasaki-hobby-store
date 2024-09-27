@@ -21,24 +21,31 @@ section {
 	flex-direction: row;
 	justify-content: center;
 	padding: 8rem 4rem;
-}
 
-.summary div {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	gap: 1rem;
-	padding: 4rem;
-}
+	* {
+		text-align: center;
+		user-select: none;
+	}
 
-.summary img {
-	width: 245px;
-	height: 367px;
-}
+	div {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1rem;
+		padding: 4rem;
+	}
 
-.summary * {
-	text-align: center;
-	user-select: none;
+	img {
+		width: 245px;
+		height: 367px;
+		transform: scale(1.5);
+	}
+	[alt="1"] {
+		transform-origin: right;
+	}
+	[alt="2"] {
+		transform-origin: left;
+	}
 }
 
 .catalogue {
@@ -46,8 +53,8 @@ section {
 	grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
 	gap: 2rem;
 	padding: 4rem;
-}
 
-.catalogue * {
-	user-select: none;
+	* {
+		user-select: none;
+	}
 }

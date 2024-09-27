@@ -6,6 +6,7 @@ import Right from "../../../assets/summary/right.png";
 import BrandList from "../../../components/brand-list/component";
 import Button from "../../../components/button/component";
 
+import LandingBannner from "./landing-banner/view";
 import Catalogue from "../catalogue/view";
 import OnePieceBanner from "./one-piece-banner/view";
 
@@ -14,6 +15,9 @@ import "./style.css";
 const Home = () => {
 	return (
 		<>
+			<section className="landing-banner">
+				<LandingBannner />
+			</section>
 			<section>
 				<div className="categories">
 					<BrandList />
@@ -40,14 +44,26 @@ const Home = () => {
 					</p>
 					<Button label="Más información" />
 				</div>
-				<img src={Right} alt="1" />
+				<img src={Right} alt="2" />
 			</section>
-			<section className="catalogue">
-				<Catalogue />
-				<Catalogue />
-				<Catalogue />
-				<Catalogue />
-				<Catalogue />
+			<section>
+				<h2>Catálogo de productos</h2>
+				<div className="catalogue">
+					<Catalogue />
+					<Catalogue />
+					<Catalogue />
+					<Catalogue />
+					<Catalogue />
+					<Catalogue />
+					<Catalogue />
+					<Catalogue />
+					<Catalogue />
+					<Catalogue />
+					<Catalogue />
+					<Catalogue />
+					<Catalogue />
+					<Catalogue />
+				</div>
 			</section>
 			<OnePieceBanner />
 		</>
