@@ -25,7 +25,9 @@ const OnePieceBanner = () => {
 					está aquí! Una experiencia épica donde podrás vivir la emoción de la
 					Gran Línea en cada partida.
 				</p>
-				<button>Ir a la colección</button>
+				<button onClick={() => console.log("Puto el que lo lea")}>
+					Ir a la colección
+				</button>
 			</div>
 			<img src={Characters} alt="Characters" />
 		</section>
