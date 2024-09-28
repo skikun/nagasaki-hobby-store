@@ -50,19 +50,6 @@ const Home = () => {
 				<h2>Catálogo de productos</h2>
 				<div className="catalogue">
 					<Catalogue />
-					<Catalogue />
-					<Catalogue />
-					<Catalogue />
-					<Catalogue />
-					<Catalogue />
-					<Catalogue />
-					<Catalogue />
-					<Catalogue />
-					<Catalogue />
-					<Catalogue />
-					<Catalogue />
-					<Catalogue />
-					<Catalogue />
 				</div>
 			</section>
 			<OnePieceBanner />

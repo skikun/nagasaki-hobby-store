@@ -34,6 +34,7 @@ article label {
 	text-wrap: nowrap;
 	padding: 0 1rem;
 	font-weight: 600;
+	line-height: 1rem;
 }
 
 article p {
@@ -51,9 +52,10 @@ article span {
 	margin-bottom: 1rem;
 	background: var(--accent);
 	color: var(--white);
-	padding: 0.25rem 0.5rem;
+	padding: 0.5rem;
 	border-radius: 0.25rem;
 	width: fit-content;
+	line-height: 1rem;
 }
 
 article span::before {

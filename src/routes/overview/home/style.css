@@ -48,13 +48,40 @@ section {
 	}
 }
 
+section:has(.catalogue) {
+	position: relative;
+	gap: 0.5rem;
+	&::after {
+		content: "";
+		position: absolute;
+		top: 5rem;
+		right: calc(50% - 28.5rem);
+		min-width: 57rem;
+		min-height: 20rem;
+		background: linear-gradient(
+			90deg,
+			rgba(255, 255, 255, 1) 0%,
+			rgba(255, 255, 255, 0) 20%,
+			rgba(255, 255, 255, 0) 80%,
+			rgba(255, 255, 255, 1) 100%
+		);
+		pointer-events: none;
+	}
+}
+
 .catalogue {
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+	flex-direction: row;
+	overflow-x: scroll;
+	max-width: 57rem;
+	margin-bottom: 4rem;
 	gap: 2rem;
-	padding: 4rem 8rem;
+	padding: 2rem 7rem 1rem;
 
 	* {
 		user-select: none;
+	}
+
+	article {
+		max-width: 14rem;
 	}
 }
