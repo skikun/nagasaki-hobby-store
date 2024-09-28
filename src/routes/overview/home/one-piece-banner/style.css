@@ -79,10 +79,13 @@
 		[alt="sky" i] {
 			scale: 1.02;
 			transform-origin: top;
+			filter: saturate(1.5) blur(4px);
 		}
 
 		[alt="ocean" i] {
-			scale: 1.04;
+			scale: 1.07;
+			transform-origin: bottom;
+			filter: saturate(1.5);
 		}
 
 		[alt="thousand sunny" i] {

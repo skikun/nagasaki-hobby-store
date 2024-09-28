@@ -20,35 +20,35 @@ import StarWarsBackground from "./star-wars/background.png";
 
 const BRANDS = [
 	{
-		label: "Pokémon",
+		route: "pokemon",
 		character: PokemonCharacter,
 		logo: PokemonLogo,
 		background: PokemonBackground,
 		key: crypto.randomUUID(),
 	},
 	{
-		label: "One Piece",
+		route: "one-piece",
 		character: OnePieceCharacter,
 		logo: OnePieceLogo,
 		background: OnePieceBackground,
 		key: crypto.randomUUID(),
 	},
 	{
-		label: "Digimón",
+		route: "digimon",
 		character: DigimonCharacter,
 		logo: DigimonLogo,
 		background: DigimonBackground,
 		key: crypto.randomUUID(),
 	},
 	{
-		label: "Yu-Gi-Oh!",
+		route: "yu-gi-oh",
 		character: YuGiOhCharacter,
 		logo: YuGiOhLogo,
 		background: YuGiOhBackground,
 		key: crypto.randomUUID(),
 	},
 	{
-		label: "Star Wars",
+		route: "star-wars",
 		character: StarWarsCharacter,
 		logo: StarWarsLogo,
 		background: StarWarsBackground,

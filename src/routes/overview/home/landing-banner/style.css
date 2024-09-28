@@ -30,6 +30,7 @@
 			border-radius: 28px;
 			cursor: pointer;
 			transform-style: preserve-3d;
+			background-clip: border-box;
 
 			img {
 				backface-visibility: hidden;
@@ -57,7 +58,8 @@
 			}
 
 			&:hover {
-				box-shadow: 0 0 0 5px var(--lipstick), 0 0 0 10px var(--accent);
+				box-shadow: 0 0 0 5px transparent, 0 0 0 10px var(--accent),
+					0 0 0 11px transparent;
 				transform: rotateY(
 						calc((var(--position) - 1) * (360deg / var(--quantity)))
 					)
@@ -76,6 +78,10 @@
 		&:has(div:hover) {
 			animation-play-state: paused;
 		}
+
+		&:hover div:not(:hover) img {
+			filter: grayscale(0.75) blur(2px);
+		}
 	}
 
 	> div:last-child {
@@ -91,6 +97,16 @@
 			align-items: center;
 			scale: 0.88;
 			transform-origin: bottom;
+
+			img:last-child {
+				position: absolute;
+				bottom: 5rem;
+				width: 50%;
+				height: 25%;
+				object-fit: scale-down;
+				object-position: bottom;
+				z-index: 1;
+			}
 
 			&::after {
 				content: "";

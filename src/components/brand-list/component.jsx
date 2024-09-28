@@ -1,12 +1,14 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 import BRANDS from "../../assets/brands/exporter";
 
 import "./style.css";
 
 const BrandList = () => {
-	return BRANDS.map(({ key, label, character, logo, background }) => (
-		<div key={key} className="brand">
+	const navigate = useNavigate();
+	return BRANDS.map(({ key, route, character, logo, background }) => (
+		<div key={key} className="brand" onClick={() => navigate(`./${route}`)}>
 			<div>
 				<img src={background} alt="Background" />
 			</div>

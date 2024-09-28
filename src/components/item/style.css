@@ -20,6 +20,7 @@ article img {
 	padding: 1rem;
 	object-fit: contain;
 	mix-blend-mode: multiply;
+	pointer-events: none;
 }
 
 article:hover img {

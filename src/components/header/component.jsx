@@ -1,7 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import NESTED from "../../routes/overview/nested-routes";
+
+import Brand from "./assets/simple.svg";
 
 import Lens from "../../assets/icons/lens.svg";
 import Shop from "../../assets/icons/shop.svg";
@@ -10,9 +12,10 @@ import ShoppingCart from "../../assets/icons/shopping-cart.svg";
 import "./style.css";
 
 const Header = () => {
+	const navigate = useNavigate();
 	return (
 		<header>
-			<img src="" alt="" />
+			<img src={Brand} alt="Brand logo" onClick={() => navigate("/")} />
 			<nav>
 				{NESTED.filter(({ path }) => path !== "/").map(
 					({ key, path, label }) => (

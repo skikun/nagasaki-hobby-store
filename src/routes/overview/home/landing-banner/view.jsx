@@ -1,5 +1,7 @@
 import React from "react";
 
+import Brand from "./assets/brand.svg";
+
 import "./style.css";
 
 const card_backs = [
@@ -23,17 +25,14 @@ const LandingBannner = () => {
 				{card_backs.map((back, index) => (
 					<div key={index} style={{ "--position": index + 1 }}>
 						<img src={require(`./assets/${index + 1}.png`)} alt={index + 1} />
-						<img
-							src={require(`./assets/${back}.png`)}
-							className="back"
-							alt={index + 1}
-						/>
+						<img src={require(`./assets/${back}.png`)} alt={index + 1} />
 					</div>
 				))}
 			</div>
 			<div>
 				<div>
 					<img src={require("./assets/character.png")} alt="Character" />
+					<img src={Brand} alt="Brand logo" />
 				</div>
 			</div>
 		</>
