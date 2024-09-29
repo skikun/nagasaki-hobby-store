@@ -1,7 +1,11 @@
 import React from "react";
 
 const Digimon = () => {
-	return <h1>Digimon</h1>;
+	return (
+		<div>
+			<h1>Digimon</h1>
+		</div>
+	);
 };
 
 export default Digimon;

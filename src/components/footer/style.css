@@ -5,6 +5,7 @@ footer {
 	flex-direction: column;
 	justify-content: space-between;
 	z-index: 1;
+	align-self: self-end;
 }
 
 footer * {

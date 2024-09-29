@@ -2,6 +2,7 @@ import React from "react";
 
 import Left from "../../../assets/summary/left.png";
 import Right from "../../../assets/summary/right.png";
+import Brand from "./landing-banner/assets/brand.svg";
 
 import BrandList from "../../../components/brand-list/component";
 import Button from "../../../components/button/component";
@@ -49,10 +50,22 @@ const Home = () => {
 			<section>
 				<h2>Catálogo de productos</h2>
 				<div className="catalogue">
-					<Catalogue />
+					<Catalogue filter="digimon" />
 				</div>
 			</section>
 			<OnePieceBanner />
+			<div className="overlay">
+				<h1>Página en construcción</h1>
+				<p>
+					Por favor, visítanos más adelante, ¡estamos seguros que te va a
+					encantar!
+				</p>
+				<img
+					src={require("./landing-banner/assets/character.png")}
+					alt="Character"
+				/>
+				<img src={Brand} alt="Brand logo" />
+			</div>
 		</>
 	);
 };

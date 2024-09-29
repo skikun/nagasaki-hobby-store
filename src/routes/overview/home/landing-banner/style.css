@@ -77,10 +77,10 @@
 
 		&:has(div:hover) {
 			animation-play-state: paused;
-		}
 
-		&:hover div:not(:hover) img {
-			filter: grayscale(0.75) blur(2px);
+			div:not(:hover) img {
+				filter: grayscale(0.75) blur(2px);
+			}
 		}
 	}
 
@@ -93,10 +93,18 @@
 			position: absolute;
 			bottom: 0;
 			width: 200%;
-			height: 754px;
+			height: 100%;
 			align-items: center;
 			scale: 0.88;
 			transform-origin: bottom;
+
+			img:first-child {
+				padding-top: 2rem;
+				width: 100%;
+				height: 100%;
+				object-fit: contain;
+				object-position: bottom;
+			}
 
 			img:last-child {
 				position: absolute;
@@ -105,7 +113,7 @@
 				height: 25%;
 				object-fit: scale-down;
 				object-position: bottom;
-				z-index: 1;
+				z-index: 5;
 			}
 
 			&::after {

@@ -85,3 +85,32 @@ section:has(.catalogue) {
 		max-width: 14rem;
 	}
 }
+
+.overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: var(--accent);
+	display: flex;
+	justify-content: start;
+	align-items: center;
+	gap: 1rem;
+	padding-top: 8rem;
+	z-index: 1;
+
+	h1,
+	p {
+		color: white;
+		text-align: center;
+	}
+
+	img:last-child {
+		position: absolute;
+		bottom: 12rem;
+		width: 100%;
+		height: 15%;
+		object-fit: scale-down;
+	}
+}

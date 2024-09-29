@@ -1,7 +1,11 @@
 import React from "react";
 
 const Pokemon = () => {
-	return <h1>Pokémon</h1>;
+	return (
+		<div>
+			<h1>Pokémon</h1>
+		</div>
+	);
 };
 
 export default Pokemon;
