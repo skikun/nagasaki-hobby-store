@@ -21,14 +21,15 @@ const Catalogue = ({ filter }) => {
 						.replace(/<\/{0,}p>/g, "")
 						.replace(/<br {0,}\/>/g, "")
 						.replace(/<\/{0,}strong>/g, "")
+						.replace(/\\{0,}/g, "")
 						.replace(/<\/{0,}em>/g, ""),
 					price: product.prices.price.replace(/(\d{1,3})(\d{3})/g, "$1.$2"),
 					category: product.categories[0].slug,
 				};
 			});
 			const filtered = catalogue.filter((item) => item.category === filter);
-			setItems(filter ? filtered : catalogue);
 			console.log(catalogue);
+			setItems(filter ? filtered : catalogue);
 		}
 
 		retrieveData();

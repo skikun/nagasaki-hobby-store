@@ -1,0 +1,10 @@
+.landing {
+	position: relative;
+	height: calc(100vh - 12rem);
+
+	img {
+		position: absolute;
+		top: 0;
+		width: 100%;
+	}
+}

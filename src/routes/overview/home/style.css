@@ -99,6 +99,7 @@ section:has(.catalogue) {
 	gap: 1rem;
 	padding-top: 8rem;
 	z-index: 1;
+	display: none;
 
 	h1,
 	p {

@@ -2,11 +2,11 @@ import React from "react";
 
 import Home from "./home/view";
 
-import Pokemon from "./pokemon/view";
-import OnePiece from "./one-piece/view";
-import Digimon from "./digimon/view";
-import YuGiOh from "./yu-gi-oh/view";
-import Accesories from "./accesories/view";
+import Pokemon from "./franchises/pokemon/view";
+import OnePiece from "./franchises/one-piece/view";
+import Digimon from "./franchises/digimon/view";
+import YuGiOh from "./franchises/yu-gi-oh/view";
+import Accesories from "./franchises/accesories/view";
 
 const NESTED_HOME = [
 	{
