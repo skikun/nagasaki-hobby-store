@@ -193,8 +193,8 @@ span {
 }
 
 header + div:has(footer) {
-	min-height: calc(100vh - 6rem);
-	max-height: calc(100vh - 6rem);
+	min-height: calc(100vh - 6.5rem);
+	max-height: calc(100vh - 6.5rem);
 	overflow-y: scroll;
 	display: grid;
 }

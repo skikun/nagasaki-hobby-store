@@ -12,6 +12,7 @@ import Catalogue from "../catalogue/view";
 import OnePieceBanner from "./one-piece-banner/view";
 
 import "./style.css";
+import "../style.css";
 
 const Home = () => {
 	return (

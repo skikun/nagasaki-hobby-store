@@ -28,7 +28,7 @@ const Catalogue = ({ filter }) => {
 				};
 			});
 			const filtered = catalogue.filter((item) => item.category === filter);
-			console.log(catalogue);
+			console.table(catalogue);
 			setItems(filter ? filtered : catalogue);
 		}
 
