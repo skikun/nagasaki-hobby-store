@@ -14,19 +14,25 @@ const View = ({ slug, heading, description, layout, theme }) => {
 	return (
 		<>
 			<section className={`landing ${layout} ${theme}`}>
-				<img src={require(`./assets/banners/${slug}.png`)} alt="Banner" />
-				<h1>{heading}</h1>
-				<p>{description}</p>
+				<img
+					loading="lazy"
+					src={require(`./assets/banners/${slug}.png`)}
+					alt="Banner"
+				/>
+				<div>
+					<h1>{heading}</h1>
+					<p>{description}</p>
+				</div>
 			</section>
 			<section>
 				<h2>Catálogo de productos de {heading}</h2>
-				<input
-					type="search"
-					placeholder="Buscar un producto..."
-					onChange={(e) => onSearch(e)}
-					value={search}
-				/>
 				<div className="product-grid">
+					<input
+						type="search"
+						placeholder="Buscar un producto..."
+						onChange={(e) => onSearch(e)}
+						value={search}
+					/>
 					<Catalogue category={slug} search={search} />
 					<Catalogue category={slug} search={search} />
 					<Catalogue category={slug} search={search} />

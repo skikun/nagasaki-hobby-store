@@ -53,14 +53,38 @@ section:has(.product-grid) {
 	.product-grid {
 		display: grid;
 		width: 100%;
-		grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+		max-width: 46rem;
 		gap: 2rem;
+		grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+
+		@media screen and (min-width: 140rem) {
+			max-width: 62rem;
+		}
+
+		@media screen and (min-width: 160rem) {
+			max-width: 78rem;
+		}
 	}
 }
 
 .landing {
 	position: relative;
 	height: calc(100vh - 6.5rem);
+
+	div {
+		width: 100%;
+		max-width: 46rem;
+		padding-top: 12rem;
+		z-index: 1;
+
+		@media screen and (min-width: 140rem) {
+			max-width: 62rem;
+		}
+
+		@media screen and (min-width: 160rem) {
+			max-width: 78rem;
+		}
+	}
 
 	img {
 		position: absolute;
@@ -73,25 +97,31 @@ section:has(.product-grid) {
 	h1,
 	h6,
 	p {
-		position: absolute;
 		width: 35%;
-	}
-
-	h1 {
-		top: 16rem;
-	}
-
-	h6 {
-		top: 18rem;
-	}
-
-	p {
-		top: 20rem;
 	}
 
 	&.dark {
 		* {
 			color: var(--white);
+		}
+
+		&::after {
+			content: "";
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(
+					rgba(255, 255, 255, 0) 0%,
+					rgba(255, 255, 255, 0) 60%,
+					rgba(255, 255, 255, 1) 100%
+				),
+				linear-gradient(
+					90deg,
+					rgba(0, 0, 0, 0.5) 0%,
+					rgba(0, 0, 0, 0) 50%,
+					rgba(0, 0, 0, 0) 60%,
+					rgba(0, 0, 0, 0.5) 100%
+				);
 		}
 	}
 
@@ -99,13 +129,36 @@ section:has(.product-grid) {
 		* {
 			color: var(--contrast);
 		}
+
+		&::after {
+			content: "";
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(
+					rgba(255, 255, 255, 0) 0%,
+					rgba(255, 255, 255, 0) 60%,
+					rgba(255, 255, 255, 1) 100%
+				),
+				linear-gradient(
+					90deg,
+					rgba(255, 255, 255, 0.5) 0%,
+					rgba(255, 255, 255, 0) 50%,
+					rgba(255, 255, 255, 0) 60%,
+					rgba(255, 255, 255, 0.5) 100%
+				);
+		}
 	}
 
 	&.left {
 		h1,
 		h6,
 		p {
-			left: 8rem;
+			text-align: left;
+		}
+
+		div {
+			align-items: flex-start;
 		}
 	}
 
@@ -113,8 +166,11 @@ section:has(.product-grid) {
 		h1,
 		h6,
 		p {
-			right: 8rem;
 			text-align: right;
+		}
+
+		div {
+			align-items: flex-end;
 		}
 	}
 }
@@ -128,6 +184,7 @@ input[type="search"] {
 	border-radius: 0.25rem;
 	align-self: flex-start;
 	background: var(--contrast--050);
+	grid-column: 1 / -1;
 
 	&:focus {
 		box-shadow: 0 0 0 1px var(--accent), inset 0 0 0 1px var(--accent);

@@ -6,7 +6,7 @@ const Item = ({ image, name, description, price }) => {
 	return (
 		<article>
 			<div>
-				<img src={image} alt="Foto del producto" />
+				<img loading="lazy" src={image} alt="Foto del producto" />
 			</div>
 			<label>{name}</label>
 			<p>{description}</p>

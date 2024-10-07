@@ -14,6 +14,7 @@
 		transform-style: preserve-3d;
 		transform: perspective(3000px) rotateX(-15deg) rotateY(0deg);
 		animation: autoRun 20s linear infinite;
+		will-change: transform;
 
 		* {
 			user-select: none;
@@ -31,6 +32,7 @@
 			cursor: pointer;
 			transform-style: preserve-3d;
 			background-clip: border-box;
+			will-change: transform;
 
 			img {
 				backface-visibility: hidden;
@@ -39,6 +41,7 @@
 			img:last-child {
 				position: absolute;
 				transform: rotateX(180deg) rotateZ(180deg);
+				will-change: transform;
 			}
 
 			&::after {

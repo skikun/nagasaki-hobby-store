@@ -48,13 +48,13 @@ const Footer = () => {
 				</div>
 				<div>
 					<a href="https://www.instagram.com/nagasaki_hobby_store/">
-						<img src={Instagram} alt="Instagram logo" />
+						<img loading="lazy" src={Instagram} alt="Instagram logo" />
 					</a>
 					<a href="https://facebook.com/NagasakiHobbyStore/">
-						<img src={Facebook} alt="Facebook logo" />
+						<img loading="lazy" src={Facebook} alt="Facebook logo" />
 					</a>
 					<a href="https://wa.me/573134431709">
-						<img src={WhatsApp} alt="WhatsApp logo" />
+						<img loading="lazy" src={WhatsApp} alt="WhatsApp logo" />
 					</a>
 				</div>
 			</nav>

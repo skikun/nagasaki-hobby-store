@@ -27,17 +27,19 @@ const Catalogue = ({ category, search }) => {
 					category: product.categories[0].slug,
 				};
 			});
-			const filtered = catalogue.filter((item) => {
-				if (search) {
-					return item.name.toLowerCase().includes(search.toLowerCase());
-				}
-				if (category) {
-					return item.category === category;
-				}
-				return item;
+
+			const categoryFiltered = catalogue.filter((item) => {
+				return item.category === category;
 			});
+
+			const searchFiltered = categoryFiltered.filter((item) => {
+				return item.name.toLowerCase().includes(search.toLowerCase());
+			});
+
 			console.table(catalogue);
-			setItems(filtered ? filtered : catalogue);
+			setItems(
+				search ? searchFiltered : category ? categoryFiltered : catalogue
+			);
 		}
 
 		retrieveData();

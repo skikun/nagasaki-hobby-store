@@ -26,7 +26,7 @@ const Home = () => {
 				</div>
 			</section>
 			<section className="summary">
-				<img src={Left} alt="1" />
+				<img loading="lazy" src={Left} alt="1" />
 				<div>
 					<h1>
 						Juegos únicos
@@ -46,7 +46,7 @@ const Home = () => {
 					</p>
 					<Button label="Más información" />
 				</div>
-				<img src={Right} alt="2" />
+				<img loading="lazy" src={Right} alt="2" />
 			</section>
 			<section>
 				<h2>Catálogo de productos</h2>
@@ -65,7 +65,7 @@ const Home = () => {
 					src={require("./landing-banner/assets/character.png")}
 					alt="Character"
 				/>
-				<img src={Brand} alt="Brand logo" />
+				<img loading="lazy" src={Brand} alt="Brand logo" />
 			</div>
 		</>
 	);
