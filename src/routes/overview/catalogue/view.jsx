@@ -4,7 +4,7 @@ import Item from "../../../components/item/component";
 
 import PRODUCTS from "../../../api/products/api";
 
-const Catalogue = ({ filter }) => {
+const Catalogue = ({ category, search }) => {
 	const [items, setItems] = useState([]);
 
 	useEffect(() => {
@@ -27,13 +27,18 @@ const Catalogue = ({ filter }) => {
 					category: product.categories[0].slug,
 				};
 			});
-			const filtered = catalogue.filter((item) => item.category === filter);
+			const filtered = catalogue.filter((item) => {
+				if (search) {
+					return item.name.toLowerCase().includes(search.toLowerCase());
+				}
+				return item.category === category;
+			});
 			console.table(catalogue);
-			setItems(filter ? filtered : catalogue);
+			setItems(filtered ? filtered : catalogue);
 		}
 
 		retrieveData();
-	}, [filter]);
+	}, [category, search]);
 
 	return (
 		<>

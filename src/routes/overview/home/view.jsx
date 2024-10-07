@@ -50,7 +50,7 @@ const Home = () => {
 			</section>
 			<section>
 				<h2>Catálogo de productos</h2>
-				<div className="catalogue">
+				<div className="slider">
 					<Catalogue />
 				</div>
 			</section>
