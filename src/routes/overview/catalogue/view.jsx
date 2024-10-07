@@ -31,7 +31,10 @@ const Catalogue = ({ category, search }) => {
 				if (search) {
 					return item.name.toLowerCase().includes(search.toLowerCase());
 				}
-				return item.category === category;
+				if (category) {
+					return item.category === category;
+				}
+				return item;
 			});
 			console.table(catalogue);
 			setItems(filtered ? filtered : catalogue);

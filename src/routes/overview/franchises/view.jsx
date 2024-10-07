@@ -10,6 +10,7 @@ const View = ({ slug, heading, description, layout, theme }) => {
 	function onSearch(e) {
 		setSearch(e.target.value);
 	}
+
 	return (
 		<>
 			<section className={`landing ${layout} ${theme}`}>
@@ -21,7 +22,6 @@ const View = ({ slug, heading, description, layout, theme }) => {
 				<h2>Catálogo de productos de {heading}</h2>
 				<input
 					type="search"
-					id="search"
 					placeholder="Buscar un producto..."
 					onChange={(e) => onSearch(e)}
 					value={search}
@@ -41,7 +41,6 @@ const View = ({ slug, heading, description, layout, theme }) => {
 					<Catalogue category={slug} search={search} />
 				</div>
 			</section>
-			<section></section>
 		</>
 	);
 };
