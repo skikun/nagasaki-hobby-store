@@ -6,79 +6,92 @@ header {
 	position: sticky;
 	padding: 0 8rem 0.5rem;
 	box-shadow: inset 0 -0.5rem 0 0 var(--accent);
-}
 
-header * {
-	transition: all 300ms cubic-bezier(0.175, 0.885, 0.32, 1);
-	user-select: none;
-}
+	* {
+		transition: all 300ms cubic-bezier(0.175, 0.885, 0.32, 1);
+		user-select: none;
+	}
 
-header > img {
-	width: 10rem;
-	height: 6rem;
-	object-fit: fill;
-}
+	nav {
+		display: flex;
+		flex-direction: row;
+		gap: 1rem;
+	}
 
-header nav {
-	display: flex;
-	flex-direction: row;
-	gap: 1rem;
-}
+	div {
+		flex-direction: row;
+		gap: 1rem;
+	}
 
-header a {
-	text-decoration: none;
-	border-radius: 0.25rem;
-	padding: 0.25rem 0.5rem;
-	color: var(--contrast--800);
-	font-weight: 600;
-	padding: 0.5rem;
-}
+	img {
+		cursor: pointer;
+		padding: 0.5rem;
+	}
 
-header a:hover {
-	color: var(--white);
-	box-shadow: 0 4px 0 0 var(--lipstick--500);
-	background: var(--lipstick);
-	transform: translateY(-0.25rem);
-}
+	a {
+		text-decoration: none;
+		border-radius: 0.25rem;
+		padding: 0.25rem 0.5rem;
+		color: var(--contrast--800);
+		font-weight: 600;
+		padding: 0.5rem;
 
-header a:last-child {
-	color: var(--white);
-	box-shadow: 0 4px 0 0 var(--contrast--500);
-	background: var(--contrast);
-	transform: translateY(-0.25rem);
-}
+		&:hover {
+			color: var(--white);
+			box-shadow: 0 4px 0 0 var(--lipstick--500);
+			background: var(--lipstick);
+			transform: translateY(-0.25rem);
+		}
 
-header a:last-child:hover {
-	color: var(--white);
-	box-shadow: 0 0 0 0 var(--lipstick--500);
-	background: var(--contrast--800);
-	transform: translateY(0);
-}
+		&:last-child {
+			color: var(--white);
+			box-shadow: 0 4px 0 0 var(--contrast--500);
+			background: var(--contrast);
+			transform: translateY(-0.25rem);
 
-header div {
-	flex-direction: row;
-	gap: 1rem;
-}
+			&:hover {
+				box-shadow: 0 0 0 0 var(--lipstick--500);
+				background: var(--contrast--800);
+				transform: translateY(0);
+			}
+		}
+	}
 
-header img {
-	cursor: pointer;
-	padding: 0.5rem;
-}
+	button {
+		filter: brightness(0);
+		background: transparent;
+		padding: 0;
 
-header button {
-	filter: brightness(0);
-	background: transparent;
-	padding: 0;
-}
+		&:hover {
+			transform: translateY(-2px);
+			filter: brightness(1);
+			padding: 0;
+			background: transparent;
+			box-shadow: none;
 
-header button:hover {
-	transform: translateY(-2px);
-	filter: brightness(1);
-	padding: 0;
-	background: transparent;
-	box-shadow: none;
-}
+			img {
+				transform: rotate(-10deg);
+			}
+		}
 
-header button:hover img {
-	transform: rotate(-10deg);
+		&[open] {
+			transform: translateY(-2px);
+			filter: brightness(1);
+			padding: 0;
+			background: var(--accent);
+			box-shadow: none;
+			border-radius: 0.25rem;
+
+			img {
+				transform: rotate(-10deg);
+				filter: brightness(20);
+			}
+		}
+	}
+
+	> img {
+		width: 10rem;
+		height: 6rem;
+		object-fit: fill;
+	}
 }

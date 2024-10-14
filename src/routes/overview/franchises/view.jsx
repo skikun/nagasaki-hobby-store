@@ -24,7 +24,7 @@ const View = ({ slug, heading, description, layout, theme }) => {
 					<p>{description}</p>
 				</div>
 			</section>
-			<section>
+			<main>
 				<h2>Catálogo de productos de {heading}</h2>
 				<div className="product-grid">
 					<input
@@ -46,7 +46,7 @@ const View = ({ slug, heading, description, layout, theme }) => {
 					<Catalogue category={slug} search={search} />
 					<Catalogue category={slug} search={search} />
 				</div>
-			</section>
+			</main>
 		</>
 	);
 };

@@ -1,4 +1,4 @@
-section:has(.slider) {
+main:has(.slider) {
 	position: relative;
 	gap: 0.5rem;
 	padding-top: 4rem;
@@ -42,7 +42,7 @@ section:has(.slider) {
 	}
 }
 
-section:has(.product-grid) {
+main:has(.product-grid) {
 	padding: 4rem 8rem;
 	gap: 2rem;
 
@@ -112,14 +112,14 @@ section:has(.product-grid) {
 			height: 100%;
 			background: linear-gradient(
 					rgba(255, 255, 255, 0) 0%,
-					rgba(255, 255, 255, 0) 60%,
+					rgba(255, 255, 255, 0) 80%,
 					rgba(255, 255, 255, 1) 100%
 				),
 				linear-gradient(
 					90deg,
 					rgba(0, 0, 0, 0.5) 0%,
-					rgba(0, 0, 0, 0) 50%,
-					rgba(0, 0, 0, 0) 60%,
+					rgba(0, 0, 0, 0) 30%,
+					rgba(0, 0, 0, 0) 70%,
 					rgba(0, 0, 0, 0.5) 100%
 				);
 		}
@@ -137,14 +137,14 @@ section:has(.product-grid) {
 			height: 100%;
 			background: linear-gradient(
 					rgba(255, 255, 255, 0) 0%,
-					rgba(255, 255, 255, 0) 60%,
+					rgba(255, 255, 255, 0) 80%,
 					rgba(255, 255, 255, 1) 100%
 				),
 				linear-gradient(
 					90deg,
 					rgba(255, 255, 255, 0.5) 0%,
-					rgba(255, 255, 255, 0) 50%,
-					rgba(255, 255, 255, 0) 60%,
+					rgba(255, 255, 255, 0) 30%,
+					rgba(255, 255, 255, 0) 70%,
 					rgba(255, 255, 255, 0.5) 100%
 				);
 		}

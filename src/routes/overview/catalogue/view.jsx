@@ -12,6 +12,7 @@ const Catalogue = ({ category, search }) => {
 			const products = await PRODUCTS.get();
 			const catalogue = products.map((product) => {
 				return {
+					key: crypto.randomUUID(),
 					id: product.id,
 					image: product.images[0].src,
 					name: product.name.replace(/&amp;/g, "&"),
@@ -47,9 +48,10 @@ const Catalogue = ({ category, search }) => {
 
 	return (
 		<>
-			{items.map(({ id, image, name, description, price, category }) => (
+			{items.map(({ key, id, image, name, description, price, category }) => (
 				<Item
-					key={id}
+					key={key}
+					id={id}
 					image={image}
 					name={name}
 					description={description}

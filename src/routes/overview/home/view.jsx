@@ -48,12 +48,12 @@ const Home = () => {
 				</div>
 				<img loading="lazy" src={Right} alt="2" />
 			</section>
-			<section>
+			<main>
 				<h2>Catálogo de productos</h2>
 				<div className="slider">
 					<Catalogue />
 				</div>
-			</section>
+			</main>
 			<OnePieceBanner />
 			<div className="overlay">
 				<h1>Página en construcción</h1>

@@ -116,7 +116,7 @@
 				height: 25%;
 				object-fit: scale-down;
 				object-position: bottom;
-				z-index: 5;
+				z-index: 1;
 			}
 
 			&::after {

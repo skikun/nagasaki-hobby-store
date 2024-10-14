@@ -1,0 +1,59 @@
+.product {
+	height: calc(100vh - 6.5rem);
+	flex-direction: row;
+	padding: 4rem 8rem;
+	gap: 2rem;
+	align-items: start;
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+
+	> :first-child {
+		> img {
+			height: 24rem;
+			min-width: 36rem;
+			object-fit: contain;
+			mix-blend-mode: multiply;
+			padding: 1rem;
+		}
+
+		> div {
+			flex-direction: row;
+			overflow: auto;
+			scroll-snap-type: x mandatory;
+			gap: 1.5rem;
+			padding-bottom: 1rem;
+			width: 36rem;
+
+			div {
+				background: linear-gradient(
+					var(--contrast--050) 0%,
+					var(--lipstick--100) 100%
+				);
+				height: 11rem;
+				min-width: 11rem;
+				border-radius: 0.5rem;
+
+				img {
+					height: 11rem;
+					width: 100%;
+					object-fit: contain;
+					mix-blend-mode: multiply;
+					cursor: pointer;
+					padding: 0.5rem;
+					scroll-snap-align: start;
+					border-radius: 0.5rem;
+
+					&.current {
+						cursor: not-allowed;
+						box-shadow: inset 0 0 0 0.25rem var(--accent);
+						filter: opacity(0.5);
+					}
+				}
+			}
+		}
+	}
+
+	> :last-child {
+		gap: 1rem;
+	}
+}
