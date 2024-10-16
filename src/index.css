@@ -226,6 +226,15 @@ li {
 	justify-content: end;
 }
 
+/* Horizontal rule (separator) */
+
+hr {
+	box-shadow: 0 0 0 1px var(--contrast--050);
+	border-radius: 1px;
+	width: 100%;
+	align-self: center;
+}
+
 /* Fieldsets that wrap around checkboxes & radio buttons */
 
 fieldset:has([type="checkbox"], [type="radio"]) {

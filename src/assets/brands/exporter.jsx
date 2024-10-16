@@ -48,7 +48,7 @@ const BRANDS = [
 		key: crypto.randomUUID(),
 	},
 	{
-		route: "star-wars",
+		route: "accesories",
 		character: StarWarsCharacter,
 		logo: StarWarsLogo,
 		background: StarWarsBackground,

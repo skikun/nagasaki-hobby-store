@@ -11,7 +11,7 @@ import ShoppingCart from "../../assets/icons/shopping-cart.svg";
 
 import "./style.css";
 
-const Header = ({ open, onChange }) => {
+const Header = ({ open, onToggle, cart }) => {
 	const navigate = useNavigate();
 
 	return (
@@ -46,12 +46,13 @@ const Header = ({ open, onChange }) => {
 						alt="A shop icon that redirects to the store."
 					/>
 				</button>
-				<button onClick={() => onChange(!open)} open={open}>
+				<button onClick={() => onToggle(!open)} open={open}>
 					<img
 						loading="lazy"
 						src={ShoppingCart}
 						alt="A shopping cart icon that opens the shopping cart at the side of the screen."
 					/>
+					{cart.length > 0 && <span>{cart.length}</span>}
 				</button>
 			</div>
 		</header>

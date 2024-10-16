@@ -2,39 +2,108 @@
 	height: calc(100vh - 6.5rem);
 	flex-direction: row;
 	padding: 4rem 8rem;
-	gap: 2rem;
+	gap: 4rem;
 	align-items: start;
-	display: grid;
-	grid-template-columns: 2fr 1fr;
+	justify-content: center;
 
 	> :first-child {
+		gap: 1rem;
+		max-width: 35rem;
+
+		* {
+			user-select: none;
+		}
+
 		> img {
 			height: 24rem;
-			min-width: 36rem;
+			min-width: 35rem;
 			object-fit: contain;
 			mix-blend-mode: multiply;
 			padding: 1rem;
 		}
 
-		> div {
+		> div:first-child {
+			position: relative;
+			width: 35rem;
+
+			button {
+				background: var(--contrast--050);
+				height: 2rem;
+				top: calc(50% - 1rem);
+				padding: 0.25rem 0;
+
+				img {
+					height: 1.5rem;
+					object-fit: contain;
+					filter: brightness(0);
+					opacity: 0.75;
+				}
+
+				&:hover {
+					padding: 0.25rem 0;
+					box-shadow: none;
+					transform: none;
+					background: var(--contrast--100);
+					border-radius: 0.5rem;
+
+					img {
+						filter: brightness(1);
+						opacity: 1;
+					}
+				}
+
+				&:active {
+					transform: scale(0.8);
+				}
+			}
+
+			> :first-child {
+				position: absolute;
+				left: 0;
+
+				&:hover {
+					img {
+						transform: translateX(-0.5rem);
+					}
+				}
+			}
+
+			img {
+				height: 24rem;
+				object-fit: contain;
+			}
+
+			> :last-child {
+				position: absolute;
+				right: 0;
+
+				&:hover {
+					img {
+						transform: translateX(0.5rem);
+					}
+				}
+			}
+		}
+
+		> div:last-child {
 			flex-direction: row;
 			overflow: auto;
 			scroll-snap-type: x mandatory;
-			gap: 1.5rem;
+			gap: 1rem;
 			padding-bottom: 1rem;
-			width: 36rem;
+			width: 35rem;
 
 			div {
 				background: linear-gradient(
 					var(--contrast--050) 0%,
 					var(--lipstick--100) 100%
 				);
-				height: 11rem;
-				min-width: 11rem;
+				height: 8rem;
+				min-width: 8rem;
 				border-radius: 0.5rem;
 
 				img {
-					height: 11rem;
+					height: 8rem;
 					width: 100%;
 					object-fit: contain;
 					mix-blend-mode: multiply;
@@ -54,6 +123,12 @@
 	}
 
 	> :last-child {
-		gap: 1rem;
+		gap: 2rem;
+		align-items: end;
+		max-width: 32rem;
+
+		*:not(h1, p) {
+			user-select: none;
+		}
 	}
 }

@@ -37,7 +37,6 @@ const Catalogue = ({ category, search }) => {
 				return item.name.toLowerCase().includes(search.toLowerCase());
 			});
 
-			console.table(catalogue);
 			setItems(
 				search ? searchFiltered : category ? categoryFiltered : catalogue
 			);

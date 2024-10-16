@@ -16,9 +16,9 @@ function App() {
 					<Route key={key} exact path={path} element={element} />
 				))}
 				<Route path="p/:id" element={<Product />}></Route>
+				<Route path="cart" element={<ShoppingCart />} />
 			</Route>
 			<Route path="*" element={<NotFound />} />
-			<Route path="shopping-cart" element={<ShoppingCart />} />
 		</Routes>
 	);
 }
