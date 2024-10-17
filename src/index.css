@@ -226,6 +226,11 @@ li {
 	justify-content: end;
 }
 
+button,
+a {
+	line-height: 1.5rem;
+}
+
 /* Horizontal rule (separator) */
 
 hr {

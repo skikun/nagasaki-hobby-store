@@ -45,21 +45,17 @@ const Catalogue = ({ category, search }) => {
 		retrieveData();
 	}, [category, search]);
 
-	return (
-		<>
-			{items.map(({ key, id, image, name, description, price, category }) => (
-				<Item
-					key={key}
-					id={id}
-					image={image}
-					name={name}
-					description={description}
-					price={price}
-					category={category}
-				/>
-			))}
-		</>
-	);
+	return items.map(({ key, id, image, name, description, price, category }) => (
+		<Item
+			key={key}
+			id={id}
+			image={image}
+			name={name}
+			description={description}
+			price={price}
+			category={category}
+		/>
+	));
 };
 
 export default Catalogue;

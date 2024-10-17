@@ -12,7 +12,7 @@ function App() {
 	return (
 		<Routes>
 			<Route path="/" element={<Overview />}>
-				{NESTED.map(({ path, element, key }) => (
+				{NESTED.map(({ key, path, element }) => (
 					<Route key={key} exact path={path} element={element} />
 				))}
 				<Route path="p/:id" element={<Product />}></Route>

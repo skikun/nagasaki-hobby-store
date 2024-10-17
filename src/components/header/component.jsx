@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 import NESTED from "../../routes/overview/nested-routes";
 
@@ -14,6 +14,8 @@ import "./style.css";
 const Header = ({ open, onToggle, cart }) => {
 	const navigate = useNavigate();
 
+	const { pathname } = useLocation();
+
 	return (
 		<header>
 			<img
@@ -24,11 +26,14 @@ const Header = ({ open, onToggle, cart }) => {
 			/>
 			<nav>
 				{NESTED.filter(({ path }) => path !== "/").map(
-					({ key, path, label }) => (
-						<Link key={key} to={path}>
-							{label}
-						</Link>
-					)
+					({ key, path, label }) => {
+						const pressed = pathname.includes(path).toString();
+						return (
+							<Link key={key} to={path} current={pressed}>
+								{label}
+							</Link>
+						);
+					}
 				)}
 			</nav>
 			<div>

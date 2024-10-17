@@ -26,6 +26,8 @@ const Overview = () => {
 
 		if (itemIndex !== -1) {
 			updatedCart[itemIndex].quantity += 1;
+			updatedCart[itemIndex].total =
+				updatedCart[itemIndex].price * updatedCart[itemIndex].quantity;
 			setCart(updatedCart);
 		} else {
 			setCart([
@@ -35,11 +37,23 @@ const Overview = () => {
 					id: id,
 					quantity: 1,
 					name: decodeHtmlEntities(product.name),
-					price: product.prices.price.replace(/(\d{1,3})(\d{3})/g, "$1.$2"),
+					price: product.prices.price,
 					image: product.images[0].src,
+					total: product.prices.price,
 				},
 			]);
 		}
+	}
+
+	function handleQuantity(value, id) {
+		const itemIndex = cart.findIndex((item) => item.id === id);
+		let updatedCart = [...cart];
+
+		updatedCart[itemIndex].quantity += value;
+		updatedCart[itemIndex].total =
+			updatedCart[itemIndex].price * updatedCart[itemIndex].quantity;
+
+		setCart(updatedCart);
 	}
 
 	return (
@@ -48,7 +62,12 @@ const Overview = () => {
 			<div>
 				<Outlet context={(e) => addToCart(e)} />
 				<Footer />
-				<Cart open={open} onToggle={(value) => setOpen(value)} cart={cart} />
+				<Cart
+					open={open}
+					onToggle={(value) => setOpen(value)}
+					cart={cart}
+					onChange={(value, id) => handleQuantity(value, id)}
+				/>
 			</div>
 		</>
 	);
