@@ -13,7 +13,7 @@ const View = () => {
 	const [current, setCurrent] = useState(0);
 	const [srcs, setSrcs] = useState([]);
 
-	const addToCart = useOutletContext();
+	const { addToCart } = useOutletContext();
 
 	const first = document.querySelector(".first");
 	const last = document.querySelector(".last");

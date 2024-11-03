@@ -1,0 +1,145 @@
+main:has(table) {
+	min-height: 100%;
+	background: var(--contrast--050);
+	flex-direction: row;
+	gap: 2rem;
+	align-items: start;
+	justify-content: center;
+	padding: 4rem;
+
+	* {
+		font-family: "Poppins", sans-serif;
+	}
+
+	> div {
+		gap: 2rem;
+		max-width: 48rem;
+	}
+
+	section:last-child {
+		hr {
+			margin: 1.5rem 0;
+		}
+
+		form {
+			display: flex;
+			flex-direction: column;
+			width: 100%;
+			gap: 1rem;
+
+			> div:has(*:not(label) + *:not(input)) {
+				flex-direction: row;
+				width: 100%;
+				gap: 1rem;
+				align-items: end;
+			}
+		}
+	}
+
+	h2 {
+		width: 100%;
+		font-weight: 600;
+	}
+
+	p {
+		width: 100%;
+	}
+
+	section,
+	aside {
+		display: flex;
+		background: var(--white);
+		padding: 2rem;
+		border-radius: 1rem;
+		box-shadow: 0 0 0 1px var(--contrast--100);
+		justify-content: start !important;
+		gap: 1rem;
+	}
+
+	aside {
+		flex-direction: column;
+		min-width: 24rem;
+		max-width: 24rem;
+	}
+
+	table {
+		border-collapse: collapse;
+		border-spacing: 4rem;
+
+		thead {
+			box-shadow: inset 0 -1px 0 0 var(--contrast--100);
+		}
+
+		th {
+			font-weight: 700;
+			padding: 1rem;
+			color: var(--contrast--500);
+			font-size: 0.75rem;
+
+			&:first-child {
+				padding-left: 0;
+			}
+
+			&:last-child {
+				text-align: end;
+				padding-right: 0;
+			}
+		}
+
+		tr {
+			box-shadow: inset 0 -1px 0 0 var(--contrast--100);
+
+			&:last-child {
+				box-shadow: none;
+
+				td:first-child div {
+					margin-bottom: 0;
+				}
+			}
+		}
+
+		td {
+			vertical-align: top;
+
+			&:not(:first-child) {
+				padding: 1rem;
+			}
+
+			&:not(:nth-child(2)) {
+				text-wrap: nowrap;
+			}
+
+			&:last-child {
+				text-align: end;
+				padding-right: 0;
+				font-weight: 600;
+			}
+
+			&:first-child {
+				div:has(img) {
+					background: var(--contrast--050);
+					border-radius: 0.5rem;
+					box-shadow: inset 0 0 0 2px var(--contrast--100);
+					align-items: center;
+					justify-content: center;
+					height: 6rem;
+					margin: 1rem 0;
+
+					img {
+						max-width: 6rem;
+						height: 6rem;
+						padding: 0.5rem;
+						object-fit: contain;
+						mix-blend-mode: multiply;
+						pointer-events: none;
+					}
+
+					&:hover img {
+						rotate: -5deg;
+						scale: 1.3;
+					}
+				}
+			}
+		}
+	}
+}

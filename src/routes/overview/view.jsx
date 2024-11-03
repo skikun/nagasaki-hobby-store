@@ -60,7 +60,13 @@ const Overview = () => {
 		<>
 			<Header open={open} onToggle={(value) => setOpen(value)} cart={cart} />
 			<div>
-				<Outlet context={(e) => addToCart(e)} />
+				<Outlet
+					context={{
+						addToCart: (e) => addToCart(e),
+						onChange: (value, id) => handleQuantity(value, id),
+						cart: cart,
+					}}
+				/>
 				<Footer />
 				<Cart
 					open={open}

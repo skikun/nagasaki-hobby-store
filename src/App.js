@@ -5,7 +5,7 @@ import NESTED from "./routes/overview/nested-routes";
 
 import NotFound from "./routes/not-found/view";
 import Overview from "./routes/overview/view";
-import ShoppingCart from "./routes/shopping-cart/view";
+import Checkout from "./routes/checkout/view";
 import Product from "./routes/overview/product/view";
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
 					<Route key={key} exact path={path} element={element} />
 				))}
 				<Route path="p/:id" element={<Product />}></Route>
-				<Route path="cart" element={<ShoppingCart />} />
+				<Route path="checkout" element={<Checkout />} />
 			</Route>
 			<Route path="*" element={<NotFound />} />
 		</Routes>
