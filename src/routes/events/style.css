@@ -1,0 +1,26 @@
+section:has(.event) {
+  padding: 2rem;
+  gap: 1rem;
+
+  .event {
+    background: #99f;
+    border-radius: 1rem;
+    padding: 1rem;
+    gap: 1rem;
+    max-width: 64rem;
+
+    &:first-child {
+      background: #f99;
+      box-shadow: inset 0 0 0 4px #f99;
+    }
+
+    &:hover {
+      transform: rotateX(25deg) scale(1.1);
+    }
+  }
+
+  p:last-child {
+    opacity: 0.5;
+    color: #fff;
+  }
+}
