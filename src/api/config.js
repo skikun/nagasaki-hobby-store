@@ -1,3 +1,8 @@
 const API_URL = "https://nagasakihobbystore.com/";
 
-export { API_URL };
+const CONFIG = {
+	method: "GET",
+	cache: "reload",
+};
+
+export { API_URL, CONFIG };

@@ -26,6 +26,12 @@
 			position: relative;
 			width: 35rem;
 
+			button + img:has(+ button) {
+				height: 24rem;
+				object-fit: contain;
+				padding: 1rem;
+			}
+
 			button {
 				background: var(--contrast--050);
 				height: 2rem;
@@ -66,11 +72,6 @@
 						transform: translateX(-0.5rem);
 					}
 				}
-			}
-
-			img {
-				height: 24rem;
-				object-fit: contain;
 			}
 
 			> :last-child {

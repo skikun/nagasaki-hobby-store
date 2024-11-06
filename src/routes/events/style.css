@@ -1,26 +1,31 @@
 section:has(.event) {
-  padding: 2rem;
-  gap: 1rem;
+	padding: 2rem;
+	gap: 1rem;
+	perspective: 1000px;
 
-  .event {
-    background: #99f;
-    border-radius: 1rem;
-    padding: 1rem;
-    gap: 1rem;
-    max-width: 64rem;
+	> div {
+		background: #99f;
+		border-radius: 1rem;
+		padding: 1rem;
+		gap: 1rem;
+		max-width: 64rem;
 
-    &:first-child {
-      background: #f99;
-      box-shadow: inset 0 0 0 4px #f99;
-    }
+		&:first-child {
+			filter: brightness(1.2);
+			box-shadow: inset 0 0 0 4px #f99;
+		}
 
-    &:hover {
-      transform: rotateX(25deg) scale(1.1);
-    }
-  }
+		&:hover {
+			transform: rotateX(4deg) translateZ(2rem);
+		}
+	}
 
-  p:last-child {
-    opacity: 0.5;
-    color: #fff;
-  }
+	&:has(div:hover) > div:not(:hover) {
+		opacity: 0.2;
+	}
+
+	p:last-child {
+		opacity: 0.5;
+		color: #fff;
+	}
 }

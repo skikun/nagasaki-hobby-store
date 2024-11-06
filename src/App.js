@@ -10,19 +10,22 @@ import Events from "./routes/events/view";
 import Product from "./routes/overview/product/view";
 
 function App() {
-  return (
-    <Routes>
-      <Route path="/" element={<Overview />}>
-        {NESTED.map(({ key, path, element }) => (
-          <Route key={key} exact path={path} element={element} />
-        ))}
-        <Route path="p/:id" element={<Product />}></Route>
-        <Route path="checkout" element={<Checkout />} />
-        <Route path="events" element={<Events />} />
-      </Route>
-      <Route path="*" element={<NotFound />} />
-    </Routes>
-  );
+	console.log(
+		"This site was powered by Andrés Mora! Take a look at my profile at https://www.linkedin.com/in/andrés-ui-ux-frontend"
+	);
+	return (
+		<Routes>
+			<Route path="/" element={<Overview />}>
+				{NESTED.map(({ key, path, element }) => (
+					<Route key={key} exact path={path} element={element} />
+				))}
+				<Route path="p/:id" element={<Product />}></Route>
+				<Route path="checkout" element={<Checkout />} />
+				<Route path="events" element={<Events />} />
+			</Route>
+			<Route path="*" element={<NotFound />} />
+		</Routes>
+	);
 }
 
 export default App;

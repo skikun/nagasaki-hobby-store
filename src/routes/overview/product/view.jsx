@@ -21,11 +21,13 @@ const View = () => {
 	let { id } = useParams();
 
 	function decodeHtmlEntities(str) {
+		console.log(str);
 		const parser = new DOMParser();
 		const decodedString = parser.parseFromString(
 			`<!doctype html><body>${str}`,
 			"text/html"
 		).body.textContent;
+		console.log(decodedString);
 		return decodedString;
 	}
 

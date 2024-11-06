@@ -92,7 +92,7 @@
 			animation-play-state: paused;
 
 			div:not(:hover) img {
-				filter: grayscale(0.75) blur(2px);
+				filter: grayscale(1);
 			}
 		}
 	}

@@ -1,7 +1,7 @@
 import { GET } from "./endpoints";
 import { CONFIG } from "../config";
 
-const PRODUCTS = {
+const EVENTS = {
 	get: async (id) => {
 		const response = await (
 			await fetch(id ? `${GET}/${id}` : GET, {
@@ -12,4 +12,4 @@ const PRODUCTS = {
 	},
 };
 
-export default PRODUCTS;
+export default EVENTS;
