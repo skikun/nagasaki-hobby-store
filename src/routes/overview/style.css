@@ -30,7 +30,7 @@ main:has(.slider) {
 		max-width: 57rem;
 		gap: 2rem;
 		margin-bottom: 4rem;
-		padding: 2rem 7rem 1rem;
+		padding: 2rem 7rem;
 
 		* {
 			user-select: none;

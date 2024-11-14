@@ -13,7 +13,7 @@ const NESTED_HOME = [
 			<Franchise
 				slug="pokemon"
 				heading="Pokémon"
-				description="Pokémon es una franquicia de medios que originalmente comenzó con un videojuego RPG creado por Satoshi Tajiri, y presentado por Nintendo. La franquicia se ha expandido a juegos de cartas, series de televisión, películas, juguetes, y otros productos."
+				description="¡El mundo de Pokémon TCG te espera! Colecciona cartas, construye tu mazo y enfrenta a entrenadores de todo el mundo. Con cada carta, una nueva estrategia. ¡Hazte con las cartas más poderosas y conviértete en el campeón!"
 				layout="left"
 				theme="light"
 			/>
@@ -27,7 +27,7 @@ const NESTED_HOME = [
 			<Franchise
 				slug="one-piece"
 				heading="One Piece"
-				description="One Piece es una serie de manga escrita e ilustrada por Eiichirō Oda. Comenzó a publicarse en la revista japonesa Weekly Shōnen Jump el 22 de julio de 1997. Shueisha publica los capítulos en volúmenes. La historia sigue las aventuras de Monkey D. Luffy, un joven que accidentalmente consume una fruta mágica y se convierte en un hombre de goma."
+				description="¡Embárcate en la aventura con One Piece TCG! Reúne tu tripulación, crea estrategias únicas y conquista el Grand Line. ¡Colecciona cartas de tus personajes favoritos y enfrenta a poderosos rivales! ¡El tesoro está esperando!"
 				layout="right"
 				theme="light"
 			/>
@@ -41,7 +41,7 @@ const NESTED_HOME = [
 			<Franchise
 				slug="digimon"
 				heading="Digimón"
-				description="Digimón es una franquicia de medios japonesa, que incluye anime, manga, juguetes, videojuegos, juegos de cartas y otros medios. La franquicia se centra en criaturas ficticias llamadas Digimon, seres digitales que habitan en un mundo digital."
+				description="¡Sumérgete en la acción con Digimon TCG! Colecciona cartas, evoluciona tus Digimon y vence a tus rivales en épicas batallas. ¡Haz crecer tu equipo, mejora tus estrategias y conquista el Mundo Digital!"
 				layout="right"
 				theme="light"
 			/>

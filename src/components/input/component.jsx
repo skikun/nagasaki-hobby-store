@@ -1,6 +1,15 @@
 import "./style.css";
 
-const Input = ({ id, label, placeholder, name, value, required, disabled }) => {
+const Input = ({
+	id,
+	label,
+	placeholder,
+	name,
+	value,
+	required,
+	disabled,
+	onChange,
+}) => {
 	return (
 		<div>
 			<label htmlFor={id}>{label}</label>
@@ -11,6 +20,7 @@ const Input = ({ id, label, placeholder, name, value, required, disabled }) => {
 				value={value}
 				required={required}
 				disabled={disabled}
+				onChange={onChange}
 			/>
 		</div>
 	);

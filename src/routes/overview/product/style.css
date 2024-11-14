@@ -1,5 +1,5 @@
 .product {
-	height: calc(100vh - 6.5rem);
+	min-height: calc(100vh - 6.5rem);
 	flex-direction: row;
 	padding: 4rem 8rem;
 	gap: 4rem;
@@ -128,7 +128,35 @@
 		align-items: end;
 		max-width: 32rem;
 
-		*:not(h1, p) {
+		div {
+			width: 100%;
+		}
+
+		span {
+			width: 100%;
+			font-size: 1.5rem;
+			font-weight: 600;
+			text-align: left;
+			font-family: "Poppins";
+			color: var(--thunder);
+			display: inline-flex;
+			align-items: center;
+			gap: 0.5rem;
+
+			span {
+				font-size: 1rem;
+				font-weight: 500;
+				color: var(--contrast);
+				opacity: 0.5;
+				text-decoration-line: line-through;
+			}
+		}
+
+		strong {
+			font-weight: 500;
+		}
+
+		*:not(h1, h5, p, strong, ) {
 			user-select: none;
 		}
 	}

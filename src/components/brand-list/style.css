@@ -1,5 +1,5 @@
 .brand {
-	width: 15rem;
+	min-width: 15rem;
 	height: 16rem;
 	position: relative;
 	cursor: pointer;

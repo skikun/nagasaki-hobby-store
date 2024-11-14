@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useOutletContext } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useOutletContext, Link } from "react-router-dom";
 
 import Input from "../../components/input/component";
 import Incrementer from "../../components/incrementer/component";
@@ -8,9 +8,21 @@ import "./style.css";
 
 const View = () => {
 	const { cart, onChange } = useOutletContext();
+
+	const [road, setRoad] = useState("");
+	const [main, setMain] = useState("");
+	const [secondary, setSecondary] = useState("");
+	const [discriminatory, setDiscriminatory] = useState("");
+
+	const [address, setAddress] = useState("");
+
 	const [result, setResult] = useState("");
 
-	const onSubmit = async (event) => {
+	useEffect(() => {
+		setAddress(`${road} ${main} #${secondary} - ${discriminatory}`);
+	}, [road, main, secondary, discriminatory]);
+
+	async function onSubmit(event) {
 		event.preventDefault();
 		setResult("Sending....");
 		const formData = new FormData(event.target);
@@ -31,9 +43,9 @@ const View = () => {
 			console.log("Error", data);
 			setResult(data.message);
 		}
-	};
+	}
 
-	return (
+	return cart[0] ? (
 		<main>
 			<div>
 				<section>
@@ -117,14 +129,12 @@ const View = () => {
 						<p>Estos datos se usarán para calcular el costo del envío.</p>
 						<div>
 							<Input
-								id="state"
 								name="Departamento"
 								label="Departamento"
 								placeholder="Santander"
 								required
 							/>
 							<Input
-								id="city"
 								name="Ciudad"
 								label="Ciudad"
 								placeholder="Bucaramanga"
@@ -133,50 +143,71 @@ const View = () => {
 						</div>
 						<div>
 							<Input
-								id="neighborhood"
 								name="Barrio"
 								label="Barrio"
 								placeholder="Cabecera"
 								required
 							/>
 							<Input
-								id="zip-code"
 								name="Código postal"
 								label="Código postal"
 								placeholder="100101"
 								required
 							/>
 							<Input
-								id="road-type"
-								name="Tipo de vía"
 								label="Tipo de vía"
 								placeholder="Calle"
 								required
+								onChange={(e) => setRoad(e.target.value)}
 							/>
 						</div>
 						<div>
-							<Input id="main" label="Principal" placeholder="8va" required />
 							<Input
-								id="secondary"
-								name="Secundaria"
+								label="Principal"
+								placeholder="8va"
+								required
+								onChange={(e) => setMain(e.target.value)}
+							/>
+							<Input
 								label="Secundaria"
 								placeholder="11E"
 								required
+								onChange={(e) => setSecondary(e.target.value)}
 							/>
 							<Input
-								id="discriminatory"
-								name="Discriminatorio"
 								label="Discriminatorio"
 								placeholder="90"
 								required
+								onChange={(e) => setDiscriminatory(e.target.value)}
 							/>
 						</div>
+						<input type="hidden" name="Dirección" value={address} />
 						<Input
-							id="additional-information"
 							name="Información adicional"
 							label="Información adicional"
-							placeholder="Apartamento, conjunto, casa, condominio, segundo piso, casa color verde..."
+							placeholder="Conjunto, condominio, apartamento, segundo piso, casa color verde..."
 						/>
+						{cart.map(({ key, id, name, price, quantity, total }, i) => {
+							return (
+								<input
+									key={key}
+									type="hidden"
+									name={`Producto #${i + 1}`}
+									value={`ID: ${id} - ${name}\nCantidad: ${quantity}\nPrecio por unidad: ${price
+										.toString()
+										.replace(/\D/g, "")
+										.replace(/^(\d{1,3})(\d{3})$/, "$$$1.$2")
+										.replace(
+											/^(\d{1,3})(\d{3})(\d{3})$/,
+											"$$$1'$2.$3"
+										)}\nTotal: ${total
+										.toString()
+										.replace(/\D/g, "")
+										.replace(/^(\d{1,3})(\d{3})$/, "$$$1.$2")
+										.replace(/^(\d{1,3})(\d{3})(\d{3})$/, "$$$1'$2.$3")}`}
+								/>
+							);
+						})}
 					</form>
 				</section>
 			</div>
@@ -185,6 +216,15 @@ const View = () => {
 				<span>{result}</span>
 			</aside>
 		</main>
+	) : (
+		<section className="not-found">
+			<h1>¡Oops! El carrito de compras se encuentra vacío.</h1>
+			<p>
+				No hay productos para mostrar, el carrito está vacío. Dirígete a la{" "}
+				<Link to="/">página principal</Link> o a alguna de nuestras franquicias
+				promocionadas y añade algún producto.
+			</p>
+		</section>
 	);
 };
 

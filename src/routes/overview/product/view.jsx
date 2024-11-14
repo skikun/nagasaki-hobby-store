@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 import { useOutletContext, useParams } from "react-router-dom";
 
-import PRODUCTS from "../../../api/products/api";
-
 import Prev from "../../../assets/icons/prev.svg";
 import Next from "../../../assets/icons/next.svg";
+
+import PRODUCTS from "../../../api/products/api";
+
+import * as DECODER from "../../../utils/DECODER";
+import * as HTML from "../../../utils/HTML";
 
 import "./style.css";
 
@@ -12,6 +15,7 @@ const View = () => {
 	const [product, setProduct] = useState(null);
 	const [current, setCurrent] = useState(0);
 	const [srcs, setSrcs] = useState([]);
+	const [content, setContent] = useState(null);
 
 	const { addToCart } = useOutletContext();
 
@@ -20,29 +24,29 @@ const View = () => {
 
 	let { id } = useParams();
 
-	function decodeHtmlEntities(str) {
-		console.log(str);
-		const parser = new DOMParser();
-		const decodedString = parser.parseFromString(
-			`<!doctype html><body>${str}`,
-			"text/html"
-		).body.textContent;
-		console.log(decodedString);
-		return decodedString;
+	function getDiscount(previous, current) {
+		const decimal = current / previous - 1;
+		const discount = decimal * -100;
+		return discount;
 	}
 
 	useEffect(() => {
 		async function retrieveData() {
 			const _p = await PRODUCTS.get(id);
+			const price = _p.prices.price;
+			const regularPrice = _p.prices.regular_price;
 			const _ = {
 				key: crypto.randomUUID(),
-				name: decodeHtmlEntities(_p.name),
-				description: decodeHtmlEntities(_p.description),
-				price: _p.prices.price,
+				name: DECODER.decode(_p.name),
+				price: price.replace(/(\d{1,3})(\d{3})/g, "$$$1.$2"),
+				discount:
+					price === regularPrice ? "" : getDiscount(regularPrice, price),
 				images: _p.images,
 				category: _p.categories[0].slug,
 			};
+
 			setProduct(_);
+			setContent(_p.description);
 			setSrcs(_p.images.map(({ src }) => src));
 		}
 
@@ -87,6 +91,13 @@ const View = () => {
 		}
 	}
 
+	function getPreviousPrice(current, discount) {
+		const decimal = discount / 100;
+		const percentage = decimal - 1;
+		const result = current / -percentage;
+		return result.toString().replace(/(\d{1,3})(\d{3})/, "$$$1.$2");
+	}
+
 	return product ? (
 		<main className="product">
 			<section>
@@ -106,7 +117,6 @@ const View = () => {
 								i === product.images.length - 1 ? "last" : ""
 							} ${current === i ? "current" : ""}`.trim();
 							const className = string === "" ? null : string;
-
 							return (
 								<div key={id}>
 									<img
@@ -124,7 +134,18 @@ const View = () => {
 			</section>
 			<section>
 				<h1>{product.name}</h1>
-				<p>{product.description}</p>
+				<span>
+					{product.price}
+					{product.discount && (
+						<span>
+							{getPreviousPrice(
+								product.price.replace(/\D/g, ""),
+								product.discount
+							)}
+						</span>
+					)}
+				</span>
+				{HTML.render(content)}
 				<button onClick={() => addToCart(id)}>Añadir al carrito</button>
 			</section>
 		</main>

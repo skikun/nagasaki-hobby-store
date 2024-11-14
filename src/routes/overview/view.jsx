@@ -4,20 +4,14 @@ import { Outlet } from "react-router-dom";
 import Header from "../../components/header/component";
 import Footer from "../../components/footer/component";
 import Cart from "../../components/cart/component";
+
 import PRODUCTS from "../../api/products/api";
+
+import * as DECODER from "../../utils/DECODER";
 
 const Overview = () => {
 	const [open, setOpen] = useState(false);
 	const [cart, setCart] = useState([]);
-
-	function decodeHtmlEntities(str) {
-		const parser = new DOMParser();
-		const decodedString = parser.parseFromString(
-			`<!doctype html><body>${str}`,
-			"text/html"
-		).body.textContent;
-		return decodedString;
-	}
 
 	async function addToCart(id) {
 		const product = await PRODUCTS.get(id);
@@ -36,7 +30,7 @@ const Overview = () => {
 					key: crypto.randomUUID(),
 					id: id,
 					quantity: 1,
-					name: decodeHtmlEntities(product.name),
+					name: DECODER.decode(product.name),
 					price: product.prices.price,
 					image: product.images[0].src,
 					total: product.prices.price,

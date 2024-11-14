@@ -21,6 +21,12 @@ const Home = () => {
 				<LandingBannner />
 			</section>
 			<section>
+				<h1>Franquicias promocionadas</h1>
+				<p>
+					Estas son las franquicias con las que trabajamos. Selecciona alguna y
+					navega por el catálogo de productos que ofrecemos para cada una de
+					ellas.
+				</p>
 				<div className="categories">
 					<BrandList />
 				</div>
@@ -29,20 +35,13 @@ const Home = () => {
 				<img loading="lazy" src={Left} alt="1" />
 				<div>
 					<h1>
-						Juegos únicos
-						<br />
-						de tus <font>marcas</font>
-						<br />
-						favoritas
+						Juegos únicos de tus <font>marcas</font> favoritas
 					</h1>
 					<p>
-						Descripción de juegos o cosas muy
-						<br />
-						chéveres que se pueden comprar en esta
-						<br />
-						tienda, básicamente un texto donde se
-						<br />
-						convence para comprar.
+						¡Embárcate en una aventura con los TCG de Pokémon, One Piece,
+						Digimon y Yu-Gi-Oh!! Colecciona cartas, crea estrategias y desafía a
+						tus amigos en emocionantes batallas. ¡Hazte con tus cartas favoritas
+						y domina el juego!
 					</p>
 					<Button label="Más información" />
 				</div>

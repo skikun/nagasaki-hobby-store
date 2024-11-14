@@ -1,31 +1,37 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import Item from "../../../components/item/component";
 
 import PRODUCTS from "../../../api/products/api";
 
+import * as DECODER from "../../../utils/DECODER";
+
 const Catalogue = ({ category, search }) => {
 	const [items, setItems] = useState([]);
+
+	function getDiscount(previous, current) {
+		const decimal = current / previous - 1;
+		const discount = decimal * -100;
+		return discount;
+	}
 
 	useEffect(() => {
 		async function retrieveData() {
 			const products = await PRODUCTS.get();
+
 			const catalogue = products.map((product) => {
+				const price = product.prices.price;
+				const regularPrice = product.prices.regular_price;
 				return {
 					key: crypto.randomUUID(),
 					id: product.id,
 					image: product.images[0].src,
-					name: product.name.replace(/&amp;/g, "&"),
-					description: product.description
-						.replace(/&amp;/g, "&")
-						.replace(/&nbsp;/g, "")
-						.replace(/<\/{0,}p>/g, "")
-						.replace(/<br {0,}\/>/g, "")
-						.replace(/<\/{0,}strong>/g, "")
-						.replace(/\\{0,}/g, "")
-						.replace(/<\/{0,}em>/g, ""),
-					price: product.prices.price.replace(/(\d{1,3})(\d{3})/g, "$1.$2"),
+					name: DECODER.decode(product.name),
+					price: price.replace(/(\d{1,3})(\d{3})/g, "$1.$2"),
+					discount:
+						price === regularPrice ? "" : getDiscount(regularPrice, price),
 					category: product.categories[0].slug,
+					stock: product.is_in_stock,
 				};
 			});
 
@@ -45,17 +51,20 @@ const Catalogue = ({ category, search }) => {
 		retrieveData();
 	}, [category, search]);
 
-	return items.map(({ key, id, image, name, description, price, category }) => (
-		<Item
-			key={key}
-			id={id}
-			image={image}
-			name={name}
-			description={description}
-			price={price}
-			category={category}
-		/>
-	));
+	return items.map(
+		({ key, id, image, name, price, discount, stock, category }) => (
+			<Item
+				key={key}
+				id={id}
+				image={image}
+				name={name}
+				price={price}
+				discount={discount}
+				stock={stock}
+				category={category}
+			/>
+		)
+	);
 };
 
 export default Catalogue;
