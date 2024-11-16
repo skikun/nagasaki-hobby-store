@@ -1,0 +1,5 @@
+img.loading {
+	width: 100%;
+	max-height: calc(100vh - 12.5rem);
+	object-fit: scale-down;
+}

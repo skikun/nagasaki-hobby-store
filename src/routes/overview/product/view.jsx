@@ -9,6 +9,8 @@ import PRODUCTS from "../../../api/products/api";
 import * as DECODER from "../../../utils/DECODER";
 import * as HTML from "../../../utils/HTML";
 
+import Loading from "../../../components/loading/component";
+
 import "./style.css";
 
 const View = () => {
@@ -150,7 +152,7 @@ const View = () => {
 			</section>
 		</main>
 	) : (
-		"Loading..."
+		<Loading />
 	);
 };
 
