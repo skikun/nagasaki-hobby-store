@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 
 import EVENTS from "../../api/events/api";
 
@@ -12,8 +11,6 @@ import "./style.css";
 const View = () => {
 	const [events, setEvents] = useState([]);
 
-	const navigate = useNavigate();
-
 	useEffect(() => {
 		async function retrieveData() {
 			const _events = await EVENTS.get();
@@ -23,7 +20,6 @@ const View = () => {
 
 				return {
 					key: crypto.randomUUID(),
-					id: event.id,
 					title: event.title,
 					description: DECODER.decode(event.description),
 					year: date.year,
@@ -41,7 +37,7 @@ const View = () => {
 
 	return (
 		<section>
-			{events.map(({ key, id, title, description, year, month, day, hour }) => {
+			{events.map(({ key, title, description, year, month, day, hour }) => {
 				return (
 					<Event
 						key={key}
@@ -51,7 +47,6 @@ const View = () => {
 						month={month}
 						year={year}
 						hour={hour}
-						onClick={() => navigate(`../e/${id}`)}
 					/>
 				);
 			})}

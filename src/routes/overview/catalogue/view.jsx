@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 
-import Item from "../../../components/item/component";
-
 import PRODUCTS from "../../../api/products/api";
 
 import * as DECODER from "../../../utils/DECODER";
+
+import Item from "../../../components/item/component";
+import Loading from "../../../components/loading/component";
 
 const Catalogue = ({ category, search }) => {
 	const [items, setItems] = useState([]);
@@ -51,8 +52,8 @@ const Catalogue = ({ category, search }) => {
 		retrieveData();
 	}, [category, search]);
 
-	return items.map(
-		({ key, id, image, name, price, discount, stock, category }) => (
+	return items[0] ? (
+		items.map(({ key, id, image, name, price, discount, stock, category }) => (
 			<Item
 				key={key}
 				id={id}
@@ -63,7 +64,9 @@ const Catalogue = ({ category, search }) => {
 				stock={stock}
 				category={category}
 			/>
-		)
+		))
+	) : (
+		<Loading />
 	);
 };
 

@@ -20,9 +20,9 @@ function App() {
 				{NESTED.map(({ key, path, element }) => (
 					<Route key={key} exact path={path} element={element} />
 				))}
-				<Route path="p/:id" element={<Product />}></Route>
-				<Route path="checkout" element={<Checkout />} />
+				<Route path="p/:id" element={<Product />} />
 				<Route path="events" element={<Events />} />
+				<Route path="checkout" element={<Checkout />} />
 			</Route>
 			<Route path="*" element={<NotFound />} />
 		</Routes>

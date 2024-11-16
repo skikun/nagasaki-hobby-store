@@ -61,7 +61,10 @@ const View = () => {
 						</thead>
 						<tbody>
 							{cart.map(
-								({ key, id, name, price, image, quantity, total }, i) => {
+								(
+									{ key, id, name, price, stock, image, quantity, total },
+									i
+								) => {
 									return (
 										<tr key={key}>
 											<td>
@@ -79,6 +82,7 @@ const View = () => {
 											</td>
 											<td>
 												<Incrementer
+													stock={stock}
 													quantity={quantity}
 													onChange={(value) => onChange(value, id)}
 												/>

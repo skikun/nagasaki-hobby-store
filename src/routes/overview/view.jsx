@@ -32,6 +32,7 @@ const Overview = () => {
 					quantity: 1,
 					name: DECODER.decode(product.name),
 					price: product.prices.price,
+					stock: product.add_to_cart.maximum,
 					image: product.images[0].src,
 					total: product.prices.price,
 				},
