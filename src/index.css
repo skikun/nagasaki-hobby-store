@@ -207,14 +207,15 @@ header + div:has(footer) {
 
 section.not-found {
 	justify-content: center;
-	min-height: 100%;
+	min-height: calc(100vh - 12.5rem);
 	gap: 1rem;
-	padding: 4rem;
+	padding: 1rem;
 
 	h1,
 	p {
 		text-align: center;
 		text-wrap: balance;
+		max-width: 48rem;
 	}
 }
 

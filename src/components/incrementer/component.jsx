@@ -18,7 +18,9 @@ const Component = ({ stock, quantity, onChange }) => {
 					onClick={() => onChange(1)}
 					disabled={quantity === stock}
 					title={
-						quantity === stock && `Solo hay ${stock} ${word} en existencias.`
+						quantity === stock
+							? `Solo hay ${stock} ${word} en existencias.`
+							: ""
 					}
 				>
 					<img src={Add} alt="Plus symbol icon" />

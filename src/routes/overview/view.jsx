@@ -15,10 +15,15 @@ const Overview = () => {
 
 	async function addToCart(id) {
 		const product = await PRODUCTS.get(id);
+		const stock = product.add_to_cart.maximum;
+
 		const itemIndex = cart.findIndex((item) => item.id === id);
 		let updatedCart = [...cart];
 
 		if (itemIndex !== -1) {
+			if (stock === updatedCart[itemIndex].quantity) {
+				return;
+			}
 			updatedCart[itemIndex].quantity += 1;
 			updatedCart[itemIndex].total =
 				updatedCart[itemIndex].price * updatedCart[itemIndex].quantity;

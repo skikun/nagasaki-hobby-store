@@ -19,12 +19,14 @@ const View = () => {
 	const [srcs, setSrcs] = useState([]);
 	const [content, setContent] = useState(null);
 
-	const { addToCart } = useOutletContext();
+	const { addToCart, cart } = useOutletContext();
 
 	const first = document.querySelector(".first");
 	const last = document.querySelector(".last");
 
 	let { id } = useParams();
+
+	const itemIndex = cart.findIndex((item) => item.id === id);
 
 	function getDiscount(previous, current) {
 		const decimal = current / previous - 1;
@@ -44,6 +46,7 @@ const View = () => {
 				discount:
 					price === regularPrice ? "" : getDiscount(regularPrice, price),
 				images: _p.images,
+				stock: _p.add_to_cart.maximum,
 				category: _p.categories[0].slug,
 			};
 
@@ -148,7 +151,14 @@ const View = () => {
 					)}
 				</span>
 				{HTML.render(content)}
-				<button onClick={() => addToCart(id)}>Añadir al carrito</button>
+				<button
+					onClick={() => addToCart(id)}
+					disabled={
+						itemIndex !== -1 && cart[itemIndex].quantity === product.stock
+					}
+				>
+					Añadir al carrito
+				</button>
 			</section>
 		</main>
 	) : (

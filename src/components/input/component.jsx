@@ -6,6 +6,7 @@ const Input = ({
 	placeholder,
 	name,
 	value,
+	autocomplete,
 	required,
 	disabled,
 	onChange,
@@ -18,6 +19,7 @@ const Input = ({
 				placeholder={placeholder}
 				name={name}
 				value={value}
+				autoComplete={autocomplete}
 				required={required}
 				disabled={disabled}
 				onChange={onChange}

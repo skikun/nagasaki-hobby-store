@@ -39,6 +39,7 @@ const Header = ({ open, onToggle, cart }) => {
 				<button
 					onClick={() => navigate("events")}
 					title="Calendario de eventos"
+					open={pathname === "/events"}
 				>
 					<img
 						loading="lazy"
