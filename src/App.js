@@ -13,6 +13,7 @@ function App() {
 	console.log(
 		"This site was powered by Andrés Mora! Take a look at my profile at https://www.linkedin.com/in/andrés-ui-ux-frontend"
 	);
+
 	return (
 		<Routes>
 			<Route path="/" element={<Overview />}>

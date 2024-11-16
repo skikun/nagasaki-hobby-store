@@ -12,8 +12,6 @@ const Item = ({ id, image, name, price, stock, discount }) => {
 		return result.toString().replace(/(\d{1,3})(\d{3})/, "$$$1.$2");
 	}
 
-	console.log("a", stock);
-
 	return (
 		<article
 			onClick={() => navigate(`../p/${id}`)}

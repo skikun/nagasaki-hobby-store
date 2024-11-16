@@ -1,0 +1,32 @@
+.event {
+	background: #99f;
+	border-radius: 1rem;
+	padding: 1rem;
+	gap: 1rem;
+	max-width: 48rem;
+	width: 100%;
+	cursor: pointer;
+	perspective: 500px;
+
+	&:first-child {
+		filter: brightness(1.2);
+		box-shadow: inset 0 0 0 4px #f99;
+		max-width: 64rem;
+		padding: 2rem;
+		background: #9f9;
+	}
+
+	&:hover {
+		transform: rotateX(4deg) translateZ(0.5rem) scale(1.05);
+		box-shadow: 0 0 10rem 0 #256eff99;
+	}
+
+	h1 {
+		text-wrap: balance;
+	}
+
+	> p:last-child {
+		opacity: 0.5;
+		color: #fff;
+	}
+}

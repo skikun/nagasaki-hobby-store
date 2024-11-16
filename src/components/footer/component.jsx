@@ -12,30 +12,6 @@ import "./style.css";
 const Footer = () => {
 	return (
 		<footer>
-			<div>
-				<ul>
-					<li>
-						<h6>Información</h6>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-						eiusmod tempor incididunt ut.
-					</li>
-					<li>
-						<h6>Preguntas frecuentes</h6>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-						eiusmod tempor incididunt ut.
-					</li>
-					<li>
-						<h6>Contáctanos</h6>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-						eiusmod tempor incididunt ut.
-					</li>
-					<li></li>
-				</ul>
-			</div>
-			<p>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-				tempor incididunt ut.
-			</p>
 			<nav>
 				<div>
 					{NESTED.filter(({ path }) => path !== "/").map(

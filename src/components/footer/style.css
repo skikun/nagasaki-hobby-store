@@ -1,11 +1,14 @@
 footer {
 	background: var(--accent);
-	min-height: 16rem;
+	min-height: 6rem;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 	z-index: 1;
 	align-self: self-end;
+	max-width: calc(100vw - 1rem);
+	min-width: calc(100vw - 1rem);
+	overflow: hidden;
 }
 
 footer * {

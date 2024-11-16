@@ -19,6 +19,7 @@ section:has(.categories) {
 		padding-right: 3rem;
 		overflow-x: auto;
 		border-radius: 0.25rem;
+		max-width: 64rem;
 	}
 }
 
