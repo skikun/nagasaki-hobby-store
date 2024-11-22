@@ -2,39 +2,78 @@ import { useEffect, useState } from "react";
 import { useOutletContext, Link } from "react-router-dom";
 
 import Input from "../../components/input/component";
+import Select from "../../components/select/component";
 import Incrementer from "../../components/incrementer/component";
 
 import "./style.css";
 
+const ROAD_TYPE_OPTIONS = [
+	{ value: 1, label: "Calle" },
+	{ value: 2, label: "Avenida" },
+	{ value: 3, label: "Carrera" },
+	{ value: 4, label: "Diagonal" },
+	{ value: 5, label: "Peatonal" },
+	{ value: 6, label: "Circunvalar" },
+	{ value: 7, label: "Transversal" },
+	{ value: 8, label: "Otra (debe especificar)" },
+];
+
 const View = () => {
 	const { cart, onChange } = useOutletContext();
 
-	const [road, setRoad] = useState("");
+	const [name, setName] = useState("");
+	const [nickname, setNickname] = useState("");
+	const [cellphone, setCellphone] = useState("");
+	const [email, setEmail] = useState("");
+	const [province, setProvince] = useState("");
+	const [city, setCity] = useState("");
+	const [neighborhood, setNeighborhood] = useState("");
+	const [zipcode, setZipcode] = useState("");
+
+	const [road, setRoad] = useState(null);
 	const [main, setMain] = useState("");
 	const [secondary, setSecondary] = useState("");
 	const [discriminatory, setDiscriminatory] = useState("");
+	const [additional, setAdditional] = useState("");
+
+	const [roadOther, setRoadOther] = useState("");
 
 	const [address, setAddress] = useState("");
 
 	const [loading, setLoading] = useState(false);
 	const [done, setDone] = useState(false);
 	const [error, setError] = useState(false);
+	const [success, setSuccess] = useState(false);
 	const [result, setResult] = useState("");
 
 	useEffect(() => {
-		setAddress(`${road} ${main} #${secondary} - ${discriminatory}`);
-	}, [road, main, secondary, discriminatory]);
+		let address = `${main} #${secondary} - ${discriminatory}`;
 
-	async function onSubmit(event) {
-		event.preventDefault();
+		if (road) {
+			address =
+				road.value === 8
+					? `${roadOther} ${address}`
+					: `${road.label} ${address}`;
+		}
+
+		if (additional) {
+			address = `${address} (${additional})`;
+		}
+
+		setAddress(address);
+	}, [road, roadOther, main, secondary, discriminatory, additional]);
+
+	async function onSubmit(e) {
+		e.preventDefault();
+
+		setResult("Realizando orden, por favor espere un momento...");
 
 		setLoading(true);
 		setDone(false);
 		setError(false);
+		setSuccess(false);
 
-		setResult("Realizando orden, por favor espere un momento...");
-
-		const formData = new FormData(event.target);
+		const formData = new FormData(e.target);
 
 		formData.append("access_key", "893363b7-4104-4b58-a902-f840b4941e3e");
 
@@ -47,12 +86,15 @@ const View = () => {
 
 		setLoading(false);
 		setDone(true);
-		if (!data.success) {
+
+		if (data.success) {
 			setError(false);
+			setSuccess(true);
 			setResult("Su orden ha sido realizada exitosamente.");
-			event.target.reset();
+			e.target.reset();
 		} else {
 			console.log("Error:", data);
+			setSuccess(false);
 			setError(true);
 			setResult(
 				"Ha ocurrido un error al intentar procesar su orden:",
@@ -63,7 +105,7 @@ const View = () => {
 
 	return cart[0] ? (
 		<main>
-			{done && !error && !loading && (
+			{!success && (
 				<div>
 					<section>
 						<h2>Carrito de compras</h2>
@@ -121,87 +163,132 @@ const View = () => {
 					<section>
 						<form id="checkout" onSubmit={onSubmit}>
 							<h2>Información de contacto</h2>
-							<p>Con estos datos nos pondremos en contacto contigo.</p>
-							<Input
-								name="Nombre completo"
-								label="Nombre completo"
-								placeholder="Andrés Mora"
-								autocomplete="name"
-								required
-							/>
+							<p>Usaremos estos datos para contactarnos contigo.</p>
 							<div>
 								<Input
+									id="full-name"
+									name="Nombre completo"
+									label="Nombre completo"
+									placeholder="Andrés Mora"
+									autocomplete="name"
+									required
+									onChange={(e) => setName(e.target.value)}
+								/>
+								<Input
+									id="nickname"
+									name="Nombre preferido o nickname"
+									label="Nombre preferido o nickname"
+									placeholder="Ski"
+									autocomplete="nickname"
+									onChange={(e) => setNickname(e.target.value)}
+								/>
+							</div>
+							<div>
+								<Input
+									id="email"
 									name="Correo electrónico"
 									label="Correo electrónico"
 									placeholder="andres@dominio.com"
 									autocomplete="email"
 									required
+									onChange={(e) => setEmail(e.target.value)}
 								/>
 								<Input
+									id="cellphone-number"
 									name="Número de celular"
 									label="Número de celular"
 									placeholder="319 795 5021"
 									autocomplete="tel-national"
 									required
+									onChange={(e) => setCellphone(e.target.value)}
 								/>
 							</div>
 							<hr />
 							<h2>Información para el envío</h2>
-							<p>Estos datos se usarán para calcular el costo del envío.</p>
+							<p>Esto nos ayudará a calcular el costo de tu envío.</p>
 							<div>
 								<Input
+									id="province"
 									name="Departamento"
 									label="Departamento"
 									placeholder="Santander"
 									autocomplete="shipping address-level1"
 									required
+									onChange={(e) => setProvince(e.target.value)}
 								/>
 								<Input
+									id="city"
 									name="Ciudad"
 									label="Ciudad"
 									placeholder="Bucaramanga"
 									autocomplete="shipping address-level2"
 									required
+									onChange={(e) => setCity(e.target.value)}
 								/>
 							</div>
 							<div>
 								<Input
+									id="neighborhood"
 									name="Barrio"
 									label="Barrio"
 									placeholder="Cabecera"
 									autocomplete="shipping address-level3"
 									required
+									onChange={(e) => setNeighborhood(e.target.value)}
 								/>
 								<Input
+									id="zipcode"
 									name="Código postal"
 									label="Código postal"
 									placeholder="100101"
 									autocomplete="shipping postal-code"
 									required
-								/>
-								<Input
-									label="Tipo de vía"
-									placeholder="Calle"
-									required
-									onChange={(e) => setRoad(e.target.value)}
+									onChange={(e) => setZipcode(e.target.value)}
 								/>
 							</div>
 							<div>
+								<Select
+									id="road"
+									label="Tipo de vía"
+									placeholder="Calle"
+									value={road}
+									onChange={(e) => {
+										setRoad(e);
+									}}
+									options={ROAD_TYPE_OPTIONS}
+									required
+								/>
+								{road?.value === 8 && (
+									<Input
+										id="road-other"
+										label="Especificar tipo de vía"
+										placeholder="Callejón"
+										required
+										onChange={(e) => setRoadOther(e.target.value)}
+									/>
+								)}
+							</div>
+							<div className="address-fields">
 								<Input
+									id="main"
 									label="Principal"
 									placeholder="8va"
 									autocomplete="shipping address-line1"
 									required
 									onChange={(e) => setMain(e.target.value)}
 								/>
+								#
 								<Input
+									id="secondary"
 									label="Secundaria"
 									placeholder="11E"
 									autocomplete="shipping address-line2"
 									required
 									onChange={(e) => setSecondary(e.target.value)}
 								/>
+								-
 								<Input
+									id="discriminatory"
 									label="Discriminatorio"
 									placeholder="90"
 									autocomplete="shipping address-line3"
@@ -211,10 +298,11 @@ const View = () => {
 							</div>
 							<input type="hidden" name="Dirección" value={address} />
 							<Input
-								name="Información adicional"
+								id="additional-information"
 								label="Información adicional"
-								placeholder="Conjunto, condominio, apartamento, segundo piso, casa color verde..."
-								autocomplete="shipping address-line4"
+								placeholder="Condominio, apto 607, segundo piso, casa color verde, etc..."
+								autocomplete="shipping address-level4"
+								onChange={(e) => setAdditional(e.target.value)}
 							/>
 							{cart.map(({ key, id, name, price, quantity, total }, i) => {
 								return (
@@ -241,10 +329,75 @@ const View = () => {
 					</section>
 				</div>
 			)}
-			<aside>
-				<input type="submit" form="checkout" value="Realizar orden" />
-				<span>{result}</span>
-			</aside>
+			<div>
+				<aside>
+					<h2>Resumen</h2>
+					{name && cellphone && email && (
+						<>
+							<p>
+								Es un gusto atenderlo,{" "}
+								<strong>{nickname ? nickname : name.split(" ", 2)[0]}</strong>.
+								<br />
+								<br />
+								Nos comunicaremos por WhatsApp o llamada telefónica a su número{" "}
+								<strong>{cellphone}</strong>. En caso de no responder, le
+								enviaremos un correo a <strong>{email}</strong>.
+							</p>
+							<hr />
+						</>
+					)}
+					{province &&
+						city &&
+						neighborhood &&
+						(road ? (road.value === 8 ? roadOther : road) : road) && (
+							<>
+								<h6>Dirección de entrega</h6>
+								<p>
+									{address}, {neighborhood} - {city}, {province}
+								</p>
+								<hr />
+							</>
+						)}
+					<table>
+						<tbody>
+							{cart.map(({ key, name, total }) => {
+								return (
+									<tr key={key}>
+										<td>{name}</td>
+										<td>
+											{total
+												.toString()
+												.replace(/\D/g, "")
+												.replace(/^(\d{1,3})(\d{3})$/, "$$$1.$2")
+												.replace(/^(\d{1,3})(\d{3})(\d{3})$/, "$$$1'$2.$3")}
+										</td>
+									</tr>
+								);
+							})}
+							<tr>
+								<td>Envío</td>
+								<td>(por definir)</td>
+							</tr>
+							<tr>
+								<td>TOTAL</td>
+								<td>
+									{cart
+										.reduce((acc, { total }) => acc + parseFloat(total), 0)
+										.toString()
+										.replace(/\D/g, "")
+										.replace(/^(\d{1,3})(\d{3})$/, "$1.$2")
+										.replace(/^(\d{1,3})(\d{3})(\d{3})$/, "$1'$2.$3")}
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<hr />
+					<input type="submit" form="checkout" value="Realizar orden" />
+					{result && <span>{result}</span>}
+				</aside>
+				Una vez puesta la orden, nos comunicaremos prontamente contigo para
+				informarte del valor del envío y concluir la compra.
+			</div>
 		</main>
 	) : (
 		<section className="not-found">

@@ -1,0 +1,247 @@
+div > label:has(+ div[class^="css-" i][class$="-container" i]) {
+	padding-bottom: 4px;
+	cursor: pointer;
+	font-size: 14px;
+	line-height: 1rem;
+	color: var(--contrast--700);
+
+	* {
+		transition: all 300ms ease;
+	}
+}
+
+div[resize="true"]:has(> label + div[class^="css-" i][class$="-container" i]) {
+	width: fit-content;
+}
+
+div[resize="true"] > label:has(+ div[class^="css-" i][class$="-container" i]) {
+	text-wrap: nowrap;
+}
+
+div:has(> label + div[class^="css-" i][class$="-container" i]) {
+	width: 100%;
+}
+
+div:has(
+		> label
+			+ div[class^="css-" i][class$="-container" i]
+			> div[class^="css-" i][class$="-control" i][aria-disabled="true"]
+	) {
+	height: 0;
+	opacity: 0;
+}
+
+div:hover > label:has(+ div[class^="css-" i][class$="-container" i]) {
+	color: var(--contrast);
+}
+
+div
+	> label:has(
+		+ div[class^="css-" i][class$="-container" i]
+			> div[class^="css-" i][class$="-control" i]
+			> div[class^="css-" i]
+			> div[class^="css-" i]
+			> input[aria-required="true"]
+	)::before {
+	content: "* ";
+	line-height: 1rem;
+	font-size: 14px;
+	color: var(--accent);
+}
+
+div
+	> label
+	+ div[class^="css-" i][class$="-container" i]
+	> div[class^="css-" i][class$="-control" i]
+	> div[class^="css-" i]
+	+ div[class^="css-" i] {
+	flex-direction: row;
+}
+
+div
+	> label
+	+ div[class^="css-" i][class$="-container" i]
+	> div[class^="css-" i][class$="-control" i]
+	> div[class^="css-" i]
+	+ div[class^="css-" i]
+	> div[class^="css-" i][class$="indicatorcontainer" i] {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 2.5rem;
+	height: 2.5rem;
+}
+
+div
+	> label
+	+ div[class^="css-" i][class$="-container" i]
+	> div[class^="css-" i][class$="-control" i]
+	> div[class^="css-" i]
+	+ div[class^="css-" i]
+	> span[class$="indicatorseparator" i] {
+	display: none;
+}
+
+div
+	> label:not(:hover)
+	+ div[class^="css-" i][class$="-container" i]
+	> div[class^="css-" i][class$="-control" i]
+	> div[class^="css-" i]:has(> div[class^="css-" i][class$="singlevalue" i])
+	input {
+	cursor: pointer;
+	line-height: 2.5rem !important;
+}
+
+div
+	> label:not(:hover)
+	+ div[class^="css-" i][class$="-container" i]
+	> div[class^="css-" i][class$="-control" i]
+	> div[class^="css-" i]
+	> div[class^="css-" i][class$="singlevalue" i] {
+	line-height: 2.5rem;
+}
+
+div
+	> label
+	+ div[class^="css-" i][class$="-container" i]
+	> div[class^="css-" i][class$="-control" i] {
+	flex-direction: row;
+	height: 2.5rem;
+	border-radius: 0.5rem;
+	box-shadow: inset 0 0 0 1px var(--contrast--050);
+	padding-left: 0.5rem;
+	transition: all 300ms ease;
+	cursor: pointer;
+}
+
+div
+	> label
+	+ div[class^="css-" i][class$="-container" i]
+	> div[class^="css-" i][class$="-control" i]:hover {
+	box-shadow: inset 0 0 0 2px var(--accent--300);
+}
+
+div
+	> label:hover
+	+ div[class^="css-" i][class$="-container" i]
+	> div[class^="css-" i][class$="-control" i] {
+	box-shadow: inset 0 0 0 1px var(--contrast);
+}
+
+div
+	> label:not(:hover)
+	+ div[class^="css-" i][class$="-container" i]
+	> div[class^="css-" i][class$="-control" i]:has(
+		> div[class^="css-" i] input:is([aria-controls], :focus)
+	):not(:hover) {
+	box-shadow: inset 0 0 0 2px var(--accent);
+}
+
+div
+	> label
+	+ div[class^="css-" i][class$="-container" i]
+	> div[class^="css-" i][class$="-control" i]:has(
+		> div[class^="css-" i] input:is([aria-controls], :focus)
+	):hover {
+	box-shadow: inset 0 0 0 4px var(--accent);
+}
+
+div
+	> label:hover
+	+ div[class^="css-" i][class$="-container" i]
+	> div[class^="css-" i][class$="-control" i]:has(
+		> div[class^="css-" i] input:is([aria-controls], :focus)
+	) {
+	box-shadow: inset 0 0 0 2px var(--accent);
+}
+
+div
+	> label:not(:hover)
+	+ div[class^="css-" i][class$="-container" i]
+	> div[class^="css-" i][class$="-control" i]:has(
+		> div[class^="css-" i] input:is([aria-controls], :focus)
+	) {
+	box-shadow: inset 0 0 0 2px var(--accent);
+}
+
+div
+	> label
+	+ div[class^="css-" i][class$="-container" i]
+	> div[class^="css-" i][class$="-control" i]
+	> div[class^="css-" i]
+	> div[class^="css-" i][class$="-placeholder" i] {
+	user-select: none;
+	font-style: italic;
+	line-height: 2.5rem;
+	color: var(--contrast--400);
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+div
+	> label
+	+ div[class^="css-" i][class$="-container" i]
+	> div[class^="css-" i][class$="-control" i]
+	+ div[class^="css-" i][class$="-menu" i] {
+	border-radius: 0.25rem;
+	margin-top: 0.5rem;
+	z-index: 2;
+}
+
+div
+	> label
+	+ div[class^="css-" i][class$="-container" i]
+	> div[class^="css-" i][class$="-control" i]
+	+ div[class^="css-" i][class$="-menu" i]
+	> div[class^="css-" i] {
+	background: var(--white);
+	border-radius: 0.5rem;
+	box-shadow: inset 0 0 0 2px var(--accent);
+	max-height: 10rem;
+}
+
+div
+	> label
+	+ div[class^="css-" i][class$="-container" i]
+	> div[class^="css-" i][class$="-control" i]
+	+ div[class^="css-" i][class$="-menu" i]
+	> div[class^="css-" i]
+	> div[class$="-option" i] {
+	padding: 0 0.5rem;
+	cursor: pointer;
+	line-height: 2.5rem;
+}
+
+div
+	> label
+	+ div[class^="css-" i][class$="-container" i]
+	> div[class^="css-" i][class$="-control" i]
+	+ div[class^="css-" i][class$="-menu" i]
+	> div[class^="css-" i]
+	> div[class$="-option" i]:hover {
+	background: var(--accent);
+	color: var(--white);
+}
+
+div
+	> label
+	+ div[class^="css-" i][class^="css-" i][class$="-container" i]
+	> div[class^="css-" i][class$="-control" i]
+	+ div[class^="css-" i][class$="-menu" i]
+	> div[class^="css-" i]
+	> div[class$="-option" i][aria-selected="true"]:hover::before {
+	color: var(--white);
+}
+
+div
+	> label
+	+ div[class^="css-" i][class^="css-" i][class$="-container" i]
+	> div[class^="css-" i][class$="-control" i]
+	+ div[class^="css-" i][class$="-menu" i]
+	> div[class^="css-" i]
+	> div[class^="css-" i]:not([class$="-option" i]) {
+	font-style: italic;
+	font-size: 0.75rem;
+	color: var(--contrast--700);
+	cursor: not-allowed;
+}

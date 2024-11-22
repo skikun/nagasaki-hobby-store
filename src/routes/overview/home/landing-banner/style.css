@@ -23,8 +23,15 @@
 		will-change: transform;
 
 		&:has(div:hover) + div img {
-			opacity: 0;
-			transform: translateY(50%);
+			&:first-child {
+				opacity: 0;
+				transform: translateY(50%);
+			}
+
+			&:last-child {
+				transform: scale(0.6);
+				transform-origin: bottom;
+			}
 		}
 
 		div {

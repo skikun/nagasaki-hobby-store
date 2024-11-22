@@ -156,6 +156,13 @@ const View = () => {
 					disabled={
 						itemIndex !== -1 && cart[itemIndex].quantity === product.stock
 					}
+					title={
+						itemIndex !== -1 && cart[itemIndex].quantity === product.stock
+							? product.stock === 1
+								? "Solo hay un producto en existencias."
+								: `Solo hay ${product.stock} productos en existencias.`
+							: ""
+					}
 				>
 					Añadir al carrito
 				</button>

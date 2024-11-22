@@ -50,8 +50,13 @@ const Overview = () => {
 		let updatedCart = [...cart];
 
 		updatedCart[itemIndex].quantity += value;
+
 		updatedCart[itemIndex].total =
 			updatedCart[itemIndex].price * updatedCart[itemIndex].quantity;
+
+		if (updatedCart[itemIndex].quantity === 0) {
+			updatedCart.splice(itemIndex, 1);
+		}
 
 		setCart(updatedCart);
 	}

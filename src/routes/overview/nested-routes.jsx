@@ -55,7 +55,7 @@ const NESTED_HOME = [
 			<Franchise
 				slug="yu-gi-oh"
 				heading="Yu-Gi-Oh!"
-				description="Yu-Gi-Oh! es una franquicia de medios japonesa creada por Kazuki Takahashi. La serie original se publicó por primera vez en la revista Weekly Shōnen Jump de Shueisha desde septiembre de 1996 hasta marzo de 2004, con 343 capítulos recopilados en 38 volúmenes de tankōbon."
+				description="¡Desafía a los mejores duelistas y libera tu poder en el campo de batalla! 🃏✨ Aprende, juega y domina el emocionante TCG de Yu-Gi-Oh! ¿Estás listo para ser el próximo Rey de los Duelos?"
 				layout="left"
 				theme="dark"
 			/>
@@ -69,7 +69,7 @@ const NESTED_HOME = [
 			<Franchise
 				slug="accesorios"
 				heading="Accesorios"
-				description="Accesorios para tus juegos de mesa favoritos."
+				description="Equípate como un verdadero duelista 🃏⚡ En nuestra tienda encontrarás todo lo que necesitas para tus juegos TCG: fundas premium para proteger tus cartas, tapetes de diseño exclusivo, deck boxes resistentes y organizadores para mantener tu mazo en perfectas condiciones. ¡Haz que cada duelo cuente y juega con estilo!"
 				layout="right"
 				theme="dark"
 			/>

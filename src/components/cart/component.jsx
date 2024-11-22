@@ -56,23 +56,27 @@ const Component = ({ open, onToggle, cart, onChange }) => {
 					{cart.length === 0 && <p>No hay productos en el carrito.</p>}
 				</div>
 				{cart.length !== 0 && (
-					<div>
-						{cart
-							.reduce((acc, { total }) => acc + parseFloat(total), 0)
-							.toString()
-							.replace(/\D/g, "")
-							.replace(/^(\d{1,3})(\d{3})$/, "$1.$2")
-							.replace(/^(\d{1,3})(\d{3})(\d{3})$/, "$1'$2.$3")}
+					<>
 						<hr />
-						<button
-							onClick={() => {
-								navigate("checkout", { state: cart });
-								onToggle(!open);
-							}}
-						>
-							Ir al cheque
-						</button>
-					</div>
+						<div>
+							<button
+								onClick={() => {
+									navigate("checkout", { state: cart });
+									onToggle(!open);
+								}}
+							>
+								Ir al cheque
+							</button>
+							<span>
+								{cart
+									.reduce((acc, { total }) => acc + parseFloat(total), 0)
+									.toString()
+									.replace(/\D/g, "")
+									.replace(/^(\d{1,3})(\d{3})$/, "$$ $1.$2")
+									.replace(/^(\d{1,3})(\d{3})(\d{3})$/, "$$ $1'$2.$3")}
+							</span>
+						</div>
+					</>
 				)}
 			</aside>
 		</div>

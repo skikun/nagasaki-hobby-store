@@ -55,9 +55,10 @@ main:has(.product-grid) {
 	height: calc(100vh - 6.5rem);
 
 	div {
-		width: 100%;
-		max-width: 46rem;
+		width: calc(100% - 6rem);
+		max-width: 64rem;
 		padding-top: 12rem;
+		gap: 2rem;
 		z-index: 1;
 
 		@media screen and (min-width: 140rem) {
@@ -77,10 +78,15 @@ main:has(.product-grid) {
 		object-fit: cover;
 	}
 
-	h1,
+	h1 {
+		font-size: 4rem;
+		text-shadow: 1px 1px 0.25rem rgba(0, 0, 0, 0.5);
+	}
+
 	h6,
 	p {
-		width: 35%;
+		width: 50%;
+		text-shadow: 1px 1px 0.25rem rgba(0, 0, 0, 0.5);
 	}
 
 	&.dark {
