@@ -4,7 +4,7 @@ import { CONFIG } from "../config";
 const PRODUCTS = {
 	get: async (id) => {
 		const response = await (
-			await fetch(id ? `${GET}/${id}` : GET, {
+			await fetch(id ? `${GET}/${id}` : `${GET}?per_page=100`, {
 				...CONFIG,
 			})
 		).json();

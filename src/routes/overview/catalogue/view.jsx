@@ -20,6 +20,8 @@ const Catalogue = ({ category, search }) => {
 		async function retrieveData() {
 			const products = await PRODUCTS.get();
 
+			console.log(products);
+
 			const catalogue = products.map((product) => {
 				const price = product.prices.price;
 				const regularPrice = product.prices.regular_price;

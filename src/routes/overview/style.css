@@ -10,7 +10,7 @@ main:has(.slider) {
 	.slider {
 		flex-direction: row;
 		overflow-x: scroll;
-		max-width: calc(100vw);
+		max-width: calc(100vw - 1rem);
 		gap: 2rem;
 		margin-bottom: 4rem;
 		padding: 2rem;

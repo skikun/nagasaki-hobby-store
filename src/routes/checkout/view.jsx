@@ -353,11 +353,13 @@ const View = () => {
 							<>
 								<h6>Dirección de entrega</h6>
 								<p>
-									{address}, {neighborhood} - {city}, {province}
+									{address}, {neighborhood} {zipcode && `(${zipcode})`} - {city}
+									, {province}
 								</p>
 								<hr />
 							</>
 						)}
+					<h6>Listado de productos</h6>
 					<table>
 						<tbody>
 							{cart.map(({ key, name, total }) => {
@@ -379,7 +381,7 @@ const View = () => {
 								<td>(por definir)</td>
 							</tr>
 							<tr>
-								<td>TOTAL</td>
+								<td>Total</td>
 								<td>
 									{cart
 										.reduce((acc, { total }) => acc + parseFloat(total), 0)
