@@ -43,9 +43,7 @@ const View = () => {
 
 	const [address, setAddress] = useState("");
 
-	const [loading, setLoading] = useState(false);
 	const [done, setDone] = useState(false);
-	const [error, setError] = useState(false);
 	const [success, setSuccess] = useState(false);
 	const [result, setResult] = useState("");
 
@@ -71,9 +69,7 @@ const View = () => {
 
 		setResult("Realizando orden, por favor espere un momento...");
 
-		setLoading(true);
 		setDone(false);
-		setError(false);
 		setSuccess(false);
 
 		const formData = new FormData(e.target);
@@ -87,18 +83,15 @@ const View = () => {
 
 		const data = await response.json();
 
-		setLoading(false);
 		setDone(true);
 
 		if (data.success) {
-			setError(false);
 			setSuccess(true);
 			setResult("Su orden ha sido realizada exitosamente.");
 			e.target.reset();
 		} else {
 			console.log("Error:", data);
 			setSuccess(false);
-			setError(true);
 			setResult(
 				"Ha ocurrido un error al intentar procesar su orden:",
 				data.message

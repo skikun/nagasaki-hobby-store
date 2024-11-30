@@ -28,11 +28,11 @@ const Component = ({ title, day, month, year, hour, franchise }) => {
 			)}
 			{brand === "nagasaki" && (
 				<>
-					<img src="" alt="" />
-					<img src={Logo} alt="Brand logo" />
+					<img src="" alt="Placeholder" />
+					<img src={Logo} alt="Nagasaki Hobby Store logo" />
 					<img
 						src={require(`../../assets/brand/character.png`)}
-						alt="Brand background"
+						alt="Nagasaki Hobby Store solid color background"
 					/>
 				</>
 			)}
