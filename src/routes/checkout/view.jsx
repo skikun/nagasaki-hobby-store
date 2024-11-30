@@ -5,6 +5,9 @@ import Input from "../../components/input/component";
 import Select from "../../components/select/component";
 import Incrementer from "../../components/incrementer/component";
 
+import Bancolombia from "../../assets/payment-methods/bancolombia.svg";
+import Nequi from "../../assets/payment-methods/nequi.svg";
+
 import "./style.css";
 
 const ROAD_TYPE_OPTIONS = [
@@ -329,77 +332,104 @@ const View = () => {
 					</section>
 				</div>
 			)}
-			<div>
-				<aside>
-					<h2>Resumen</h2>
-					{name && cellphone && email && (
-						<>
-							<p>
-								Es un gusto atenderlo,{" "}
-								<strong>{nickname ? nickname : name.split(" ", 2)[0]}</strong>.
-								<br />
-								<br />
-								Nos comunicaremos por WhatsApp o llamada telefónica a su número{" "}
-								<strong>{cellphone}</strong>. En caso de no responder, le
-								enviaremos un correo a <strong>{email}</strong>.
-							</p>
-							<hr />
-						</>
-					)}
-					{province &&
-						city &&
-						neighborhood &&
-						(road ? (road.value === 8 ? roadOther : road) : road) && (
+			{!done && !success ? (
+				<div>
+					<aside>
+						<h2>Resumen</h2>
+						{name && cellphone && email && (
 							<>
-								<h6>Dirección de entrega</h6>
 								<p>
-									{address}, {neighborhood} {zipcode && `(${zipcode})`} - {city}
-									, {province}
+									Es un gusto atenderlo,{" "}
+									<strong>{nickname ? nickname : name.split(" ", 2)[0]}</strong>
+									.
+									<br />
+									<br />
+									Nos comunicaremos por WhatsApp o llamada telefónica a su
+									número <strong>{cellphone}</strong>. En caso de no responder,
+									le enviaremos un correo a <strong>{email}</strong>.
 								</p>
 								<hr />
 							</>
 						)}
-					<h6>Listado de productos</h6>
-					<table>
-						<tbody>
-							{cart.map(({ key, name, total }) => {
-								return (
-									<tr key={key}>
-										<td>{name}</td>
-										<td>
-											{total
-												.toString()
-												.replace(/\D/g, "")
-												.replace(/^(\d{1,3})(\d{3})$/, "$$$1.$2")
-												.replace(/^(\d{1,3})(\d{3})(\d{3})$/, "$$$1'$2.$3")}
-										</td>
-									</tr>
-								);
-							})}
-							<tr>
-								<td>Envío</td>
-								<td>(por definir)</td>
-							</tr>
-							<tr>
-								<td>Total</td>
-								<td>
-									{cart
-										.reduce((acc, { total }) => acc + parseFloat(total), 0)
-										.toString()
-										.replace(/\D/g, "")
-										.replace(/^(\d{1,3})(\d{3})$/, "$1.$2")
-										.replace(/^(\d{1,3})(\d{3})(\d{3})$/, "$1'$2.$3")}
-								</td>
-							</tr>
-						</tbody>
-					</table>
-					<hr />
-					<input type="submit" form="checkout" value="Realizar orden" />
-					{result && <span>{result}</span>}
-				</aside>
-				Una vez puesta la orden, nos comunicaremos prontamente contigo para
-				informarte del valor del envío y concluir la compra.
-			</div>
+						{province &&
+							city &&
+							neighborhood &&
+							(road ? (road.value === 8 ? roadOther : road) : road) && (
+								<>
+									<h6>Dirección de entrega</h6>
+									<p>
+										{address}, {neighborhood} {zipcode && `(${zipcode})`} -{" "}
+										{city}, {province}
+									</p>
+									<hr />
+								</>
+							)}
+						<h6>Listado de productos</h6>
+						<table>
+							<tbody>
+								{cart.map(({ key, name, total }) => {
+									return (
+										<tr key={key}>
+											<td>{name}</td>
+											<td>
+												{total
+													.toString()
+													.replace(/\D/g, "")
+													.replace(/^(\d{1,3})(\d{3})$/, "$$$1.$2")
+													.replace(/^(\d{1,3})(\d{3})(\d{3})$/, "$$$1'$2.$3")}
+											</td>
+										</tr>
+									);
+								})}
+								<tr>
+									<td>Envío</td>
+									<td>(por definir)</td>
+								</tr>
+								<tr>
+									<td>Total</td>
+									<td>
+										{cart
+											.reduce((acc, { total }) => acc + parseFloat(total), 0)
+											.toString()
+											.replace(/\D/g, "")
+											.replace(/^(\d{1,3})(\d{3})$/, "$1.$2")
+											.replace(/^(\d{1,3})(\d{3})(\d{3})$/, "$1'$2.$3")}
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<hr />
+						<input type="submit" form="checkout" value="Realizar orden" />
+						{result && <span>{result}</span>}
+					</aside>
+					Una vez puesta la orden, nos comunicaremos prontamente contigo para
+					informarte del valor del envío y concluir la compra.
+				</div>
+			) : (
+				<div>
+					<aside>
+						<h1>¡Tu orden ha sido realizada!</h1>
+						<p>
+							Por favor, comunícate con nosotros al{" "}
+							<a href="https://wa.me/573134431709">317 249 6541</a>, o a nuestro
+							correo electrónico{" "}
+							<a href="mailto:nagasakihobbystore@gmail.com">
+								nagasakihobbystore@gmail.com
+							</a>
+							.
+						</p>
+					</aside>
+					<p>
+						Estos son nuestros métodos de pago autorizados. ¿No tienes ninguno
+						de los dos? ¡No te preocupes! Puedes recargar a Nequi usando PSE o
+						Transfiya, <strong>¡y el dinero llega de una vez!</strong>
+					</p>
+					<div>
+						<img src={Bancolombia} alt="Bancolombia logo" />
+						<img src={Nequi} alt="Nequi logo" />
+					</div>
+				</div>
+			)}
 		</main>
 	) : (
 		<section className="not-found">

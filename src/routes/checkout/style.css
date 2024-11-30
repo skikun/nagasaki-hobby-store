@@ -247,3 +247,59 @@ main:has(table, aside) {
 		line-height: 2.5rem;
 	}
 }
+
+main:has(> div:first-child aside) {
+	justify-content: center;
+	align-items: center;
+
+	h1,
+	p {
+		text-align: center;
+	}
+
+	a,
+	strong {
+		font-size: 0.75rem;
+		line-height: 1rem;
+		color: var(--accent);
+		text-decoration: none;
+		font-weight: 600;
+	}
+
+	a:hover {
+		text-decoration: underline;
+	}
+
+	> div {
+		transform: translateY(-4rem);
+		max-width: 28rem;
+		gap: 2rem;
+
+		div {
+			flex-direction: row;
+			justify-content: center;
+		}
+
+		> p {
+			font-size: 0.75rem;
+			line-height: 1rem;
+			text-wrap: pretty;
+
+			strong {
+				font-size: 0.75rem;
+				line-height: 1rem;
+				font-weight: 600;
+				color: var(--contrast--700);
+			}
+		}
+
+		img {
+			height: 3.5rem;
+			object-fit: contain;
+			object-position: center;
+			padding: 1rem;
+			user-select: none;
+			transform: translateY(-1rem);
+		}
+	}
+}
