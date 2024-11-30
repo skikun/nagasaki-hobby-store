@@ -18,14 +18,19 @@ const View = () => {
 			const _ = _events.events.map((event) => {
 				const date = event.utc_start_date_details;
 
+				const month = Intl.DateTimeFormat("es", { month: "long" }).format(
+					new Date(date.month)
+				);
+
 				return {
 					key: crypto.randomUUID(),
 					title: event.title,
 					description: DECODER.decode(event.description),
 					year: date.year,
-					month: date.month,
+					month: month.charAt(0).toUpperCase() + month.slice(1),
 					day: date.day,
 					hour: `${date.hour}:${date.minutes}`,
+					franchise: event.categories[0].slug,
 				};
 			});
 
@@ -37,16 +42,16 @@ const View = () => {
 
 	return (
 		<section>
-			{events.map(({ key, title, description, year, month, day, hour }) => {
+			{events.map(({ key, title, year, month, day, hour, franchise }) => {
 				return (
 					<Event
 						key={key}
 						title={title}
-						description={description}
 						day={day}
 						month={month}
 						year={year}
 						hour={hour}
+						franchise={franchise}
 					/>
 				);
 			})}

@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-import BRANDS from "../../assets/brands/exporter";
+import BRANDS from "../../assets/franchises/exporter";
 
 import "./style.css";
 

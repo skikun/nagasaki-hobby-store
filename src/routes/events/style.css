@@ -1,9 +1,10 @@
 section:has(.event) {
 	padding: 8rem 4rem;
-	gap: 2rem;
+	gap: 6rem;
 	perspective: 100rem;
 
-	&:has(div:hover) > div:not(:hover) {
-		filter: blur(2px) opacity(0.2);
+	&:has(> *:hover) div:not(:hover) {
+		filter: blur(0.25rem) opacity(0.5) grayscale(0.5);
+		scale: 0.9;
 	}
 }

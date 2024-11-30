@@ -1,5 +1,7 @@
 import React from "react";
 
+import Button from "../../../../components/button/component";
+
 import Characters from "./assets/characters.png";
 import ThousandSunny from "./assets/thousand-sunny.png";
 import Ocean from "./assets/ocean.png";
@@ -25,7 +27,7 @@ const OnePieceBanner = () => {
 					está aquí! Una experiencia épica donde podrás vivir la emoción de la
 					Gran Línea en cada partida.
 				</p>
-				<button>Ir a la colección</button>
+				<Button label="Ir a la colección" />
 			</div>
 			<img src={Characters} alt="Characters" />
 		</section>

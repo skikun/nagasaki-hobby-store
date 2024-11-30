@@ -1,6 +1,4 @@
-import React from "react";
-
-import Brand from "./assets/brand.svg";
+import Logo from "../../../../assets/brand/logo.svg";
 
 import "./style.css";
 
@@ -41,10 +39,10 @@ const LandingBannner = () => {
 				<div>
 					<img
 						loading="lazy"
-						src={require("./assets/character.png")}
+						src={require("../../../../assets/brand/character.png")}
 						alt="Character"
 					/>
-					<img loading="lazy" src={Brand} alt="Brand logo" />
+					<img loading="lazy" src={Logo} alt="Brand logo" />
 				</div>
 			</div>
 		</>

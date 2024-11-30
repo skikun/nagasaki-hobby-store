@@ -1,32 +1,103 @@
 .event {
-	background: #99f;
-	border-radius: 1rem;
 	padding: 1rem;
+	padding-top: 4rem;
+	padding-right: 10rem;
+	padding-bottom: 3rem;
 	gap: 1rem;
 	max-width: 48rem;
 	width: 100%;
 	cursor: pointer;
 	perspective: 500px;
+	filter: blur(0) opacity(1) grayscale(0.5);
+	background: var(--accent);
+	border-radius: 1rem;
 
 	&:first-child {
-		filter: brightness(1.2);
-		box-shadow: inset 0 0 0 4px #f99;
 		max-width: 64rem;
 		padding: 2rem;
-		background: #9f9;
+		padding-top: 8rem;
+		padding-right: 16rem;
+		padding-bottom: 5rem;
+		filter: blur(0) opacity(1) grayscale(0);
+
+		img {
+			&:nth-child(1) {
+				filter: brightness(1);
+			}
+			&:nth-child(2) {
+				height: 10rem;
+				bottom: -5rem;
+			}
+
+			&:nth-child(3) {
+				width: 16rem;
+				right: -6rem;
+			}
+		}
 	}
 
 	&:hover {
 		transform: rotateX(4deg) translateZ(0.5rem) scale(1.05);
-		box-shadow: 0 0 10rem 0 #256eff99;
+		filter: blur(0) opacity(1) grayscale(0);
+
+		img {
+			&:nth-child(1) {
+				filter: brightness(1);
+			}
+			&:nth-child(2) {
+				transform: scale(1.2) rotate(-2deg);
+			}
+
+			&:nth-child(3) {
+				right: -7rem;
+				transform: scale(1.2) rotate(5deg);
+			}
+		}
 	}
 
-	h1 {
+	&:not(> img:first-child) {
+		box-shadow: 0 0 0 1rem #f0f;
+	}
+
+	h1,
+	h2 {
 		text-wrap: balance;
+		color: var(--white);
 	}
 
-	> p:last-child {
-		opacity: 0.5;
+	p {
 		color: #fff;
+	}
+
+	img {
+		width: 100%;
+		position: absolute;
+
+		&[src=""] {
+			display: none;
+		}
+
+		&:nth-child(1) {
+			height: 100%;
+			inset: 0;
+			border-radius: 1rem;
+			object-fit: cover;
+			z-index: -1;
+			filter: brightness(0.5);
+		}
+
+		&:nth-child(2) {
+			height: 6rem;
+			bottom: -3rem;
+			object-fit: contain;
+		}
+
+		&:nth-child(3) {
+			height: 100%;
+			right: -3rem;
+			width: 12rem;
+			object-fit: contain;
+			bottom: 0;
+		}
 	}
 }

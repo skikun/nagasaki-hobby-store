@@ -2,14 +2,13 @@ import React from "react";
 
 import Left from "../../../assets/summary/left.png";
 import Right from "../../../assets/summary/right.png";
-import Brand from "./landing-banner/assets/brand.svg";
 
 import BrandList from "../../../components/brand-list/component";
-import Button from "../../../components/button/component";
 
 import LandingBannner from "./landing-banner/view";
-import Catalogue from "../catalogue/view";
 import OnePieceBanner from "./one-piece-banner/view";
+
+import Catalogue from "../catalogue/view";
 
 import "./style.css";
 import "../style.css";
@@ -43,7 +42,6 @@ const Home = () => {
 						tus amigos en emocionantes batallas. ¡Hazte con tus cartas favoritas
 						y domina el juego!
 					</p>
-					<Button label="Más información" />
 				</div>
 				<img loading="lazy" src={Right} alt="2" />
 			</section>
@@ -61,10 +59,14 @@ const Home = () => {
 					encantar!
 				</p>
 				<img
-					src={require("./landing-banner/assets/character.png")}
-					alt="Character"
+					src={require("../../../assets/brand/character.png")}
+					alt="Brand character"
 				/>
-				<img loading="lazy" src={Brand} alt="Brand logo" />
+				<img
+					src={require("../../../assets/brand/logo.svg")}
+					alt="Brand logo"
+					loading="lazy"
+				/>
 			</div>
 		</>
 	);
