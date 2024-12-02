@@ -10,13 +10,13 @@ import DigimonCharacter from "./digimon/character.png";
 import DigimonLogo from "./digimon/logo.png";
 import DigimonBackground from "./digimon/background.png";
 
-import YuGiOhCharacter from "./yu-gi-oh/character.png";
-import YuGiOhLogo from "./yu-gi-oh/logo.png";
-import YuGiOhBackground from "./yu-gi-oh/background.png";
+import MitosYLeyendasCharacter from "./mitos-y-leyendas/character.png";
+import MitosYLeyendasLogo from "./mitos-y-leyendas/logo.png";
+import MitosYLeyendasBackground from "./mitos-y-leyendas/background.png";
 
-import StarWarsCharacter from "./star-wars/character.png";
-import StarWarsLogo from "./star-wars/logo.png";
-import StarWarsBackground from "./star-wars/background.png";
+import AccesoriosCharacter from "./accesorios/character.png";
+import AccesoriosLogo from "./accesorios/logo.png";
+import AccesoriosBackground from "./accesorios/background.png";
 
 const BRANDS = [
 	{
@@ -41,17 +41,17 @@ const BRANDS = [
 		key: crypto.randomUUID(),
 	},
 	{
-		route: "yu-gi-oh",
-		character: YuGiOhCharacter,
-		logo: YuGiOhLogo,
-		background: YuGiOhBackground,
+		route: "mitos-y-leyendas",
+		character: MitosYLeyendasCharacter,
+		logo: MitosYLeyendasLogo,
+		background: MitosYLeyendasBackground,
 		key: crypto.randomUUID(),
 	},
 	{
 		route: "accesories",
-		character: StarWarsCharacter,
-		logo: StarWarsLogo,
-		background: StarWarsBackground,
+		character: AccesoriosCharacter,
+		logo: AccesoriosLogo,
+		background: AccesoriosBackground,
 		key: crypto.randomUUID(),
 	},
 ];

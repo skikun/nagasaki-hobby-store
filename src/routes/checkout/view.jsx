@@ -404,7 +404,7 @@ const View = () => {
 						<h1>¡Tu orden ha sido realizada!</h1>
 						<p>
 							Por favor, comunícate con nosotros al{" "}
-							<a href="https://wa.me/573134431709">317 249 6541</a>, o a nuestro
+							<a href="https://wa.me/573172496541">317 249 6541</a>, o a nuestro
 							correo electrónico{" "}
 							<a href="mailto:nagasakihobbystore@gmail.com">
 								nagasakihobbystore@gmail.com

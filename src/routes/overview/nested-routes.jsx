@@ -18,8 +18,8 @@ const NESTED_HOME = [
 				theme="light"
 			/>
 		),
-		key: crypto.randomUUID(),
 		label: "Pokémon",
+		key: crypto.randomUUID(),
 	},
 	{
 		path: "one-piece",
@@ -32,8 +32,8 @@ const NESTED_HOME = [
 				theme="light"
 			/>
 		),
-		key: crypto.randomUUID(),
 		label: "One Piece",
+		key: crypto.randomUUID(),
 	},
 	{
 		path: "digimon",
@@ -46,36 +46,36 @@ const NESTED_HOME = [
 				theme="light"
 			/>
 		),
-		key: crypto.randomUUID(),
 		label: "Digimón",
+		key: crypto.randomUUID(),
 	},
 	{
-		path: "yu-gi-oh",
+		path: "mitos-y-leyendas",
 		element: (
 			<Franchise
-				slug="yu-gi-oh"
-				heading="Yu-Gi-Oh!"
+				slug="mitos-y-leyendas"
+				heading="Mitos & Leyendas"
 				description="¡Desafía a los mejores duelistas y libera tu poder en el campo de batalla! 🃏✨ Aprende, juega y domina el emocionante TCG de Yu-Gi-Oh! ¿Estás listo para ser el próximo Rey de los Duelos?"
 				layout="left"
 				theme="dark"
 			/>
 		),
+		label: "Mitos & Leyendas",
 		key: crypto.randomUUID(),
-		label: "Yu-Gi-Oh!",
 	},
 	{
-		path: "accesories",
+		path: "accesories-and-board-games",
 		element: (
 			<Franchise
 				slug="accesorios"
-				heading="Accesorios"
+				heading="Accesorios & Juegos de Mesa"
 				description="Equípate como un verdadero duelista 🃏⚡ En nuestra tienda encontrarás todo lo que necesitas para tus juegos TCG: fundas premium para proteger tus cartas, tapetes de diseño exclusivo, deck boxes resistentes y organizadores para mantener tu mazo en perfectas condiciones. ¡Haz que cada duelo cuente y juega con estilo!"
 				layout="right"
 				theme="dark"
 			/>
 		),
+		label: "Accesorios & Juegos de Mesa",
 		key: crypto.randomUUID(),
-		label: "Accesorios",
 	},
 ];
 

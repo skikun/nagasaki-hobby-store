@@ -29,7 +29,7 @@ const Footer = () => {
 					<a href="https://facebook.com/NagasakiHobbyStore/">
 						<img loading="lazy" src={Facebook} alt="Facebook logo" />
 					</a>
-					<a href="https://wa.me/573134431709">
+					<a href="https://wa.me/573172496541">
 						<img loading="lazy" src={WhatsApp} alt="WhatsApp logo" />
 					</a>
 				</div>
