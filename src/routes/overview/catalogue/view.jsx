@@ -4,6 +4,7 @@ import PRODUCTS from "../../../api/products/api";
 
 import * as DECODER from "../../../utils/DECODER";
 
+import Paginator from "../../../components/paginator/component";
 import Item from "../../../components/item/component";
 import Loading from "../../../components/loading/component";
 
@@ -22,9 +23,9 @@ const Catalogue = ({ category, search }) => {
 
 	useEffect(() => {
 		async function retrieveData() {
-			const { products, pages } = await PRODUCTS.get(undefined, page);
+			const { products, total } = await PRODUCTS.get(undefined, page);
 
-			setPages(pages);
+			setPages(Array.from({ length: total }, (_, i) => i + 1));
 
 			const catalogue = products.map((product) => {
 				const price = product.prices.price;
@@ -61,6 +62,7 @@ const Catalogue = ({ category, search }) => {
 	return items[0] ? (
 		<main>
 			<h2>Catálogo de productos</h2>
+			<Paginator total={pages} current={page} onClick={(e) => setPage(e)} />
 			<div className="slider">
 				{items.map(
 					({ key, id, image, name, price, discount, stock, category }) => (

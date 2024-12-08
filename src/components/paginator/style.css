@@ -1,0 +1,9 @@
+.paginator {
+	flex-direction: row;
+	gap: 0.5rem;
+
+	button[disabled="true"] {
+		pointer-events: none;
+		opacity: 0.5;
+	}
+}

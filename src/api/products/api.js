@@ -10,11 +10,11 @@ const PRODUCTS = {
 			}
 		);
 
-		const pages = response.headers.get("X-WP-TotalPages");
+		const total = response.headers.get("X-WP-TotalPages");
 
 		const products = await response.json();
 
-		return { products, pages };
+		return { products, total };
 	},
 };
 
