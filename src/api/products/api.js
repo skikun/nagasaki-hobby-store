@@ -1,20 +1,29 @@
-import { GET } from "./endpoints";
+import { GET, GET_BY_ID } from "./endpoints";
 import { CONFIG } from "../config";
 
 const PRODUCTS = {
-	get: async (id, page) => {
-		const response = await fetch(
-			id ? `${GET}/${id}` : `${GET}?page=${page}&per_page=100`,
-			{
-				...CONFIG,
-			}
-		);
+	getById: async ({ id }) => {
+		const response = await fetch(`${GET_BY_ID}/${id}`, {
+			...CONFIG,
+		});
 
-		const total = response.headers.get("X-WP-TotalPages");
+		const product = await response.json()[0];
 
+		return { product };
+	},
+	get: async ({ page, search }) => {
+		const endpoint = search
+			? `${GET}${page}&search=${search}`
+			: `${GET}${page}`;
+
+		const response = await fetch(endpoint, {
+			...CONFIG,
+		});
+
+		const totalPages = response.headers.get("X-WP-TotalPages");
 		const products = await response.json();
 
-		return { products, total };
+		return { products, totalPages };
 	},
 };
 

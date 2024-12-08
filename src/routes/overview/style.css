@@ -1,28 +1,3 @@
-main:has(.product-grid) {
-	padding: 4rem 8rem;
-	gap: 2rem;
-
-	* {
-		user-select: none;
-	}
-
-	.product-grid {
-		display: grid;
-		width: 100%;
-		max-width: 46rem;
-		gap: 2rem;
-		grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
-
-		@media screen and (min-width: 140rem) {
-			max-width: 62rem;
-		}
-
-		@media screen and (min-width: 160rem) {
-			max-width: 78rem;
-		}
-	}
-}
-
 .landing {
 	position: relative;
 	height: calc(100vh - 6.5rem);

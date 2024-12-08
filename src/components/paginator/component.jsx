@@ -4,10 +4,10 @@ const Component = ({ total, current, onClick }) => {
 	return (
 		<div className="paginator">
 			{total.map((page) => {
-				console.log("sdfsdf", page, current);
 				return (
 					<button
-						disabled={page === current ? "true" : ""}
+						key={page}
+						disabled={page === current}
 						onClick={() => onClick(page)}
 					>
 						{page}

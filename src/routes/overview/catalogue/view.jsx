@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 
-import PRODUCTS from "../../../api/products/api";
-
 import * as DECODER from "../../../utils/DECODER";
+
+import PRODUCTS from "../../../api/products/api";
 
 import Paginator from "../../../components/paginator/component";
 import Item from "../../../components/item/component";
@@ -10,10 +10,12 @@ import Loading from "../../../components/loading/component";
 
 import "./style.css";
 
-const Catalogue = ({ category, search }) => {
+const Catalogue = ({ category }) => {
 	const [items, setItems] = useState([]);
 	const [page, setPage] = useState(1);
 	const [pages, setPages] = useState(null);
+	const [search, setSearch] = useState("");
+	const [loading, setLoading] = useState(true);
 
 	function getDiscount(previous, current) {
 		const decimal = current / previous - 1;
@@ -23,9 +25,11 @@ const Catalogue = ({ category, search }) => {
 
 	useEffect(() => {
 		async function retrieveData() {
-			const { products, total } = await PRODUCTS.get(undefined, page);
+			setLoading(true);
 
-			setPages(Array.from({ length: total }, (_, i) => i + 1));
+			const { products, totalPages } = await PRODUCTS.get({ search, page });
+
+			setPages(Array.from({ length: totalPages }, (_, i) => i + 1));
 
 			const catalogue = products.map((product) => {
 				const price = product.prices.price;
@@ -47,41 +51,54 @@ const Catalogue = ({ category, search }) => {
 				return item.category === category;
 			});
 
-			const searchFiltered = categoryFiltered.filter((item) => {
-				return item.name.toLowerCase().includes(search.toLowerCase());
-			});
+			setItems(category ? categoryFiltered : catalogue);
 
-			setItems(
-				search ? searchFiltered : category ? categoryFiltered : catalogue
-			);
+			setLoading(false);
 		}
 
 		retrieveData();
-	}, [category, search, page]);
+	}, [category, page, search]);
 
-	return items[0] ? (
-		<main>
+	return (
+		<main className="catalogue">
 			<h2>Catálogo de productos</h2>
-			<Paginator total={pages} current={page} onClick={(e) => setPage(e)} />
-			<div className="slider">
-				{items.map(
-					({ key, id, image, name, price, discount, stock, category }) => (
-						<Item
-							key={key}
-							id={id}
-							image={image}
-							name={name}
-							price={price}
-							discount={discount}
-							stock={stock}
-							category={category}
-						/>
-					)
+			<div>
+				<input
+					type="search"
+					placeholder="Buscar un producto..."
+					onChange={(e) => setSearch(e.target.value)}
+					value={search}
+				/>
+				{pages && (
+					<Paginator total={pages} current={page} onClick={(e) => setPage(e)} />
 				)}
 			</div>
+			{loading ? (
+				<Loading />
+			) : items[0] ? (
+				<div className="product-grid">
+					{items.map(
+						({ key, id, image, name, price, discount, stock, category }) => (
+							<Item
+								key={key}
+								id={id}
+								image={image}
+								name={name}
+								price={price}
+								discount={discount}
+								stock={stock}
+								category={category}
+							/>
+						)
+					)}
+				</div>
+			) : (
+				<p>La búsqueda no arrojó ningún resultado.</p>
+			)}
+			{pages && (
+				<Paginator total={pages} current={page} onClick={(e) => setPage(e)} />
+			)}
 		</main>
-	) : (
-		<Loading />
 	);
 };
 

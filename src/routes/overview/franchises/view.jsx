@@ -1,16 +1,8 @@
-import { useState } from "react";
-
 import Catalogue from "../catalogue/view";
 
 import "../style.css";
 
 const View = ({ slug, heading, description, layout, theme }) => {
-	const [search, setSearch] = useState("");
-
-	function onSearch(e) {
-		setSearch(e.target.value);
-	}
-
 	return (
 		<>
 			<section className={`landing ${layout} ${theme}`}>
@@ -24,18 +16,7 @@ const View = ({ slug, heading, description, layout, theme }) => {
 					<p>{description}</p>
 				</div>
 			</section>
-			<main>
-				<h2>Catálogo de productos de {heading}</h2>
-				<div className="product-grid">
-					<input
-						type="search"
-						placeholder="Buscar un producto..."
-						onChange={(e) => onSearch(e)}
-						value={search}
-					/>
-					<Catalogue category={slug} search={search} />
-				</div>
-			</main>
+			<Catalogue category={slug} />
 		</>
 	);
 };
