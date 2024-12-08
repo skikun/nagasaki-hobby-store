@@ -7,8 +7,12 @@ import * as DECODER from "../../../utils/DECODER";
 import Item from "../../../components/item/component";
 import Loading from "../../../components/loading/component";
 
+import "./style.css";
+
 const Catalogue = ({ category, search }) => {
 	const [items, setItems] = useState([]);
+	const [page, setPage] = useState(1);
+	const [pages, setPages] = useState(null);
 
 	function getDiscount(previous, current) {
 		const decimal = current / previous - 1;
@@ -18,9 +22,9 @@ const Catalogue = ({ category, search }) => {
 
 	useEffect(() => {
 		async function retrieveData() {
-			const products = await PRODUCTS.get();
+			const { products, pages } = await PRODUCTS.get(undefined, page);
 
-			console.log(products);
+			setPages(pages);
 
 			const catalogue = products.map((product) => {
 				const price = product.prices.price;
@@ -52,21 +56,28 @@ const Catalogue = ({ category, search }) => {
 		}
 
 		retrieveData();
-	}, [category, search]);
+	}, [category, search, page]);
 
 	return items[0] ? (
-		items.map(({ key, id, image, name, price, discount, stock, category }) => (
-			<Item
-				key={key}
-				id={id}
-				image={image}
-				name={name}
-				price={price}
-				discount={discount}
-				stock={stock}
-				category={category}
-			/>
-		))
+		<main>
+			<h2>Catálogo de productos</h2>
+			<div className="slider">
+				{items.map(
+					({ key, id, image, name, price, discount, stock, category }) => (
+						<Item
+							key={key}
+							id={id}
+							image={image}
+							name={name}
+							price={price}
+							discount={discount}
+							stock={stock}
+							category={category}
+						/>
+					)
+				)}
+			</div>
+		</main>
 	) : (
 		<Loading />
 	);

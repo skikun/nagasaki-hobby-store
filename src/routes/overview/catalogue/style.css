@@ -1,0 +1,26 @@
+main:has(.slider) {
+	position: relative;
+	gap: 2rem;
+	padding-top: 4rem;
+
+	* {
+		user-select: none;
+	}
+
+	.slider {
+		display: grid;
+		max-width: 64rem;
+		width: 100%;
+		gap: 2rem;
+		grid-template-columns: repeat(4, 1fr);
+		padding-bottom: 2rem;
+
+		* {
+			user-select: none;
+		}
+
+		article {
+			max-width: 14rem;
+		}
+	}
+}

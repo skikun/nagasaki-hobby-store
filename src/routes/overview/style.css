@@ -1,30 +1,3 @@
-main:has(.slider) {
-	position: relative;
-	gap: 0.5rem;
-	padding-top: 4rem;
-
-	* {
-		user-select: none;
-	}
-
-	.slider {
-		flex-direction: row;
-		overflow-x: scroll;
-		max-width: calc(100vw - 1rem);
-		gap: 2rem;
-		margin-bottom: 4rem;
-		padding: 2rem;
-
-		* {
-			user-select: none;
-		}
-
-		article {
-			max-width: 14rem;
-		}
-	}
-}
-
 main:has(.product-grid) {
 	padding: 4rem 8rem;
 	gap: 2rem;
