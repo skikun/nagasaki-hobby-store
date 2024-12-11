@@ -74,7 +74,7 @@ const View = () => {
 
 		const formData = new FormData(e.target);
 
-		formData.append("access_key", "893363b7-4104-4b58-a902-f840b4941e3e");
+		formData.append("access_key", "0a7769d8-ce0d-4913-93b9-3592eef8190d");
 
 		const response = await fetch("https://api.web3forms.com/submit", {
 			method: "POST",
