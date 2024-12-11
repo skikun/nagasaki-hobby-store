@@ -14,8 +14,8 @@ const Overview = () => {
 	const [cart, setCart] = useState([]);
 
 	async function addToCart(id) {
-		const product = await PRODUCTS.get(id);
-		const stock = product.add_to_cart.maximum;
+		const { data } = await PRODUCTS.getById({ id });
+		const stock = data.add_to_cart.maximum;
 
 		const itemIndex = cart.findIndex((item) => item.id === id);
 		let updatedCart = [...cart];
@@ -35,11 +35,11 @@ const Overview = () => {
 					key: crypto.randomUUID(),
 					id: id,
 					quantity: 1,
-					name: DECODER.decode(product.name),
-					price: product.prices.price,
-					stock: product.add_to_cart.maximum,
-					image: product.images[0].src,
-					total: product.prices.price,
+					name: DECODER.decode(data.name),
+					price: data.prices.price,
+					stock: data.add_to_cart.maximum,
+					image: data.images[0].src,
+					total: data.prices.price,
 				},
 			]);
 		}

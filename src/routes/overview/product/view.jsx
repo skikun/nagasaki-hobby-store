@@ -36,23 +36,24 @@ const View = () => {
 
 	useEffect(() => {
 		async function retrieveData() {
-			const _p = await PRODUCTS.getById({ id });
-			const price = _p.prices.price;
-			const regularPrice = _p.prices.regular_price;
+			const { data } = await PRODUCTS.getById({ id });
+			console.log(data);
+			const price = data.prices.price;
+			const regularPrice = data.prices.regular_price;
 			const _ = {
 				key: crypto.randomUUID(),
-				name: DECODER.decode(_p.name),
+				name: DECODER.decode(data.name),
 				price: price.replace(/(\d{1,3})(\d{3})/g, "$$$1.$2"),
 				discount:
 					price === regularPrice ? "" : getDiscount(regularPrice, price),
-				images: _p.images,
-				stock: _p.add_to_cart.maximum,
-				category: _p.categories[0].slug,
+				images: data.images,
+				stock: data.add_to_cart.maximum,
+				category: data.categories[0].slug,
 			};
 
 			setProduct(_);
-			setContent(_p.description);
-			setSrcs(_p.images.map(({ src }) => src));
+			setContent(data.description);
+			setSrcs(data.images.map(({ src }) => src));
 		}
 
 		retrieveData();

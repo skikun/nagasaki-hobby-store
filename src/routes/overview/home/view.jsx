@@ -54,8 +54,8 @@ const Home = () => {
 					encantar!
 				</p>
 				<img
-					src={require("../../../assets/brand/character.png")}
-					alt="Brand character"
+					src={require("../../../assets/brand/mascot.png")}
+					alt="Naga-saki Hobby Store's Mascot"
 				/>
 				<img
 					src={require("../../../assets/brand/logo.svg")}

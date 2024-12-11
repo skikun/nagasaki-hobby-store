@@ -31,6 +31,10 @@ header {
 		padding: 0.5rem;
 	}
 
+	span {
+		color: var(--white);
+	}
+
 	a {
 		text-decoration: none;
 		border-radius: 0.25rem;

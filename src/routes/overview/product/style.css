@@ -2,6 +2,7 @@
 	min-height: calc(100vh - 6.5rem);
 	flex-direction: row;
 	padding: 4rem 8rem;
+	padding-bottom: 16rem;
 	gap: 4rem;
 	align-items: start;
 	justify-content: center;

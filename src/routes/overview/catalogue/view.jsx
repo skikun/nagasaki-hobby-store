@@ -9,6 +9,7 @@ import Item from "../../../components/item/component";
 import Loading from "../../../components/loading/component";
 
 import "./style.css";
+import CATEGORIES from "../../../api/categories/api";
 
 const Catalogue = ({ category }) => {
 	const [items, setItems] = useState([]);
@@ -27,7 +28,13 @@ const Catalogue = ({ category }) => {
 		async function retrieveData() {
 			setLoading(true);
 
-			const { products, totalPages } = await PRODUCTS.get({ search, page });
+			const { tag } = await CATEGORIES.search({ search: category });
+
+			const { products, totalPages } = await PRODUCTS.get({
+				search,
+				page,
+				tag,
+			});
 
 			setPages(Array.from({ length: totalPages }, (_, i) => i + 1));
 
@@ -47,11 +54,7 @@ const Catalogue = ({ category }) => {
 				};
 			});
 
-			const categoryFiltered = catalogue.filter((item) => {
-				return item.category === category;
-			});
-
-			setItems(category ? categoryFiltered : catalogue);
+			setItems(catalogue);
 
 			setLoading(false);
 		}

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import NESTED from "../../routes/overview/nested-routes";
 
@@ -7,9 +7,13 @@ import Instagram from "../../assets/social-media/instagram/colored.svg";
 import Facebook from "../../assets/social-media/facebook/colored.svg";
 import WhatsApp from "../../assets/social-media/whatsapp/colored.svg";
 
+import Mascot from "../../assets/brand/mascot.png";
+
 import "./style.css";
 
 const Footer = () => {
+	const { pathname } = useLocation();
+
 	return (
 		<footer>
 			<nav>
@@ -29,11 +33,14 @@ const Footer = () => {
 					<a href="https://facebook.com/NagasakiHobbyStore/">
 						<img loading="lazy" src={Facebook} alt="Facebook logo" />
 					</a>
-					<a href="https://wa.me/573172496541">
+					<a href="https://wa.me/573134431709">
 						<img loading="lazy" src={WhatsApp} alt="WhatsApp logo" />
 					</a>
 				</div>
 			</nav>
+			{pathname !== "/" && (
+				<img src={Mascot} alt="Nagasaki Hobby Store's Mascot" />
+			)}
 		</footer>
 	);
 };

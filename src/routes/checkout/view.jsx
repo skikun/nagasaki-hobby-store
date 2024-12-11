@@ -404,7 +404,7 @@ const View = () => {
 						<h1>¡Tu orden ha sido realizada!</h1>
 						<p>
 							Por favor, comunícate con nosotros al{" "}
-							<a href="https://wa.me/573172496541">317 249 6541</a>, o a nuestro
+							<a href="https://wa.me/573134431709">313 443 1709</a>, o a nuestro
 							correo electrónico{" "}
 							<a href="mailto:nagasakihobbystore@gmail.com">
 								nagasakihobbystore@gmail.com
@@ -414,8 +414,12 @@ const View = () => {
 					</aside>
 					<p>
 						Estos son nuestros métodos de pago autorizados. ¿No tienes ninguno
-						de los dos? ¡No te preocupes! Puedes recargar a Nequi usando PSE o
-						Transfiya, <strong>¡y el dinero llega de una vez!</strong>
+						de los dos? ¡No te preocupes! Puedes{" "}
+						<a href="https://clientes.nequi.com.co/recargas">
+							recargar a nuestro Nequi usando PSE
+						</a>{" "}
+						desde cualquier banco, o usando Transfiya,{" "}
+						<strong>¡y el dinero llega de una vez!</strong>
 					</p>
 					<div>
 						<img src={Bancolombia} alt="Bancolombia logo" />

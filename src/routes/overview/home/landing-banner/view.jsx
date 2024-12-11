@@ -39,10 +39,10 @@ const LandingBannner = () => {
 				<div>
 					<img
 						loading="lazy"
-						src={require("../../../../assets/brand/character.png")}
-						alt="Character"
+						src={require("../../../../assets/brand/mascot.png")}
+						alt="Naga-Saki Hobby Store's mascot"
 					/>
-					<img loading="lazy" src={Logo} alt="Brand logo" />
+					<img loading="lazy" src={Logo} alt="Naga-Saki Hobby Store's logo" />
 				</div>
 			</div>
 		</>

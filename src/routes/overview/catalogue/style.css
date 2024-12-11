@@ -2,6 +2,7 @@ main.catalogue {
 	position: relative;
 	gap: 2rem;
 	padding: 4rem 0;
+	padding-bottom: 16rem;
 
 	* {
 		user-select: none;
