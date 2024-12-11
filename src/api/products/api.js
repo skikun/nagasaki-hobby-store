@@ -3,7 +3,6 @@ import { CONFIG } from "../config";
 
 const PRODUCTS = {
 	getById: async ({ id }) => {
-		console.log(`${GET_BY_ID}${id}`);
 		const response = await fetch(`${GET_BY_ID}${id}`, {
 			...CONFIG,
 		});
@@ -21,8 +20,6 @@ const PRODUCTS = {
 				: !search && tag
 				? `${GET}${page}&category=${tag}`
 				: `${GET}${page}`;
-
-		console.log(page, search, tag, endpoint);
 
 		const response = await fetch(endpoint, {
 			...CONFIG,

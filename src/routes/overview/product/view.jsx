@@ -37,7 +37,6 @@ const View = () => {
 	useEffect(() => {
 		async function retrieveData() {
 			const { data } = await PRODUCTS.getById({ id });
-			console.log(data);
 			const price = data.prices.price;
 			const regularPrice = data.prices.regular_price;
 			const _ = {
