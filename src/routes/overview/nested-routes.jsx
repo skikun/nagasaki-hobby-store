@@ -13,9 +13,8 @@ const NESTED_HOME = [
 			<Franchise
 				slug="pokemon"
 				heading="Pokémon"
-				description="¡El mundo de Pokémon TCG te espera! Colecciona cartas, construye tu mazo y enfrenta a entrenadores de todo el mundo. Con cada carta, una nueva estrategia. ¡Hazte con las cartas más poderosas y conviértete en el campeón!"
+				description="Colecciona cartas, construye tu mazo y enfrenta a entrenadores de todo el mundo. Con cada carta, una nueva estrategia. ¡Hazte con las cartas más poderosas y conviértete en el campeón!"
 				layout="left"
-				theme="dark"
 			/>
 		),
 		label: "Pokémon",
@@ -27,9 +26,8 @@ const NESTED_HOME = [
 			<Franchise
 				slug="one-piece"
 				heading="One Piece"
-				description="¡Embárcate en la aventura con One Piece TCG! Reúne tu tripulación, crea estrategias únicas y conquista el Grand Line. ¡Colecciona cartas de tus personajes favoritos y enfrenta a poderosos rivales! ¡El tesoro está esperando!"
+				description="Reúne tu tripulación, crea estrategias únicas y conquista el Grand Line. ¡Colecciona cartas de tus personajes favoritos y enfrenta a poderosos rivales! ¡El tesoro está esperando!"
 				layout="right"
-				theme="dark"
 			/>
 		),
 		label: "One Piece",
@@ -41,9 +39,8 @@ const NESTED_HOME = [
 			<Franchise
 				slug="digimon"
 				heading="Digimón"
-				description="¡Sumérgete en la acción con Digimon TCG! Colecciona cartas, evoluciona tus Digimon y vence a tus rivales en épicas batallas. ¡Haz crecer tu equipo, mejora tus estrategias y conquista el Mundo Digital!"
+				description="Colecciona cartas, evoluciona tus Digimon y vence a tus rivales en épicas batallas. ¡Haz crecer tu equipo, mejora tus estrategias y conquista el Mundo Digital!"
 				layout="right"
-				theme="dark"
 			/>
 		),
 		label: "Digimón",
@@ -55,9 +52,8 @@ const NESTED_HOME = [
 			<Franchise
 				slug="mitos-y-leyendas"
 				heading="Mitos & Leyendas"
-				description="¡Desafía a los mejores duelistas y libera tu poder en el campo de batalla! 🃏✨ Aprende, juega y domina el emocionante TCG de Yu-Gi-Oh! ¿Estás listo para ser el próximo Rey de los Duelos?"
+				description="Sumérgete en un juego de cartas coleccionables de origen chileno que te permite explorar mitologías universales. Colecciona cartas de Aliados, Tótems, Talismanes, Armas y Oros, cada una con habilidades únicas que enriquecerán tus estrategias. Construye tu mazo, despliega tácticas legendarias y desafía a otros jugadores en épicas batallas. ¡Revive las leyendas y forja tu propio destino en el universo de Mitos y Leyendas!"
 				layout="left"
-				theme="dark"
 			/>
 		),
 		label: "Mitos & Leyendas",
@@ -69,9 +65,8 @@ const NESTED_HOME = [
 			<Franchise
 				slug="accesorios"
 				heading="Accesorios & Juegos de Mesa"
-				description="Equípate como un verdadero duelista 🃏⚡ En nuestra tienda encontrarás todo lo que necesitas para tus juegos TCG: fundas premium para proteger tus cartas, tapetes de diseño exclusivo, deck boxes resistentes y organizadores para mantener tu mazo en perfectas condiciones. ¡Haz que cada duelo cuente y juega con estilo!"
+				description="Equípate como un verdadero duelista. En nuestra tienda encontrarás todo lo que necesitas para tus juegos TCG: fundas premium para proteger tus cartas, tapetes de diseño exclusivo, deck boxes resistentes y organizadores para mantener tu mazo en perfectas condiciones. ¡Haz que cada duelo cuente y juega con estilo!"
 				layout="right"
-				theme="dark"
 			/>
 		),
 		label: "Accesorios & Juegos de Mesa",
