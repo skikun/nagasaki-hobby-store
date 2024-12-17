@@ -9,6 +9,7 @@ import LandingBannner from "./landing-banner/view";
 import OnePieceBanner from "./one-piece-banner/view";
 
 import Catalogue from "../catalogue/view";
+import Featured from "../featured/view";
 
 import "./style.css";
 import "../style.css";
@@ -45,6 +46,7 @@ const Home = () => {
 				</div>
 				<img loading="lazy" src={Right} alt="2" />
 			</section>
+			<Featured />
 			<Catalogue />
 			<OnePieceBanner />
 			<div className="overlay">

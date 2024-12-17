@@ -278,6 +278,30 @@ main:has(> div:first-child aside) {
 		div {
 			flex-direction: row;
 			justify-content: center;
+			gap: 2rem;
+			position: relative;
+
+			p {
+				position: absolute;
+				width: 100%;
+				bottom: 0;
+				font-size: 0.75rem;
+				line-height: 1rem;
+				transform: translateY(1rem) scale(0.5);
+				opacity: 0;
+
+				&[copied="true"]:before {
+					content: "✔ ";
+					color: #46b361;
+					font-size: 0.75rem;
+					line-height: 1rem;
+				}
+			}
+
+			&:has(img:hover) p {
+				opacity: 1;
+				transform: translateY(1rem) scale(1);
+			}
 		}
 
 		> p {
@@ -297,9 +321,41 @@ main:has(> div:first-child aside) {
 			height: 3.5rem;
 			object-fit: contain;
 			object-position: center;
-			padding: 1rem;
+			padding: 1rem 0;
 			user-select: none;
-			transform: translateY(-1rem);
+			cursor: pointer;
+
+			&:active {
+				scale: 0.9;
+			}
+		}
+
+		span {
+			position: relative;
+			font: inherit;
+			p {
+				width: 100%;
+				position: absolute;
+				top: 0;
+				opacity: 0;
+				font-size: 0.75rem;
+				line-height: 1rem;
+				transform: translateY(1rem);
+			}
+		}
+
+		&:has(img:hover:first-child) {
+			span :first-child {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+
+		&:has(img:hover:last-child) {
+			span :last-child {
+				opacity: 1;
+				transform: translateY(0);
+			}
 		}
 	}
 }

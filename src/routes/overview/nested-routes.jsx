@@ -15,7 +15,7 @@ const NESTED_HOME = [
 				heading="Pokémon"
 				description="¡El mundo de Pokémon TCG te espera! Colecciona cartas, construye tu mazo y enfrenta a entrenadores de todo el mundo. Con cada carta, una nueva estrategia. ¡Hazte con las cartas más poderosas y conviértete en el campeón!"
 				layout="left"
-				theme="light"
+				theme="dark"
 			/>
 		),
 		label: "Pokémon",
@@ -29,7 +29,7 @@ const NESTED_HOME = [
 				heading="One Piece"
 				description="¡Embárcate en la aventura con One Piece TCG! Reúne tu tripulación, crea estrategias únicas y conquista el Grand Line. ¡Colecciona cartas de tus personajes favoritos y enfrenta a poderosos rivales! ¡El tesoro está esperando!"
 				layout="right"
-				theme="light"
+				theme="dark"
 			/>
 		),
 		label: "One Piece",
@@ -43,7 +43,7 @@ const NESTED_HOME = [
 				heading="Digimón"
 				description="¡Sumérgete en la acción con Digimon TCG! Colecciona cartas, evoluciona tus Digimon y vence a tus rivales en épicas batallas. ¡Haz crecer tu equipo, mejora tus estrategias y conquista el Mundo Digital!"
 				layout="right"
-				theme="light"
+				theme="dark"
 			/>
 		),
 		label: "Digimón",

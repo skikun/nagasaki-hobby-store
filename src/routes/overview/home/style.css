@@ -51,14 +51,14 @@ section:has(.categories) {
 		width: 245px;
 		height: 367px;
 		transform: scale(1.5);
-	}
 
-	[alt="1"] {
-		transform-origin: right;
-	}
+		&:first-child {
+			transform-origin: right;
+		}
 
-	[alt="2"] {
-		transform-origin: left;
+		&:last-child {
+			transform-origin: left;
+		}
 	}
 }
 

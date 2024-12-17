@@ -4,18 +4,15 @@ import * as DECODER from "../../../utils/DECODER";
 
 import PRODUCTS from "../../../api/products/api";
 
-import Paginator from "../../../components/paginator/component";
 import Item from "../../../components/item/component";
 import Loading from "../../../components/loading/component";
 
-import "./style.css";
 import CATEGORIES from "../../../api/categories/api";
 
-const Catalogue = ({ category }) => {
+import "./style.css";
+
+const View = ({ category }) => {
 	const [items, setItems] = useState([]);
-	const [page, setPage] = useState(1);
-	const [pages, setPages] = useState(null);
-	const [search, setSearch] = useState("");
 	const [loading, setLoading] = useState(true);
 
 	function getDiscount(previous, current) {
@@ -30,15 +27,11 @@ const Catalogue = ({ category }) => {
 
 			const { tag } = await CATEGORIES.search({ search: category });
 
-			const { products, totalPages } = await PRODUCTS.get({
-				search,
-				page,
+			const { featured } = await PRODUCTS.getFeatured({
 				tag,
 			});
 
-			setPages(Array.from({ length: totalPages }, (_, i) => i + 1));
-
-			const catalogue = products.map((product) => {
+			const catalogue = featured.map((product) => {
 				const price = product.prices.price;
 				const regularPrice = product.prices.regular_price;
 				return {
@@ -60,22 +53,11 @@ const Catalogue = ({ category }) => {
 		}
 
 		retrieveData();
-	}, [category, page, search]);
+	}, [category]);
 
 	return (
-		<main className="catalogue">
-			<h2>Catálogo de productos</h2>
-			<div>
-				<input
-					type="search"
-					placeholder="Buscar un producto..."
-					onChange={(e) => setSearch(e.target.value)}
-					value={search}
-				/>
-				{pages && (
-					<Paginator total={pages} current={page} onClick={(e) => setPage(e)} />
-				)}
-			</div>
+		<div className="catalogue featured">
+			<h2>Productos destacados</h2>
 			{loading ? (
 				<Loading />
 			) : items[0] ? (
@@ -96,13 +78,13 @@ const Catalogue = ({ category }) => {
 					)}
 				</div>
 			) : (
-				<p>La búsqueda no arrojó ningún resultado.</p>
+				<p>
+					En este momento no tenemos productos destacados, ¡pero dentro de poco
+					los habrán!.
+				</p>
 			)}
-			{pages && (
-				<Paginator total={pages} current={page} onClick={(e) => setPage(e)} />
-			)}
-		</main>
+		</div>
 	);
 };
 
-export default Catalogue;
+export default View;

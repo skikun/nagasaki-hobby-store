@@ -1,4 +1,4 @@
-import { GET, GET_BY_ID } from "./endpoints";
+import { GET, GET_FEATURED, GET_BY_ID } from "./endpoints";
 import { CONFIG } from "../config";
 
 const PRODUCTS = {
@@ -29,6 +29,20 @@ const PRODUCTS = {
 		const products = await response.json();
 
 		return { products, totalPages };
+	},
+	getFeatured: async ({ tag }) => {
+		const endpoint = tag
+			? `${GET_FEATURED}&category=${tag}`
+			: `${GET_FEATURED}`;
+
+		const response = await fetch(endpoint, {
+			...CONFIG,
+		});
+
+		const featured = await response.json();
+
+		console.log(featured);
+		return { featured };
 	},
 };
 

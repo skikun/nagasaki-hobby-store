@@ -11,6 +11,7 @@ footer + div:has(> aside) {
 
 	* {
 		font-family: "Poppins", sans-serif;
+		pointer-events: none;
 	}
 
 	> button {
@@ -25,6 +26,7 @@ footer + div:has(> aside) {
 		width: 100%;
 		font-size: 0;
 		color: transparent;
+		pointer-events: none;
 
 		&:hover {
 			background: rgba(0, 0, 0, 0);
@@ -193,7 +195,9 @@ footer + div:has(> aside) {
 	}
 
 	&:has(> aside[open]) {
-		pointer-events: all;
+		* {
+			pointer-events: all;
+		}
 		> button {
 			background: rgba(0, 0, 0, 0.5);
 			min-width: calc(100vw - 40rem);

@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 
 import "./style.css";
 
-const Item = ({ id, image, name, price, stock, discount }) => {
+const Item = ({ id, image, name, price, stock, discount, featured }) => {
 	const navigate = useNavigate();
 
 	function getPreviousPrice() {
@@ -16,6 +16,7 @@ const Item = ({ id, image, name, price, stock, discount }) => {
 		<article
 			onClick={() => navigate(`../p/${id}`)}
 			stock={stock ? "true" : "false"}
+			featured={featured ? "true" : "false"}
 		>
 			<div>
 				<img loading="lazy" src={image} alt="Foto del producto" />

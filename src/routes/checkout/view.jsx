@@ -47,6 +47,8 @@ const View = () => {
 	const [success, setSuccess] = useState(false);
 	const [result, setResult] = useState("");
 
+	const [copySign, setCopySign] = useState("");
+
 	useEffect(() => {
 		let address = `${main} #${secondary} - ${discriminatory}`;
 
@@ -97,6 +99,12 @@ const View = () => {
 				data.message
 			);
 		}
+	}
+
+	function copy(value, v) {
+		navigator.clipboard.writeText(value);
+		const bank = v ? "Bancolombia" : "Nequi";
+		setCopySign(`¡Datos de ${bank} copiados exitosamente!`);
 	}
 
 	return cart[0] ? (
@@ -422,9 +430,37 @@ const View = () => {
 						<strong>¡y el dinero llega de una vez!</strong>
 					</p>
 					<div>
-						<img src={Bancolombia} alt="Bancolombia logo" />
-						<img src={Nequi} alt="Nequi logo" />
+						<img
+							src={Bancolombia}
+							alt="Bancolombia logo"
+							onClick={() =>
+								copy(
+									"Cuenta: 07817399406 - Ahorros. Nombre: Juan Pablo Tasco Sarmiento. Cédula de ciudadanía: 1095829821",
+									true
+								)
+							}
+						/>
+						<p copied={copySign ? "true" : "false"}>
+							{copySign
+								? copySign
+								: "Has click en el logo para copiar los datos."}
+						</p>
+						<img
+							src={Nequi}
+							alt="Nequi logo"
+							onClick={() => copy("Número: 3172496541", false)}
+						/>
 					</div>
+					<span>
+						<p>
+							<strong>Cuenta:</strong> 07817399406 - Ahorros <br />
+							<strong>Nombre:</strong> Juan Pablo Tasco Sarmiento <br />
+							<strong>Cédula de ciudadanía:</strong> 1095829821
+						</p>
+						<p>
+							<strong>Número:</strong> 3172496541
+						</p>
+					</span>
 				</div>
 			)}
 		</main>
