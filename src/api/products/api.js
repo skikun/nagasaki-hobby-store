@@ -41,7 +41,6 @@ const PRODUCTS = {
 
 		const featured = await response.json();
 
-		console.log(featured);
 		return { featured };
 	},
 };
