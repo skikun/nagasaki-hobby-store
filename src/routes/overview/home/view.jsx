@@ -3,7 +3,7 @@ import React from "react";
 import Left from "../../../assets/summary/left.png";
 import Right from "../../../assets/summary/right.png";
 
-import BrandList from "../../../components/brand-list/component";
+import FranchiseList from "../../../components/franchise-list/component";
 
 import LandingBannner from "./landing-banner/view";
 import OnePieceBanner from "./one-piece-banner/view";
@@ -27,9 +27,7 @@ const Home = () => {
 					navega por el catálogo de productos que ofrecemos para cada una de
 					ellas.
 				</p>
-				<div className="categories">
-					<BrandList />
-				</div>
+				<FranchiseList />
 			</section>
 			<section className="summary">
 				<img loading="lazy" src={Left} alt="1" />
@@ -39,9 +37,9 @@ const Home = () => {
 					</h1>
 					<p>
 						¡Embárcate en una aventura con los TCG de Pokémon, One Piece,
-						Digimon y Yu-Gi-Oh!! Colecciona cartas, crea estrategias y desafía a
-						tus amigos en emocionantes batallas. ¡Hazte con tus cartas favoritas
-						y domina el juego!
+						Digimón y Mitos y Leyendas! Colecciona cartas, crea estrategias y
+						desafía a tus amigos en emocionantes batallas. ¡Hazte con tus cartas
+						favoritas y domina el juego!
 					</p>
 				</div>
 				<img loading="lazy" src={Right} alt="2" />
