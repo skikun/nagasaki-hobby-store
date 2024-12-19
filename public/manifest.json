@@ -1,6 +1,8 @@
 {
-	"short_name": "React App",
-	"name": "Create React App Sample",
+	"short_name": "Naga-Saki Hobby Store",
+	"name": "Naga-Saki Hobby Store",
+	"start_url": "./",
+	"homepage": "https://nagasakihobbystore.com/",
 	"icons": [
 		{
 			"src": "/android-chrome-192x192.png",

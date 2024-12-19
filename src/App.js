@@ -11,7 +11,7 @@ import Product from "./routes/overview/product/view";
 
 function App() {
 	console.log(
-		"This site was powered by Andrés Mora! Take a look at my profile at https://www.linkedin.com/in/andrés-ui-ux-frontend"
+		"This site was powered by Andrés Mora! Take a look at my socials down below:\nGithub:   https://github.com/skikun\nLinkedIn: https://www.linkedin.com/in/andrés-ui-ux-frontend\nUpWork:   https://www.upwork.com/freelancers/~01f21d6ccafdca1314\nBlueSky:  @skikun.bsky.social\nDiscord:  skikun"
 	);
 
 	return (
