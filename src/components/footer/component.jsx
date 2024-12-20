@@ -10,6 +10,7 @@ import Facebook from "../../assets/social-media/facebook/colored.svg";
 import WhatsApp from "../../assets/social-media/whatsapp/colored.svg";
 
 import Mascot from "../../assets/brand/mascot.png";
+import Brand from "../../assets/brand/simple.svg";
 
 import "./style.css";
 
@@ -43,10 +44,22 @@ const Footer = () => {
 			{pathname !== "/" && (
 				<img src={Mascot} alt="Nagasaki Hobby Store's Mascot" />
 			)}
-			<p>Todos los derechos reservados. | Nagasaki Hobby Store © 2024</p>
 			<div>
-				Diseñado por
-				<img src={HarenaEstudiosLogo} alt="Harena Estudios's brand logo" />
+				<div>
+					<img src={Brand} alt="Nagasaki Hobby Store's Logo" />
+					<p>Todos los derechos reservados. | Nagasaki Hobby Store © 2024</p>
+					<a
+						href="https://maps.app.goo.gl/DdP783MxZvzFAx4N6"
+						target="_blank"
+						rel="noreferrer"
+					>
+						Carrera 26A #12 - 10, Local 101 - Bucaramanga, Santander
+					</a>
+				</div>
+				<div>
+					Diseñado por
+					<img src={HarenaEstudiosLogo} alt="Harena Estudios's brand logo" />
+				</div>
 			</div>
 		</footer>
 	);

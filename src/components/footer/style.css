@@ -35,63 +35,100 @@ footer {
 			flex-direction: row;
 			gap: 1rem;
 		}
-	}
 
-	a {
-		display: flex;
-		text-decoration: none;
-		border-radius: 0.25rem;
-		padding: 0.5rem;
-		font-weight: 600;
-		color: var(--white);
-
-		&:visited {
+		a {
+			display: flex;
+			text-decoration: none;
+			border-radius: 0.25rem;
+			padding: 0.5rem;
+			font-weight: 600;
 			color: var(--white);
-		}
 
-		&:hover {
-			color: var(--contrast);
-			box-shadow: 0 4px 0 0 var(--lipstick--500);
-			background: var(--contrast--050);
-			transform: translateY(-0.25rem);
+			&:visited {
+				color: var(--white);
+			}
 
-			> img {
-				filter: brightness(1);
-				transform: rotate(345deg);
+			&:hover {
+				color: var(--contrast);
+				box-shadow: 0 4px 0 0 var(--lipstick--500);
+				background: var(--contrast--050);
+				transform: translateY(-0.25rem);
+
+				> img {
+					filter: brightness(1);
+					transform: rotate(345deg);
+				}
+			}
+
+			&:has(> img) {
+				padding: 0.5rem;
+				border-radius: 100%;
+			}
+
+			img {
+				filter: brightness(0) invert(1);
 			}
 		}
+	}
 
-		&:has(> img) {
-			padding: 0.5rem;
-			border-radius: 100%;
-		}
+	> :last-child {
+		flex-direction: row;
+		padding: 2rem 8rem;
+		background: var(--lipstick);
+		justify-content: space-between;
 
 		img {
 			filter: brightness(0) invert(1);
+			width: 10rem;
 		}
-	}
 
-	p {
-		width: 100%;
-		background: var(--lipstick);
-		text-align: center;
-		color: var(--white);
-		font-size: 0.75rem;
-		line-height: 3rem;
-	}
+		> :first-child {
+			flex-direction: column;
+			gap: 0.5rem;
 
-	> div:last-child {
-		background: var(--lipstick);
-		flex-direction: row;
-		justify-content: center;
-		padding: 1rem 0;
-		color: var(--white);
-		gap: 1rem;
-		font-size: 0.75rem;
+			p,
+			a {
+				color: var(--white);
+				font-size: 0.75rem;
+				line-height: 1.5rem;
+				text-decoration: none;
+				user-select: text;
+			}
 
-		img {
-			max-width: 195px;
-			max-height: 26px;
+			a:after {
+				display: inline-flex;
+				content: "➔";
+				opacity: 0;
+				font-size: 0.75rem;
+				line-height: 1.5rem;
+				scale: 0;
+			}
+
+			a:hover {
+				text-decoration: underline;
+				font-weight: 600;
+
+				&:after {
+					content: "➔";
+					opacity: 1;
+					transform: translateX(0.25rem) translateY(0.25rem);
+					scale: 1.5;
+					rotate: -45deg;
+				}
+			}
+		}
+
+		> :last-child {
+			flex-direction: row;
+			justify-content: center;
+			color: var(--white);
+			gap: 1rem;
+			font-size: 0.75rem;
+
+			img {
+				max-width: 195px;
+				max-height: 26px;
+			}
 		}
 	}
 }

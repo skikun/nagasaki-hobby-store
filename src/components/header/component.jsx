@@ -3,7 +3,7 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 
 import NESTED from "../../routes/overview/nested-routes";
 
-import Brand from "./assets/simple.svg";
+import Brand from "../../assets/brand/simple.svg";
 
 import Calendar from "../../assets/icons/calendar.svg";
 import ShoppingCart from "../../assets/icons/shopping-cart.svg";
