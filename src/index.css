@@ -181,10 +181,6 @@ span {
 	letter-spacing: inherit;
 }
 
-a:visited {
-	color: var(--lipstick);
-}
-
 /* Basic structure */
 
 #root {
